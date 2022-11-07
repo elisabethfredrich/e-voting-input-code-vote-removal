@@ -1,10 +1,8 @@
-
-
-
 import './App.css';
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom"
 import BulletinBoard from './BulletinBoard/BulletinBoard'
 import Confirmation from './Confirmation/Confirmation'
+import InputVerificationCode from './InputCode/InputCode'
 import Login from './Login/Login'
 import Navbar from './Navbar/Navbar'
 import Info from './Info'
@@ -19,13 +17,16 @@ import ResultNotification from './ResultNotification'
 
 function App() {
   const pathname = window.location.pathname;
+  const [inputCode, setInputCode] = useState(undefined);
   const [voted, setVoted] = useState(false);
+
 
   return (
     <div className="App">
         <div id="app-main">
 
-        <Context.Provider value={{voted, setVoted}}>
+
+        <Context.Provider value={{inputCode, setInputCode}}>
 
               <BrowserRouter>
       <Navbar/>
@@ -34,6 +35,7 @@ function App() {
                   <Route path="/home" element={<Home />}/>
                   <Route path="/login" element={<Login />}/>
                   <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>
+                  <Route path="/inputcode" element={<InputVerificationCode/>}/>
                   <Route path="/voting" element={<VotingScheme />}/>
                   <Route path="/confirmation" element={<Confirmation />}/>
                   <Route path="/bulletinboard" element={<BulletinBoard />}/>
@@ -41,6 +43,7 @@ function App() {
                   <Route path="/kontakt" element={<Kontakt />}/>
                   <Route path="/invitation" element={<Invitation />}/>
                   <Route path="/resultnotification" element={<ResultNotification />}/>
+
                 </Routes>
               </BrowserRouter>
               </Context.Provider>

@@ -23,6 +23,9 @@ export default function ReceiveVerificationCode() {
         return result;
     }
 
+
+    // CHANGE FUNCTIONALITY SO IT CONCATENATED THE MAKEID WITH THE USER INPUT 
+
   return (
     <div className='container'>
         <div className='content'>

@@ -1,48 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Context } from "../Context";
 import {
   Button,
-  Checkbox,
-  Flex,
   FormControl,
   FormLabel,
-  Heading,
   Input,
-  Link,
-  Stack,
-  Image,
   Text,
 } from '@chakra-ui/react';
 
 
 export default function Login() {
 
-    const [inputCode, setInputCode] = useState('')
+    const context = useContext(Context);
+    const [userCodeInput, setUserCodeInput] = useState("");
 
-    const input = useContext(Context);
-    const navigate = useNavigate();
-
-    const handleChangeCodeInput = (e) => setInputCode(e.target.value)
+   
+    const handleChangeCodeInput = (e) =>{
+        setUserCodeInput(e.target.value)
+        console.log(...userCodeInput)
+    }
 
     const handleSubmit = (e) =>{
-        input.setInputCode = inputCode
-        navigate('/voting');
+
     }
+
 
     return (
 
     <div>
-        <h1>Hej</h1>
         <FormControl id="text">
         <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
-        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVS-asd790$n+" </Text>
+        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSasd790$n+" </Text>
         <FormLabel
           color={'#1C4E81'} 
-        >Kode</FormLabel>
+        >Indtast kode:</FormLabel>
         <Input 
           type="text" 
           placeholder='Indtast kode' 
-          value={inputCode} 
+          value={userCodeInput} 
           onChange={handleChangeCodeInput} 
           // Styling
           borderRadius={'0'}
@@ -60,7 +56,7 @@ export default function Login() {
        width={'30%'}
        _hover={{
         background: "#0e2842"}}
-      ></Button>
+      >Stem nu</Button>
       </div>
     )
 }

@@ -1,14 +1,14 @@
 import './App.css';
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom"
-import BulletinBoard from './BulletinBoard/BulletinBoard'
+/* import BulletinBoard from './BulletinBoard/BulletinBoard'
 import Confirmation from './Confirmation/Confirmation'
-import Login from './Login/Login'
-import Navbar from './Navbar/Navbar'
-import Info from './Info'
+import Login from './Login/Login' */
+/* import Navbar from './Navbar/Navbar' */
+/* import Info from './Info'
 import Kontakt from './Kontakt'
 import ReceiveVerificationCode from './ReceiveVerificationCode/ReceiveVerificationCode'
-import VotingScheme from './VotingScheme/VotingScheme'
-import InputVerificationCode from './InputVerificationCode/InputVerificationCode'
+import VotingScheme from './VotingScheme/VotingScheme' */
+import InputVerificationCode from './InputCode/InputCode'
 import { Context } from "./Context";
 import { useState } from 'react';  
 
@@ -24,16 +24,16 @@ function App() {
         <Context.Provider value={{inputCode, setInputCode}}>
 
               <BrowserRouter>
-      {!['/login', '/'].includes(pathname) && <Navbar/>}
+    {/*   {!['/login', '/'].includes(pathname) && <Navbar/>} */}
                 <Routes>
-                  <Route path="/" element={<Navigate to="/login" /* Should be referencing the main screen *//>}/>
-                  <Route path="/login" element={<Login />}/>
-                  <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>
+                  
+             {/*      <Route path="/login" element={<Login />}/>
+                  <Route path="/verificationcode" element={<ReceiveVerificationCode />}/> */}
                   <Route path="/inputcode" element={<InputVerificationCode/>}/>
-                  <Route path="/voting" element={<VotingScheme />}/>
+       {/*            <Route path="/voting" element={<VotingScheme />}/>
                   <Route path="/bulletinboard" element={<BulletinBoard />}/>
                   <Route path="/info" element={<Info />}/>
-                  <Route path="/kontakt" element={<Kontakt />}/>
+                  <Route path="/kontakt" element={<Kontakt />}/> */}
                 </Routes>
               </BrowserRouter>
               </Context.Provider>

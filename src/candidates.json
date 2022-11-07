@@ -1,0 +1,588 @@
+[
+
+  {"id":1,
+  "party":"A. Socialdemokratiet",
+  "candidates":
+  [
+    {
+        "id":2,
+        "candidate":"Halima El Abassi"
+    },
+    {
+        "id":3,
+        "candidate":"Ida Auken" 
+    },
+    {
+        "id":4,
+        "candidate":"Jarl Feyling"
+    },
+    {
+        "id":5,
+        "candidate":"Jørgen Mørup Pedersen"
+    },
+    {  
+        "id":6,
+        "candidate":"Lars Werge"
+    },
+    {
+        "id":7,
+        "candidate":"Lars Aslan Rasmussen"
+    },
+    {
+        "id":8,
+        "candidate":"Lone Larsen"
+    },
+    {
+        "id":9,
+        "candidate":"Mette Reissmann"
+    },
+    {
+        "id":10,
+        "candidate":"Mette Reissmann"
+    },
+    {
+        "id":11,
+        "candidate":"Nikoline Prehn"
+    },
+    {
+        "id":12,
+        "candidate":"Pernille Rosenkrantz-Theil"
+    },
+    {
+        "id":13,
+        "candidate":"Peter Hummelgaard"
+    },
+    {
+        "id":14,
+        "candidate":"Yildiz Akdogan"
+    }]},
+
+    {"id":15,
+    "party":"B. Radikale Venstre",
+    "candidates":
+    [
+    {
+        "id":16,
+        "candidate":"Anders Højsted"
+    },
+    {
+        "id":17,
+        "candidate":"Carolina Magdalene Meier"
+    },
+    {
+        "id":18,
+        "candidate":"Clara Halvorsen"
+    },
+    {
+        "id":19,
+        "candidate":"Emilie Normann"
+    },
+    {
+        "id":20,
+        "candidate":"Jes Vissing Tiedemann"
+    },
+    {
+        "id":21,
+        "candidate":"Klaus Bondam"
+    },
+    {
+        "id":22,
+        "candidate":"Marie Kampmann"
+    },
+    {
+        "id":23,
+        "candidate":"Michael Rachlin"
+    },
+    {
+        "id":24,
+        "candidate":"Peter Zinckernagel"
+    },
+    {
+        "id":25,
+        "candidate":"Ruben Kidde"
+    },
+    {
+        "id":26,
+        "candidate":"Samira Nawa"
+    },
+    {
+        "id":27,
+        "candidate":"Thomas Rohden"
+    }]},
+    {
+        "id":28,
+        "party":"C. Conservative",
+        "candidates":[
+    
+    {
+        "id":29,
+        "candidate":"Allan Bilgaard Beier"
+    },
+    {
+        "id":30,
+        "candidate":"Anders Krøyer"
+    },
+    {
+        "id":31,
+        "candidate":"Casper Øhlers"
+    },
+    {
+        "id":32,
+        "candidate":"Helle Bonnensen"
+    },
+    {
+        "id":33,
+        "candidate":"Helle Jønch"
+    },
+    {
+        "id":34,
+        "candidate":"Katarina Ammitzbøll"
+    },
+    {
+        "id":45,
+        "candidate":"Laura Lindahl"
+    },
+    {
+        "id":46,
+        "candidate":"Martin Wood Pedersen"
+    },
+    {
+        "id":47,
+        "candidate":"Nicola Emily Larsen"
+    },
+    {
+        "id":48,
+        "candidate":"Nikolaj Bøgh"
+    },
+    {
+        "id":49,
+        "candidate":"Peter Stakemann"
+    },
+    {
+        "id":50,
+        "candidate":"Rico Djernis"
+    }]},
+
+    {
+        "id":51,
+        "party":"D. Nye Borgerlige",
+        "candidates":[
+    {
+        "id":52,
+        "candidate":"Daniel Pinderup"
+    },
+    {
+        "id":53,
+        "candidate":"Denise Rostgaard"
+    },
+    {
+        "id":54,
+        "candidate":"Karsten Jul Brædder"
+    },
+    {
+        "id":55,
+        "candidate":"Niels Peder Ravn"
+    }]},
+    {
+        "id":56,
+        "party":"F. Socialistisk Folkeparti",
+        "candidates":[
+    {
+        "id":57,
+        "candidate":"Andreas Berendt Bæk"
+    },
+    {
+        "id":58,
+        "candidate":"Balder Mørk Andersen"
+    },
+    {
+        "id":59,
+        "candidate":"Carl Valentin"
+    },
+    {
+        "id":60,
+        "candidate":"Cecilie Holdt"
+    },
+    {
+        "id":61,
+        "candidate":"Halime Oguz"
+    },
+    {
+        "id":62,
+        "candidate":"Klaus Mygind"
+    },
+    {
+        "id":63,
+        "candidate":"Line Petersen"
+    },
+    {
+        "id":64,
+        "candidate":"Lisbeth Bech-Nielsen"
+    },
+    {
+        "id":65,
+        "candidate":"Melissa Skovgaard Jensen"
+    },
+    {
+        "id":66,
+        "candidate":"Pia Olsen Dyhr"
+    },
+    {
+        "id":67,
+        "candidate":"Sadek Ak-Amood"
+    }]},
+    {
+        "id":68,
+        "party":"I. Liberal Alliance",
+        "candidates":[
+    
+    {
+        "id":69,
+        "candidate":"Alexander Ryle"
+    },
+    {
+        "id":70,
+        "candidate":"Charlotte Nellemann"
+    },
+    {
+        "id":71,
+        "candidate":"Christian Riegels Hjorth"
+    },
+    {
+        "id":72,
+        "candidate":"Claus Willén"
+    },
+    {
+        "id":73,
+        "candidate":"Hira Nadeem"
+    },
+    {
+        "id":74,
+        "candidate":"Joanne Bywater"
+    },
+    {
+        "id":75,
+        "candidate":"Martin Sibast"
+    },
+    {
+        "id":76,
+        "candidate":"Ole Birk Olesen"
+    },
+    {
+        "id":77,
+        "candidate":"Per Nørgaard Andersen"
+    }]},
+    {
+        "id":78,
+        "party":"K. Kristendemokraterne",
+        "candidates":[
+    
+    {
+        "id":79,
+        "candidate":"Gunnar Bjørn Thomsen"
+    },
+    {
+        "id":80,
+        "candidate":"Jacob Bang"
+    },
+    {
+        "id":81,
+        "candidate":"Jesper Housgaard"
+    },
+    {
+        "id":82,
+        "candidate":"Nanna Bock"
+    },
+    {
+        "id":83,
+        "candidate":"Tina Mørk"
+    }]},
+    {
+        "id":84,
+        "party":"M. Moderaterne",
+        "candidates":[
+        {
+            "id":85,
+            "candidate":"Ellen Emilie"
+        },
+        {
+            "id":86,
+            "candidate":"Johan Karl"
+        },
+        {
+            "id":87,
+            "candidate":"Jon Stephensen"
+        },
+        {
+            "id":88,
+            "candidate":"Jørgen Kjøller"
+        },
+        {
+            "id":89,
+            "candidate":"Lars Philipsen Prahm"
+        },
+        {
+            "id":90,
+            "candidate":"Lean Milo"
+        },
+        {
+            "id":91,
+            "candidate":"Louise Davidsen"
+        },
+        {
+            "id":92,
+            "candidate":"Marina Andersen"
+        },
+        {
+            "id":93,
+            "candidate":"Mohammad Rafiq"
+        },
+        {
+            "id":94,
+            "candidate":"Nanna W. Gotfredsen"
+        }]},
+    {
+        "id":95,
+        "party":"O. Dansk Folkeparti",
+        "candidates":[
+        {
+            "id":96,
+            "candidate":"Brian Bruun"
+        },
+        {
+            "id":97,
+            "candidate":"Helene Brix Petersen"
+        },
+        {
+            "id":98,
+            "candidate":"Jannie Bøgh"
+        },
+        {
+            "id":99,
+            "candidate":"John Bo Hansen"
+        },
+        {
+            "id":100,
+            "candidate":"Kenneth Kristensen Berth"
+        },
+        {
+            "id":101,
+            "candidate":"Paw Karslund"
+        }]},
+    {
+        "id":102,
+        "party":"Q. Frie Grønne",
+        "candidates":[
+        {
+            "id":103,
+            "candidate":"Daniel Tomicic"
+        },
+        {
+            "id":104,
+            "candidate":"Elena Ryan"
+        },
+        {
+            "id":105,
+            "candidate":"Elise Bjerkheim"
+        },
+        {
+            "id":106,
+            "candidate":"Rajesh Holmen"
+        },
+        {
+            "id":107,
+            "candidate":"Rashid Ali"
+        },
+        {
+            "id":108,
+            "candidate":"Sazan Garmiyani"
+        },
+        {
+            "id":109,
+            "candidate":"Sikandder Siddique"
+        }]},
+    {
+        "id":110,
+        "party":"V. Venstre",
+        "candidates":[
+        {
+            "id":111,
+            "candidate":"Alexandra Sasha"
+        },
+        {
+            "id":112,
+            "candidate":"Anders Fausbøll"
+        },
+        {
+            "id":123,
+            "candidate":"Anne Rasmussen"
+        },
+        {
+            "id":124,
+            "candidate":"Bo Sandroos"
+        },
+        {
+            "id":125,
+            "candidate":"Claus Buch"
+        },
+        {
+            "id":126,
+            "candidate":"Jan E. Jørgensen"
+        },
+        {
+            "id":127,
+            "candidate":"Linea Søgaard-Lidell"
+        },
+        {
+            "id":128,
+            "candidate":"Martin Geertsen"
+        },
+        {
+            "id":129,
+            "candidate":"Michael Lange"
+        },
+        {
+            "id":130,
+            "candidate":"René Bredal"
+        },
+        {
+            "id":131,
+            "candidate":"Sven Aage Schlosrich"
+        },
+        {
+            "id":132,
+            "candidate":"Søren Sørensen"
+        }]},
+    {
+        "id":133,
+        "party":"Æ. Danmarksdemokraterne",
+        "candidates":[
+        {
+            "id":134,
+            "candidate":"Claus Gisselmann"
+        },
+        {
+            "id":135,
+            "candidate":"Therese Skaarup"
+        }]},
+    {
+        "id":136,
+        "party":"Ø. Enhedslisten",
+        "candidates":[
+        {
+            "id":137,
+            "candidate":"Anna Berg"
+        },
+        {
+            "id":138,
+            "candidate":"Clara Turms"
+        },
+        {
+            "id":139,
+            "candidate":"David Rønne"
+        },
+        {
+            "id":140,
+            "candidate":"Dorthe Hecht"
+        },
+        {
+            "id":141,
+            "candidate":"Emil Samaras"
+        },
+        {
+            "id":142,
+            "candidate":"Ibrahim Benli"
+        },
+        {
+            "id":143,
+            "candidate":"Jette Gottlieb"
+        },
+        {
+            "id":144,
+            "candidate":"Leila Stockmarr"
+        },
+        {
+            "id":145,
+            "candidate":"Louis Jacobsen"
+        },
+        {
+            "id":146,
+            "candidate":"Mette Bloch"
+        },
+        {
+            "id":147,
+            "candidate":"Pelle Dragsted"
+        },
+        {
+            "id":148,
+            "candidate":"Rosa Lund"
+        }]},
+    {
+        "id":150,
+        "party":"Å. Alternativet",
+        "candidates":[
+        {
+            "id":151,
+            "candidate":"Annika Martins"
+        },
+        {
+            "id":152,
+            "candidate":"Birgitte Kehler Holst"
+        },
+        {
+            "id":153,
+            "candidate":"Christina Olumeko"
+        },
+        {
+            "id":154,
+            "candidate":"Franciska Rosenkilde"
+        },
+        {
+            "id":155,
+            "candidate":"Jan Kristoffersen"
+        },
+        {
+            "id":156,
+            "candidate":"Jonas Holm"
+        },
+        {
+            "id":157,
+            "candidate":"Jonathan Ries"
+        },
+        {
+            "id":158,
+            "candidate":"Karsten Faber"
+        },
+        {
+            "id":159,
+            "candidate":"Kim Hjerrild"
+        },
+        {
+            "id":160,
+            "candidate":"Lars Rosenkvist"
+        },
+        {
+            "id":161,
+            "candidate":"Lars Corvinius Olesen"
+        },
+        {
+            "id":162,
+            "candidate":"Mette Bram"
+        },
+        {
+            "id":163,
+            "candidate":"Noah Reinert Sturis"
+        },
+        {
+            "id":164,
+            "candidate":"Trine Pil Østberg"
+        },
+        {
+            "id":165,
+            "candidate":"Tobias Mark Thomsen"
+        },
+        {
+            "id":166,
+            "candidate":"Troels Christian Jakobsen"
+        }]}
+]

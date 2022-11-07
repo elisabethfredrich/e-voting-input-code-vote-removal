@@ -1,0 +1,19 @@
+.container-confirmation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content-confirmation{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-confirmation h1{
+    color: #1C4E81;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+

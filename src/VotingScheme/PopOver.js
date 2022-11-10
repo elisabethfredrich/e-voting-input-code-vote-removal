@@ -25,7 +25,7 @@ import { useContext } from 'react';
 
     const submitVote = () => {
       voted.setVoted(true);
-      navigate('/confirmation');
+      navigate('/verificationcode');
     }
 
 
@@ -50,7 +50,7 @@ import { useContext } from 'react';
                 <Text marginBottom={'1.5rem'} marginTop={'1rem'} color='#1C4E81'>A. Socialdemokratiet</Text>
                 <Box display={'flex'} alignItems='top'>
                 <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>
-                <Button marginTop={'2rem'} width='8rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' onClick={() => navigate('/confirmation')}>Afgiv stemme</Button>
+                <Button marginTop={'2rem'} width='8rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' onClick={() => navigate('/verificationcode')}>Afgiv stemme</Button>
                 </Box>
               </PopoverBody>}
                 

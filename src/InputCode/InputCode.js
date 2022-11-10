@@ -13,7 +13,10 @@ import {
 export default function Login() {
 
     const context = useContext(Context);
+    const navigate = useNavigate();
+
     const [userCodeInput, setUserCodeInput] = useState("");
+    const [errorMessage, setErrorMessage] = useState('');
 
    
     const handleChangeCodeInput = (e) =>{
@@ -22,14 +25,35 @@ export default function Login() {
     }
 
     const handleSubmit = (e) =>{
+      if(userCodeInput.length !== 14){
+        setErrorMessage('Koden skal være mindst 14 karakterer lang')
 
+      }
+      if(userCodeInput !== "^[A-Z][A-Z][A-Z][A-Z]"){
+        setErrorMessage('Koden skal starte med 4 store bogstaver f.eks.: THDO')
+      }
+      if(userCodeInput === ''){
+        setErrorMessage('Feltet skal udfyldes!')
+      }
+      else{
+        context.setInputCode(userCodeInput);
+        navigateToVotingPage();
+      }
     }
 
+    useEffect(() => {
+     
+    }, [userCodeInput]);
+
+    function navigateToVotingPage(){
+      navigate('/voting');
+  }
 
     return (
 
     <div>
         <FormControl id="text">
+   
         <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
         Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSasd790$n+" </Text>
         <FormLabel
@@ -44,6 +68,7 @@ export default function Login() {
           borderRadius={'0'}
           borderColor={'#1C4E81'}
           color={'#1C4E81'} 
+          error={errorMessage}
           />
       </FormControl>
 

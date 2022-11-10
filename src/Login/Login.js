@@ -44,7 +44,7 @@ function verifyUser() {
   if(userWasFound) 
   {
     console.log('successfully signed in.')
-    navigate('/verificationcode');
+    navigate('/inputcode');
   } 
   
   else 

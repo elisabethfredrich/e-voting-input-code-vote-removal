@@ -1,4 +1,4 @@
-import { Grid, GridItem, Input, Box, IconButton, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem } from '@chakra-ui/react';
+import { Grid, GridItem, Input, Box, IconButton, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem, Button } from '@chakra-ui/react';
 import React from 'react';
 import ResultsAccordion from '../results-accordion.json'
 import Results from '../results.json'
@@ -61,10 +61,12 @@ const BulletinBoard = () => {
         <div className='container'>
         <div className='main'>
              <div className='header'>
-
             <h1>Valgresultat</h1>
             <p>Herunder ser du resultater af valget. <br/> Brug din verifikationskode til at tjekke, at din stemme er optalt korrekt.</p>
-        </div>
+            <Box className='verfification-code' width={'40rem'} bg='var(--secondary_blue)' padding='1rem' borderRadius={'5px'} color='var(--primary_blue)' marginTop='2rem' >
+         <Text className='info-text'>Hvis den angivne stemme ikke svarer til den stemme, du faktisk har angivet, eller hvis du kan ikke finde din kode, bedes du kontakte valgstyrelsen <Link className='link-bold' onClick={()=> navigate('/kontakt')}>her</Link>.</Text>
+         </Box>
+         </div>
 
         <Box marginBottom={'2rem'} >
                 <InputGroup>
@@ -107,7 +109,10 @@ const BulletinBoard = () => {
         </AccordionItem>))}
 </Accordion>
 }
-            
+<div className='button-container-horizontal'>
+<Button className='button' bg={'var(--primary_blue)'}  color='var(--secondary_blue)' width='48%' onClick={()=> navigate('/home')}>Jeg har tjekket min stemme</Button>
+<Button className='light-btn' bg={'var(--secondary_blue)'} color='var(--primary_blue)'  width='48%' onClick={()=> navigate('/kontakt')}>Jeg kunne ikke tjekke min stemme</Button>
+</div>
         </div>
         </div>
     );

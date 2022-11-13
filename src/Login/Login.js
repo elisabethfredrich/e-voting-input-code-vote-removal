@@ -11,6 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import './Login.css'
 
 export default function Login() {
   const [voterIdInput, setVoterIdInput] = useState('')
@@ -93,6 +94,7 @@ function verifyUser() {
           <FormControl id="text">
             <FormLabel
               color={'#1C4E81'} 
+              marginTop='1rem'
             >CPR-nummer</FormLabel>
             <Input 
               type="text" 
@@ -108,7 +110,7 @@ function verifyUser() {
 
           <FormControl id="password">
             <FormLabel
-              color={'#1C4E81'} 
+              color={'#1C4E81'} marginTop='1rem'
             >Stemme-nøgle</FormLabel>
             <Input 
               type="password" 

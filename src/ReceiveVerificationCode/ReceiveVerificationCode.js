@@ -38,7 +38,7 @@ export default function ReceiveVerificationCode() {
 
             <div className='read-more'>
                 {/* Make a pop-up */}
-                <a className='link-bold' href="">Læs mere</a>
+                <a className='link-bold' onClick={()=> navigate('/info')}>Læs mere</a>
             </div>
 
             <div id='container'>

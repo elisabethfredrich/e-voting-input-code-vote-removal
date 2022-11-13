@@ -27,7 +27,7 @@ body{
 
 h1{
     font-weight: 600 !important;
-    color: var(--primary_blue);
+    color: var(--primary_blue) !important;
     font-size: 2rem !important;
     margin-bottom: 1.5rem !important;
 }
@@ -64,10 +64,9 @@ h3{
 
 }
 
-/* .button{
-    border-radius: 0px !important;
-
-} */
+.button{
+min-width: min-content !important;
+} 
 
 .button:hover{
     background-color: var(--secondary_darkblue) !important;
@@ -80,9 +79,99 @@ h3{
     justify-content: center;
     width: 100%;
     margin-bottom: 5rem;
+   
 }
 
 .header{
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     max-width: 710px;   
 }
+
+
+a{
+    cursor: pointer;
+}
+
+.container-horizontal{
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+.button-container-horizontal{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-top:4rem;
+}
+
+.btn-container-vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.btn-container-vertical >*{
+   margin-top: 1rem;
+}
+
+.light-btn:hover{
+    background-color: var(--primary_blue) !important;
+    color: var(--secondary_blue) !important;
+}
+
+.verification-code{
+    display: flex;
+    background-color: var(--secondary_blue);
+    padding: 2rem;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
+.button-verification-code{
+    padding: 10px 15px 10px 15px;
+    background-color: #1C4E81;
+    color: #FFFFFF;
+    font-weight: 600;
+    transition: ease-in-out 0.15s;
+    border-radius: 5px;
+}
+
+.button-verification-code:hover{
+    cursor: pointer;
+    background-color: #0e2842;
+    transition: ease-in-out 0.15s;
+}
+
+#container{
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+.h3-margin{
+   max-width: 18rem;
+   margin-right: 5rem;
+   color: var(--primary_blue);
+}
+
+.main-mobile{
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    max-width: 80vw;
+   
+}
+
+.verification-code-letter{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    background-color: var(--secondary_blue);
+    padding: 2rem;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-right: 2rem;}

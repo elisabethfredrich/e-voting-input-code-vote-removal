@@ -7,12 +7,33 @@ import { Context } from "../Context";
 import { useContext} from 'react';
 
 export default function ReceiveVerificationCode() {
+   //to access file system
+/*     const fs = require('browserify-fs');
+ */
+const fs = require('fs');
 
     const navigate = useNavigate();
     const context = useContext(Context);
 
-    function navigateToHomePage(){
-        navigate('/home');
+    function navigateToVotingPage(){
+        context.setInputCode(code);
+        let data = fs.readFileSync('results.json');
+        let results= JSON.parse(data);
+        var newData = {"id":"100",
+                        "vote":"A. Socialdemokratiet",
+                        "code":code};
+        results.push(newData);
+
+        var newData = JSON.stringify(results);
+            fs.writeFile('results.json', newData, err => {
+        // error checking
+        if(err) throw err;
+    
+    console.log("New data added");
+});   
+        
+        navigate('/voting');
+
     }
 
     /* Function for creating a random code */
@@ -20,7 +41,7 @@ export default function ReceiveVerificationCode() {
         var result           = '';
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
-        for ( var i = 0; i < 10; i++ ) {
+        for ( var i = 0; i < 8; i++ ) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;
@@ -32,30 +53,31 @@ export default function ReceiveVerificationCode() {
 
   return (
     <div className='container'>
-        <div className='content'>
-            <div className='text-area'>
-                <h1>Tak for din stemme</h1>
-                <p>Nedenunder ser du din unikke verifikationskode, som du skal bruge senere til at tjekke om din stemme er optalt korrekt.</p>
-                <br/>
-                <p>Du modtager en besked i din e-boks, når resultatet er klart, hvorefter du kan bruge din verifikationskode til at tjekke om din stemme er optalt korrekt.</p>
-                <br/>
-                <p>Gem den et sted, hvor du kan finde den.</p>
+    <div className='content'>
+        <div className='text-area'>
+            <h1>Velkommen</h1>
+            <div className='intro-text '>
+
+            <p>Nedenunder ser du din unikke verifikationskode, som du skal bruge senere til at tjekke, at din stemme er optalt korrekt.</p>
+            <p>Gem den et sted, hvor du kan finde den.</p>
             </div>
 
-            <div className='read-more'>
-                {/* Make a pop-up */}
-                <a className='link-bold' onClick={()=> navigate('/info')}>Læs mere</a>
-            </div>
+        </div>
 
-            <div id='container'>
-            <div className='verification-code'>
-                <h3>{code}</h3>
-            </div>
-                <a className='button-verification-code' onClick={()=> navigateToHomePage()}>
-                    Logud 
-                </a>
-            </div>    
-            </div>   
-    </div>
+        <div className='read-more'>
+            {/* Make a pop-up */}
+            <a className='link-bold' href="">Læs mere</a>
+        </div>
+
+        <div id='container'>
+        <div className='verification-code'>
+            <h3>{code}</h3>
+        </div>
+            <a className='button-verification-code' onClick={()=> navigateToVotingPage()}>
+                Stem nu
+            </a>
+        </div>    
+        </div>   
+</div>
   )
 }

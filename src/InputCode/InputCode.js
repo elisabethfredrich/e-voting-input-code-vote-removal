@@ -25,8 +25,8 @@ export default function Login() {
     }
 
     const handleSubmit = (e) =>{
-      if(userCodeInput.length !== 14){
-        setErrorMessage('Koden skal være mindst 14 karakterer lang')
+      if(userCodeInput.length !== 8){
+        setErrorMessage('Koden skal være mindst 8 karakterer lang')
 
       }
       if(userCodeInput !== "^[A-Z][A-Z][A-Z][A-Z]"){
@@ -46,7 +46,7 @@ export default function Login() {
     }, [userCodeInput]);
 
     function navigateToVotingPage(){
-      navigate('/voting');
+      navigate('/verificationcode');
   }
 
 
@@ -59,7 +59,7 @@ export default function Login() {
    
         <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
 
-        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSasd790$n+" </Text>
+        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSa$9+" </Text>
         <FormLabel
           color={'#1C4E81'} 
         >Indtast kode:</FormLabel>

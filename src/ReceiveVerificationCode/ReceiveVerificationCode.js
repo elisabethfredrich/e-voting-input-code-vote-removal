@@ -7,33 +7,12 @@ import { Context } from "../Context";
 import { useContext} from 'react';
 
 export default function ReceiveVerificationCode() {
-   //to access file system
-/*     const fs = require('browserify-fs');
- */
-const fs = require('fs');
-
+   
     const navigate = useNavigate();
     const context = useContext(Context);
 
     function navigateToVotingPage(){
-        context.setInputCode(code);
-        let data = fs.readFileSync('results.json');
-        let results= JSON.parse(data);
-        var newData = {"id":"100",
-                        "vote":"A. Socialdemokratiet",
-                        "code":code};
-        results.push(newData);
-
-        var newData = JSON.stringify(results);
-            fs.writeFile('results.json', newData, err => {
-        // error checking
-        if(err) throw err;
-    
-    console.log("New data added");
-});   
-        
         navigate('/voting');
-
     }
 
     /* Function for creating a random code */
@@ -47,7 +26,6 @@ const fs = require('fs');
         return result;
     }
 
-    const code = context.inputCode + '-' + makeid()
 
 
 
@@ -71,7 +49,7 @@ const fs = require('fs');
 
         <div id='container'>
         <div className='verification-code'>
-            <h3>{code}</h3>
+            <h3>{context.inputCode}</h3>
         </div>
             <a className='button-verification-code' onClick={()=> navigateToVotingPage()}>
                 Stem nu

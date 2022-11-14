@@ -23,6 +23,7 @@ function PopOver(value){
   const navigate = useNavigate();
   const voted = useContext(Context);
 
+
   const submitVote = () => {
     voted.setVoted(true);
     navigate('/confirmation');

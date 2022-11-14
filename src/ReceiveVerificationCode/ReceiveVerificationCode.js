@@ -3,13 +3,16 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './ReceiveVerificationCode.css';
 import { Button } from 'react-native-web';
+import { Context } from "../Context";
+import { useContext} from 'react';
 
 export default function ReceiveVerificationCode() {
 
     const navigate = useNavigate();
+    const context = useContext(Context);
 
-    function navigateToVotingPage(){
-        navigate('/voting');
+    function navigateToHomePage(){
+        navigate('/home');
     }
 
     /* Function for creating a random code */
@@ -23,15 +26,18 @@ export default function ReceiveVerificationCode() {
         return result;
     }
 
+    const code = context.inputCode + '-' + makeid()
 
-    // CHANGE FUNCTIONALITY SO IT CONCATENATED THE MAKEID WITH THE USER INPUT 
+
 
   return (
     <div className='container'>
         <div className='content'>
             <div className='text-area'>
-                <h1>Velkommen</h1>
+                <h1>Tak for din stemme</h1>
                 <p>Nedenunder ser du din unikke verifikationskode, som du skal bruge senere til at tjekke om din stemme er optalt korrekt.</p>
+                <br/>
+                <p>Du modtager en besked i din e-boks, når resultatet er klart, hvorefter du kan bruge din verifikationskode til at tjekke om din stemme er optalt korrekt.</p>
                 <br/>
                 <p>Gem den et sted, hvor du kan finde den.</p>
             </div>
@@ -43,10 +49,10 @@ export default function ReceiveVerificationCode() {
 
             <div id='container'>
             <div className='verification-code'>
-                <h3>CWTL-DMDpLZDSvR</h3>
+                <h3>{code}</h3>
             </div>
-                <a className='button-verification-code' onClick={()=> navigateToVotingPage()}>
-                    Stem nu
+                <a className='button-verification-code' onClick={()=> navigateToHomePage()}>
+                    Logud 
                 </a>
             </div>    
             </div>   

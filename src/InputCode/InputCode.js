@@ -8,9 +8,12 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
+//import * as fs from 'fs';
 
 
-export default function Login() {
+export default function InputCode() {
+
+    const fs = require('fs');
 
     const context = useContext(Context);
     const navigate = useNavigate();
@@ -27,7 +30,6 @@ export default function Login() {
     const handleSubmit = (e) =>{
       if(userCodeInput.length !== 8){
         setErrorMessage('Koden skal være mindst 8 karakterer lang')
-
       }
       if(userCodeInput !== "^[A-Z][A-Z][A-Z][A-Z]"){
         setErrorMessage('Koden skal starte med 4 store bogstaver f.eks.: THDO')
@@ -36,18 +38,48 @@ export default function Login() {
         setErrorMessage('Feltet skal udfyldes!')
       }
       else{
-        context.setInputCode(userCodeInput);
-        navigateToVotingPage();
+        const generatedCode = makeid()
+        const code = userCodeInput + '-' + generatedCode
+        context.setInputCode(code);
+        post()
+        navigateToVerificationPage();
       }
     }
 
-    useEffect(() => {
-     
-    }, [userCodeInput]);
+    function post (){
+      let data={"id":"100",
+      "vote":"A. Socialdemokratiet",
+      "code": context.inputCode};
 
-    function navigateToVotingPage(){
-      navigate('/verificationcode');
+      fetch(`http://localhost:3000/posts/`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', JSON.stringify(response)));
+    }
+
+
+      function navigateToVerificationPage(){
+        navigate('/verificationcode');
+    }
+
+    /* Function for creating a random code */
+    function makeid() {
+      var result           = '';
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for ( var i = 0; i < 8; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
   }
+
+
+
+ 
+
 
 
 
@@ -57,9 +89,9 @@ export default function Login() {
         <div className='main'>
         <FormControl id="text">
    
-        <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
+        <Text color={'#1C4E81'}>For at stemme til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
 
-        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSa$9+" </Text>
+        Koden skal starte med 4 store bogstaver, efterfulgt af 4 tilfældige karakterer f.eks: "DTVSa$9+" </Text>
         <FormLabel
           color={'#1C4E81'} 
         >Indtast kode:</FormLabel>

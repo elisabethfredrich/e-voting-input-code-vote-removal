@@ -16,22 +16,6 @@ const fs = require('fs');
     const context = useContext(Context);
 
     function navigateToVotingPage(){
-        context.setInputCode(code);
-        let data = fs.readFileSync('results.json');
-        let results= JSON.parse(data);
-        var newData = {"id":"100",
-                        "vote":"A. Socialdemokratiet",
-                        "code":code};
-        results.push(newData);
-
-        var newData = JSON.stringify(results);
-            fs.writeFile('results.json', newData, err => {
-        // error checking
-        if(err) throw err;
-    
-    console.log("New data added");
-});   
-        
         navigate('/voting');
 
     }
@@ -71,7 +55,7 @@ const fs = require('fs');
 
         <div id='container'>
         <div className='verification-code'>
-            <h3>{code}</h3>
+            <h3>{context.inputCode}</h3>
         </div>
             <a className='button-verification-code' onClick={()=> navigateToVotingPage()}>
                 Stem nu

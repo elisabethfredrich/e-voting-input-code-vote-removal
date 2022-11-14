@@ -7,10 +7,6 @@ import { Context } from "../Context";
 import { useContext} from 'react';
 
 export default function ReceiveVerificationCode() {
-   //to access file system
-/*     const fs = require('browserify-fs');
- */
-const fs = require('fs');
 
     const navigate = useNavigate();
     const context = useContext(Context);
@@ -19,21 +15,6 @@ const fs = require('fs');
         navigate('/voting');
 
     }
-
-    /* Function for creating a random code */
-    function makeid() {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var charactersLength = characters.length;
-        for ( var i = 0; i < 8; i++ ) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-    }
-
-    const code = context.inputCode + '-' + makeid()
-
-
 
   return (
     <div className='container'>

@@ -46,6 +46,7 @@ export default function InputCode() {
       }
     }
 
+    // Doesn't work yet with the local json server! 
     function post (){
       let data={"id":"100",
       "vote":"A. Socialdemokratiet",
@@ -75,11 +76,6 @@ export default function InputCode() {
       }
       return result;
   }
-
-
-
- 
-
 
 
 

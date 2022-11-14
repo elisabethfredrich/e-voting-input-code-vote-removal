@@ -31,7 +31,7 @@ function App() {
               <BrowserRouter>
       <Navbar/>
                 <Routes>
-                  <Route path="/" element={<Navigate to="/home" /* Should be referencing the main screen *//>}/>
+                  <Route path="/" element={<Navigate to="/login" /* Should be referencing the main screen *//>}/>
                   <Route path="/home" element={<Home />}/>
                   <Route path="/login" element={<Login />}/>
                   <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>

@@ -49,12 +49,16 @@ export default function Login() {
       navigate('/voting');
   }
 
+
+
     return (
 
-    <div>
+    <div className='container'>
+        <div className='main'>
         <FormControl id="text">
    
         <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
+
         Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSasd790$n+" </Text>
         <FormLabel
           color={'#1C4E81'} 
@@ -82,6 +86,7 @@ export default function Login() {
        _hover={{
         background: "#0e2842"}}
       >Stem nu</Button>
+      </div>
       </div>
     )
 }

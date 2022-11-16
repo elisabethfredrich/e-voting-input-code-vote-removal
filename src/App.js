@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Home from './Home/Home'
 import Invitation from './Invitation'
 import ResultNotification from './ResultNotification'
+import InputField from './InputCode/InputField';
 
 function App() {
   const pathname = window.location.pathname;
@@ -36,6 +37,8 @@ function App() {
                   <Route path="/login" element={<Login />}/>
                   <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>
                   <Route path="/inputcode" element={<InputVerificationCode/>}/>
+                  <Route path="/inputfield" element={<InputField/>}/>
+                  
                   <Route path="/voting" element={<VotingScheme />}/>
                   <Route path="/confirmation" element={<Confirmation />}/>
                   <Route path="/bulletinboard" element={<BulletinBoard />}/>

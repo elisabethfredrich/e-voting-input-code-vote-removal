@@ -175,3 +175,11 @@ a{
     align-self: flex-start;
     margin-top: 2rem;
     margin-right: 2rem;}
+
+
+    .intro-text>*{
+        margin-top: 1rem;
+    }
+    .space-between>*{
+        margin-top: 1rem;
+    }

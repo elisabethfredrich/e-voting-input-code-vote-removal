@@ -9,6 +9,7 @@
 body{
     font-family: 'Poppins', sans-serif !important;
     font-weight: 400;
+    color: var(--primary_blue) !important;
 }
 
 #app-main{
@@ -19,6 +20,7 @@ body{
 
 .main{
     justify-items: center;
+    max-width:80vw;
 }
 
 .body-text{
@@ -175,3 +177,7 @@ a{
     align-self: flex-start;
     margin-top: 2rem;
     margin-right: 2rem;}
+
+    .space-between>*{
+        margin-top: 1rem;
+    }

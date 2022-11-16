@@ -1,102 +1,534 @@
-[
-    {"id":"0","vote":"K. KD - Kristendemokraterne","code":"AATQ-kHwfEKMZck"},
-    {"id":"1","vote":"V. Venstre, Danmarks Liberale Parti","code":"AKUC-050EdhKaQx"},
-    {"id":"2","vote":"Klaus Mygind ","code":"BEPZ-tpLHC7qYkq"},
-    {"id":"3","vote":"Helle Jønch ","code":"BHOV-YEc8Duj5tw"},
-    {"id":"4","vote":"A. Socialdemokratiet","code":"BPOP-QRXoQxmXch"},
-    {"id":"5","vote":"Jonathan Ries ","code":"CEJP-SoZCmlVYO4"},
-    {"id":"6","vote":"Æ. Danmarksdemokraterne - Inger Støjberg","code":"CGND-79SSAcxgrR"},
-    {"id":"7","vote":"Lars Aslan Rasmussen ","code":"CGTW-tmzGd4UBD7"},
-    {"id":"8","vote":"René Bredal ","code":"CKNC-11ShDfJ6Ys"},
-    {"id":"9","vote":"Jannie Bøgh ","code":"CVBP-8dErVbb4UI"},
-    {"id":"10","vote":"A. Socialdemokratiet","code":"CWTL-DMDpLZDSvR"},
-    {"id":"11","vote":"Nanna W. Gotfredsen ","code":"DCOH-tIdpYl3NUE"},
-    {"id":"12","vote":"Jarl Feyling ","code":"DTLF-IBp57vR09L"},
-    {"id":"13","vote":"Q. Frie Grønne, Danmarks Nye Venstrefløjsparti","code":"DZBV-WHU7zYxPUv"},
-    {"id":"14","vote":"Carsten Olesen ","code":"EJNY-GsBqgRMDpj"},
-    {"id":"15","vote":"Æ. Danmarksdemokraterne - Inger Støjberg","code":"EQKQ-gINFbiqT55"},
-    {"id":"16","vote":"Nicola Emily Larsen ","code":"ESGS-p4ERBNVHz6"},
-    {"id":"17","vote":"Daniel Tomicic ","code":"EZNM-CmVmLbkg4R"},
-    {"id":"18","vote":"Æ. Danmarksdemokraterne - Inger Støjberg","code":"FCKK-bveAIMRNHN"},
-    {"id":"19","vote":"K. KD - Kristendemokraterne","code":"FMLS-aWnzLEZ0we"},
-    {"id":"20","vote":"Christian Riegels Hjorth ","code":"FMQT-xWhu4SXJOc"},
-    {"id":"21","vote":"Klaus Bondam ","code":"FTVU-IgyhIgwYls"},
-    {"id":"22","vote":"Halime Oguz ","code":"FUYP-Lv5rkGMXpS"},
-    {"id":"23","vote":"Paw Karslund ","code":"FWRH-YgbZKWCJB0"},
-    {"id":"24","vote":"Christian Riegels Hjorth ","code":"FXHA-FntjF2KG3P"},
-    {"id":"25","vote":"Ellen Emilie ","code":"GOIM-J668U4WoT4"},
-    {"id":"26","vote":"Jacob Bang ","code":"GPJJ-wwyj0jcaAk"},
-    {"id":"27","vote":"Ø. Enhedslisten - De Rød-Grønne","code":"GQLZ-JMpMgtSxKR"},
-    {"id":"28","vote":"Anders Fausbøll ","code":"GRRQ-WMmhYyW5BS"},
-    {"id":"29","vote":"Q. Frie Grønne, Danmarks Nye Venstrefløjsparti","code":"GTMV-rnkAt5W3z7"},
-    {"id":"30","vote":"Linea Søgaard-Lidell ","code":"HVOJ-UZfnuiU27i"},
-    {"id":"31","vote":"Lone Larsen ","code":"IBED-nvSV674Qj7"},
-    {"id":"32","vote":"Rico Djernis ","code":"ICBU-S4q41bYP86"},
-    {"id":"33","vote":"Peder Holk Svendsen ","code":"IQFP-IkU2ZhCFLf"},
-    {"id":"34","vote":"Casper Øhlers ","code":"IRWW-19foKy10jF"},
-    {"id":"35","vote":"Paw Karslund ","code":"ISHJ-QPPJ6g9HYc"},
-    {"id":"36","vote":"Marina Andersen ","code":"IVWE-0qzd5AqLmj"},
-    {"id":"37","vote":"John Bo Hansen ","code":"JINO-lpJpZ0ydu8"},
-    {"id":"38","vote":"Helle Bonnesen ","code":"JPOE-OkvmpogGo1"},
-    {"id":"39","vote":"Helene Brix ","code":"JQTG-8C37F7jkbF"},
-    {"id":"40","vote":"Jon Stephensen ","code":"JRWV-nGanOS1yOw"},
-    {"id":"41","vote":"Ida Auken","code":"JZRE-bkOQ3sxAmK"},
-    {"id":"42","vote":"Linea Søgaard-Lidell ","code":"KADZ-NKVOJpX6k6"},
-    {"id":"43","vote":"Emilie Normann ","code":"KLBO-m3UfCc1iH4"},
-    {"id":"44","vote":"Rajesh Holmen","code":"KLLK-8hhSoR2KFk"},
-    {"id":"45","vote":"Lean Milo ","code":"KQAT-ULEV38GaOz"},
-    {"id":"46","vote":"Claus Buch ","code":"LMJD-TjBmgTCMQl"},
-    {"id":"47","vote":"Carl Valentin ","code":"LWIP-YLua9zyOmb"},
-    {"id":"48","vote":"Michael Lange ","code":"MGXR-6nJnGoDV6M"},
-    {"id":"49","vote":"Tina Mørk ","code":"MMLC-vslkW7ej0z"},
-    {"id":"50","vote":"A. Socialdemokratiet","code":"MYMI-EtSxnhUnFZ"},
-    {"id":"51","vote":"Hira Nadeem ","code":"MYYI-l0mYcrhv8E"},
-    {"id":"52","vote":"Allan Beier ","code":"NBNH-I3BaCwCBma"},
-    {"id":"53","vote":"Troels Chr. Jakobsen ","code":"NKVG-3adiNBDa7p"},
-    {"id":"54","vote":"Jette Gottlieb","code":"NKWO-5QCi9Uq4oO"},
-    {"id":"55","vote":"Ida Auken","code":"NMIX-3w6jIZos1p"},
-    {"id":"56","vote":"Anders Højsted ","code":"OEJO-WbFMyjpIs7"},
-    {"id":"57","vote":"Jonathan Ries ","code":"OJYM-GhDO3i6uoM"},
-    {"id":"58","vote":"Elise Bjerkrheim","code":"OLQE-lR2lUo1ee4"},
-    {"id":"59","vote":"Lars Werge ","code":"OQRX-VkEhsJLZ4O"},
-    {"id":"60","vote":"Kim Hjerrild ","code":"OSHG-aHOqZ6mK7A"},
-    {"id":"61","vote":"Pernille Rosenkrantz-Theil ","code":"PGDZ-m6HvAWyFPj"},
-    {"id":"62","vote":"Lean Milo ","code":"PNCG-oYSfSx9kAL"},
-    {"id":"63","vote":"Anna Berg ","code":"PQJJ-Zw3AuXRnLU"},
-    {"id":"64","vote":"Gunnar Bjørn Thomsen ","code":"PQLN-uBRKRgkhmI"},
-    {"id":"65","vote":"Henrik Ræder Clausen ","code":"PRQS-4yI4p6MyDk"},
-    {"id":"66","vote":"Nicola Emily Larsen ","code":"RCBA-bfT0UZ0vQB"},
-    {"id":"67","vote":"Thomas Rohden ","code":"RCCD-ymEihsO2se"},
-    {"id":"68","vote":"Peter Zinckernagel ","code":"RFAZ-eKu3QUOkkF"},
-    {"id":"69","vote":"Nikolaj Bøgh ","code":"RHKT-zCIZKlGsF4"},
-    {"id":"70","vote":"Ole Birk Olesen ","code":"RJGN-8BglnqnsTR"},
-    {"id":"71","vote":"Lone Larsen ","code":"RQQJ-JdHOlzdoRR"},
-    {"id":"72","vote":"Rico Djernis ","code":"RTNW-WDBrKKUAUO"},
-    {"id":"73","vote":"Iben Kirstine Parmann","code":"SCXM-6VT3tObEf8"},
-    {"id":"74","vote":"Andreas Bæk ","code":"SWEX-wYANIKRvac"},
-    {"id":"75","vote":"Clara Turms ","code":"TCCZ-DF6WAmwSSn"},
-    {"id":"76","vote":"Marina Andersen ","code":"TCUL-NQgvpEqciB"},
-    {"id":"77","vote":"Pia Olsen Dyhr ","code":"TMSK-6f8KJ6HJnx"},
-    {"id":"78","vote":"Sikandar Siddique","code":"TSFN-ZSvitM58g2"},
-    {"id":"79","vote":"Clara Turms ","code":"TTQL-vnWQXrrd50"},
-    {"id":"80","vote":"Christina Olumeko ","code":"UCHU-JCTwNzHZUQ"},
-    {"id":"81","vote":"D. Nye Borgerlige","code":"UCJO-EJvK3H3MGk"},
-    {"id":"82","vote":"Peter Zinckernagel ","code":"UFPE-YMnWAIyxLh"},
-    {"id":"83","vote":"Q. Frie Grønne, Danmarks Nye Venstrefløjsparti","code":"UPXG-7AMeKapJTW"},
-    {"id":"84","vote":"Claus Gisselmann ","code":"VFVT-QPKBiYrCSt"},
-    {"id":"85","vote":"Anders Fausbøll ","code":"VIHN-aIwkToXG8w"},
-    {"id":"86","vote":"Mette Bloch Hansen ","code":"VQBB-kf6GMju976"},
-    {"id":"87","vote":"Nanna W. Gotfredsen ","code":"VXMC-bOZlCJUErh"},
-    {"id":"88","vote":"Lars Werge ","code":"WBZU-zUa0wPb7ry"},
-    {"id":"89","vote":"Å. Alternativet","code":"WNTI-cADPkd8psE"},
-    {"id":"90","vote":"Søren Sørensen ","code":"WXAE-Wmp3OIQyjP"},
-    {"id":"91","vote":"Marina Andersen ","code":"XCVZ-O2VpvvrqhR"},
-    {"id":"92","vote":"Niels Peder Ravn ","code":"XFZK-F99GcNd20O"},
-    {"id":"93","vote":"Halima El Abassi","code":"XJFK-9qDTTgHf6L"},
-    {"id":"94","vote":"Birgitte Kehler Holst ","code":"XWCD-B73B8IGb68"},
-    {"id":"95","vote":"Lars Aslan Rasmussen ","code":"XZIX-YcQmvpk1al"},
-    {"id":"96","vote":"Jacob Bang ","code":"YLJA-rVt5UW6sS4"},
-    {"id":"97","vote":"Alexander Ryle ","code":"YLPY-X8WHFk6hgw"},
-    {"id":"98","vote":"M. Moderaterne","code":"YUFS-pQ6Dehxkm7"},
-    {"id":"99","vote":"Marina Andersen ","code":"ZVOR-uJAMDVHKee"}
-    ]
+{
+  "votes": [
+    {
+      "id": "0",
+      "vote": "Ole Birk Olesen ",
+      "code": "DIQBTweN-f63yJkVC"
+    },
+    {
+      "id": "1",
+      "vote": "David Rønne ",
+      "code": "ZWAGZvsl-L9Ele2g2"
+    },
+    {
+      "id": "2",
+      "vote": "Søren Sørensen ",
+      "code": "RYWUT?Qr-9xUZZaak"
+    },
+    {
+      "id": "3",
+      "vote": "Mette Bloch Hansen ",
+      "code": "PWUPpPnS-0cLKk3GH"
+    },
+    {
+      "id": "4",
+      "vote": "Louis Jacobsen ",
+      "code": "TBHM-DbW-dptV57N1"
+    },
+    {
+      "id": "5",
+      "vote": "David Rønne ",
+      "code": "ECPN95w7-sOOkWgAg"
+    },
+    {
+      "id": "6",
+      "vote": "Helene Brix ",
+      "code": "IVIMiI-p-tZyBzuga"
+    },
+    {
+      "id": "7",
+      "vote": "Ole Birk Olesen ",
+      "code": "ICIS8§cg-qilQruQ8"
+    },
+    {
+      "id": "8",
+      "vote": "Anders Højsted ",
+      "code": "CKHN%pR&-Ws64XJEf"
+    },
+    {
+      "id": "9",
+      "vote": "Carsten Olesen ",
+      "code": "QOOApKQm-QfF5YDtP"
+    },
+    {
+      "id": "10",
+      "vote": "Balder Mørk Andersen ",
+      "code": "ZWWDLgki-jyzhmNe1"
+    },
+    {
+      "id": "11",
+      "vote": "Anders Højsted ",
+      "code": "IOBKX&+H-i1tzBWa4"
+    },
+    {
+      "id": "12",
+      "vote": "V. Venstre",
+      "code": "ZRWR8:pr-DNT8byv7"
+    },
+    {
+      "id": "13",
+      "vote": "Laura Lindahl ",
+      "code": "HASTn7Cn-N8rOEU6o"
+    },
+    {
+      "id": "14",
+      "vote": "Sven Aage Schlosrich ",
+      "code": "MAICYlTy-R6aaxEwY"
+    },
+    {
+      "id": "15",
+      "vote": "Yildiz Akdogan",
+      "code": "KGSCO8Yo-yEhOS4N3"
+    },
+    {
+      "id": "16",
+      "vote": "Klaus Bondam ",
+      "code": "JVSPYeRV-zyyEH5Qh"
+    },
+    {
+      "id": "17",
+      "vote": "C. Det Konservative Folkeparti",
+      "code": "WYYBYcDa-ZsjqSDgc"
+    },
+    {
+      "id": "18",
+      "vote": "Q. Frie Grønne",
+      "code": "ZRLWen-h-LCOQGF0a"
+    },
+    {
+      "id": "19",
+      "vote": "Anne Rasmussen ",
+      "code": "FJOL6$8Q-WhreVwrm"
+    },
+    {
+      "id": "20",
+      "vote": "Nikoline Prehn ",
+      "code": "TDSE:4OW-lLb0qMe7"
+    },
+    {
+      "id": "21",
+      "vote": "Iben Kirstine Parmann",
+      "code": "CUCKacUI-YOTEjYqd"
+    },
+    {
+      "id": "22",
+      "vote": "John Bo Hansen ",
+      "code": "JHNGk8W&-WIPxOHAP"
+    },
+    {
+      "id": "23",
+      "vote": "Ole Birk Olesen ",
+      "code": "SCHI+ory-7wfLOBNW"
+    },
+    {
+      "id": "24",
+      "vote": "Joanne Bywater ",
+      "code": "IOVP1cTa-Mk3EDsDV"
+    },
+    {
+      "id": "25",
+      "vote": "Anne Rasmussen ",
+      "code": "CUTOO$mq-t8hzVa0t"
+    },
+    {
+      "id": "26",
+      "vote": "Ida Auken",
+      "code": "JTIFtavI-8klyGlKF"
+    },
+    {
+      "id": "27",
+      "vote": "Q. Frie Grønne",
+      "code": "FAOXTJl2-gEjkj5KH"
+    },
+    {
+      "id": "28",
+      "vote": "Birgitte Kehler Holst ",
+      "code": "LIWFEl&s-pZcoAYGS"
+    },
+    {
+      "id": "29",
+      "vote": "Denise Rostgaard ",
+      "code": "PFBQ8ANT-Q2kDPvUc"
+    },
+    {
+      "id": "30",
+      "vote": "Søren Sørensen ",
+      "code": "WBWCHT#G-hoYXLDkH"
+    },
+    {
+      "id": "31",
+      "vote": "O. Dansk Folkeparti",
+      "code": "XPCReO#Y-X4nozhwl"
+    },
+    {
+      "id": "32",
+      "vote": "Lone Larsen ",
+      "code": "RPFVb8:y-inqtdiBy"
+    },
+    {
+      "id": "33",
+      "vote": "Martin Geertsen ",
+      "code": "FDJZ?hDd-W5SiaBMF"
+    },
+    {
+      "id": "34",
+      "vote": "Johan Kahl ",
+      "code": "GUCO1fl8-L8Yqttsf"
+    },
+    {
+      "id": "35",
+      "vote": "Mette Bloch Hansen ",
+      "code": "XTEKgNpz-ilVAnL1P"
+    },
+    {
+      "id": "36",
+      "vote": "Jonathan Ries ",
+      "code": "GUOLOAu2-LcRo2bPd"
+    },
+    {
+      "id": "37",
+      "vote": "Anders Fausbøll ",
+      "code": "SUFINCC#-QmxzuYAW"
+    },
+    {
+      "id": "38",
+      "vote": "Christina Olumeko ",
+      "code": "RRTQI?xb-7I1NG99c"
+    },
+    {
+      "id": "39",
+      "vote": "Klaus Bondam ",
+      "code": "UNRG+&Aa-EvCG9AoS"
+    },
+    {
+      "id": "40",
+      "vote": "F. Socialistisk Folkeparti",
+      "code": "HFXPnQ&g-3sxAUtEX"
+    },
+    {
+      "id": "41",
+      "vote": "David Rønne ",
+      "code": "JFVVlNA2-ViUNKHjQ"
+    },
+    {
+      "id": "42",
+      "vote": "Ruben Kidde ",
+      "code": "HZCT+zy6-HKXt97eM"
+    },
+    {
+      "id": "43",
+      "vote": "Laura Lindahl ",
+      "code": "PIOVjH2I-L2fGighy"
+    },
+    {
+      "id": "44",
+      "vote": "Sikandar Siddique",
+      "code": "DPZDIzxC-Yhcq6FZK"
+    },
+    {
+      "id": "45",
+      "vote": "Allan Beier ",
+      "code": "GUFYanmY-W86v7EzJ"
+    },
+    {
+      "id": "46",
+      "vote": "Annika Martins ",
+      "code": "QHTRV$iT-XHfPvA1F"
+    },
+    {
+      "id": "47",
+      "vote": "David Rønne ",
+      "code": "IUXC4=&I-tuxACG3p"
+    },
+    {
+      "id": "48",
+      "vote": "Æ. Danmarksdemokraterne",
+      "code": "MRMIuSZX-9w62JsjH"
+    },
+    {
+      "id": "49",
+      "vote": "C. Det Konservative Folkeparti",
+      "code": "IQTTDgxO-uMYa8Res"
+    },
+    {
+      "id": "50",
+      "vote": "Lean Milo ",
+      "code": "TVMS9mbC-NksJsQCj"
+    },
+    {
+      "id": "51",
+      "vote": "David Rønne ",
+      "code": "DAQPAl:$-VJ9pThwn"
+    },
+    {
+      "id": "52",
+      "vote": "Anne Rasmussen ",
+      "code": "WOKZH2v6-4mJK5zAI"
+    },
+    {
+      "id": "53",
+      "vote": "Nikolaj Bøgh ",
+      "code": "ZHAQ#i7x-5Rw6Ab6D"
+    },
+    {
+      "id": "54",
+      "vote": "Bo Sandroos ",
+      "code": "QAWRQD#l-IJCLWKAO"
+    },
+    {
+      "id": "55",
+      "vote": "Peter Hummelgaard ",
+      "code": "QHFFGluY-wS9w0kyY"
+    },
+    {
+      "id": "56",
+      "vote": "Christian Riegels Hjorth ",
+      "code": "TLCIF2hq-gA8dIONu"
+    },
+    {
+      "id": "57",
+      "vote": "Kenneth Kristensen Berth ",
+      "code": "CDOP%?ZC-jcc99c7q"
+    },
+    {
+      "id": "58",
+      "vote": "Jørgen Kjøller ",
+      "code": "JEFVT07W-8F5eqCl1"
+    },
+    {
+      "id": "59",
+      "vote": "Carsten Olesen ",
+      "code": "DOKMBpi!-MUQ82a3i"
+    },
+    {
+      "id": "60",
+      "vote": "F. Socialistisk Folkeparti",
+      "code": "YBBG:=ki-pSHJs1VP"
+    },
+    {
+      "id": "61",
+      "vote": "Cecilie Louise Balbay Holdt ",
+      "code": "MBSDVjnj-1suJT9gi"
+    },
+    {
+      "id": "62",
+      "vote": "David Rønne ",
+      "code": "NVHZVUXO-LqBlbhUb"
+    },
+    {
+      "id": "63",
+      "vote": "Nikolaj Bøgh ",
+      "code": "ZXHKC?8R-Y6qwwS9p"
+    },
+    {
+      "id": "64",
+      "vote": "Katarina Ammitzbøll ",
+      "code": "WDNBcyQB-7tz9EOIk"
+    },
+    {
+      "id": "65",
+      "vote": "Anders Højsted ",
+      "code": "DVHIorRP-xSu6G7iH"
+    },
+    {
+      "id": "66",
+      "vote": "Rosa Lund",
+      "code": "KJBPcfcR-C84keOEN"
+    },
+    {
+      "id": "67",
+      "vote": "Allan Beier ",
+      "code": "VFSRA+o6-HzQuP76V"
+    },
+    {
+      "id": "68",
+      "vote": "Halima El Abassi",
+      "code": "TCKTPykl-86tORGkg"
+    },
+    {
+      "id": "69",
+      "vote": "Michael Rachlin ",
+      "code": "KRMXYG2e-ePF2eEuV"
+    },
+    {
+      "id": "70",
+      "vote": "Brian Bruun ",
+      "code": "GPNRzbW0-CI457I4q"
+    },
+    {
+      "id": "71",
+      "vote": "Louise Davidsen ",
+      "code": "VPJLvp6e-ZQ5WrOPL"
+    },
+    {
+      "id": "72",
+      "vote": "Sazan Garmiyani",
+      "code": "ZMZXIUhC-ofiqZ3zi"
+    },
+    {
+      "id": "73",
+      "vote": "Clara Turms ",
+      "code": "JZOC3ymZ-Y8tf6ZUu"
+    },
+    {
+      "id": "74",
+      "vote": "Jørgen Mørup Pedersen ",
+      "code": "RCMW0WkS-FC2pnN5n"
+    },
+    {
+      "id": "75",
+      "vote": "Katarina Ammitzbøll ",
+      "code": "CVIR§&6h-toXLZix0"
+    },
+    {
+      "id": "76",
+      "vote": "Bo Sandroos ",
+      "code": "JLTU1KRh-ch8mvPzE"
+    },
+    {
+      "id": "77",
+      "vote": "O. Dansk Folkeparti",
+      "code": "CMTZ3n:X-mrtWc3zZ"
+    },
+    {
+      "id": "78",
+      "vote": "Anders Højsted ",
+      "code": "TZJPkBU4-0z8YM66N"
+    },
+    {
+      "id": "79",
+      "vote": "Lone Larsen ",
+      "code": "TFAY#4t=-Z7vy7csF"
+    },
+    {
+      "id": "80",
+      "vote": "Jon Stephensen ",
+      "code": "KIFI&66m-vGU5MmNO"
+    },
+    {
+      "id": "81",
+      "vote": "Q. Frie Grønne",
+      "code": "AEVEb3X4-PFDH5z1A"
+    },
+    {
+      "id": "82",
+      "vote": "Claus Buch ",
+      "code": "NIXVDawo-5bbQf0U7"
+    },
+    {
+      "id": "83",
+      "vote": "Claus Buch ",
+      "code": "LRYO-N:f-0Xg6VLEy"
+    },
+    {
+      "id": "84",
+      "vote": "Jan Kristoffersen ",
+      "code": "RHPFGHx!-GzcEYqCI"
+    },
+    {
+      "id": "85",
+      "vote": "Daniel Tomicic ",
+      "code": "ANDD+=QR-irVgVe74"
+    },
+    {
+      "id": "86",
+      "vote": "Johan Kahl ",
+      "code": "ARAJk8KY-TGXF18wv"
+    },
+    {
+      "id": "87",
+      "vote": "Jacob Bang ",
+      "code": "MSIM=+CS-tvLYaIuE"
+    },
+    {
+      "id": "88",
+      "vote": "Sazan Garmiyani",
+      "code": "VSRWh51--WaaKIBjv"
+    },
+    {
+      "id": "89",
+      "vote": "Brian Bruun ",
+      "code": "WGDAku1i-SjqbKjQH"
+    },
+    {
+      "id": "90",
+      "vote": "Æ. Danmarksdemokraterne",
+      "code": "VOLTjCiN-d1iRVeF6"
+    },
+    {
+      "id": "91",
+      "vote": "Jacob Bang ",
+      "code": "DOEPHJHX-eKGIDcJE"
+    },
+    {
+      "id": "92",
+      "vote": "Jes Vissing Tiedemann ",
+      "code": "HRLKa:DZ-NNW7igEE"
+    },
+    {
+      "id": "93",
+      "vote": "Nanna Bock ",
+      "code": "KRJT+F&b-BqW8iwXU"
+    },
+    {
+      "id": "94",
+      "vote": "Peter Hummelgaard ",
+      "code": "CDVKZWdz-vLI6AK5U"
+    },
+    {
+      "id": "95",
+      "vote": "Jacob Bang ",
+      "code": "YATNcrkW-XcOUdhAQ"
+    },
+    {
+      "id": "96",
+      "vote": "Elena Bjerregaard Ryan",
+      "code": "EREYl!of-SoN6f8j7"
+    },
+    {
+      "id": "97",
+      "vote": "Michael Lange ",
+      "code": "XIDDeh4I-WmtWlVI9"
+    },
+    {
+      "id": "98",
+      "vote": "Anders Højsted ",
+      "code": "APBKiMp#-qXh3P6nM"
+    },
+    {
+      "id": "99",
+      "vote": "Alexander Ryle ",
+      "code": "ZTPQipXt-5u7VgjKW"
+    },
+    {
+      "id": "777",
+      "vote": "A. Socialdemokratiet",
+      "code": "DTVSa$9+-qyyv9L4H"
+    },
+    {
+      "id": "122",
+      "vote": "A. Socialdemokratiet",
+      "code": "DTVSa$9+-pCGb8gB5"
+    },
+    {
+      "id": "684",
+      "vote": "A. Socialdemokratiet",
+      "code": "DTVSa$9+-5oGyPguS"
+    },
+    {
+      "id": "790",
+      "vote": "Jørgen Kjøller ",
+      "code": "BVONaI3V-ZCsR5sgg"
+    },
+    {
+      "id": "802",
+      "vote": "Halima El Abassi",
+      "code": "BDPWM6mC-cEKbjCff"
+    },
+    {
+      "id": "289",
+      "vote": "A. Socialdemokratiet",
+      "code": "DTVSa$9+-hNAlyvwQ"
+    }
+  ]
+}

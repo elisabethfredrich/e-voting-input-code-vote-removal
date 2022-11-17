@@ -85,9 +85,7 @@ function verifyUser() {
             fontSize={'xl'}>Velkommen til det digitale folketingsvalg.
           </Heading>
           
-          <Text
-            color={'#1C4E81'}  
-          >
+          <Text>
             For at stemme til folketingsvalget online, bedes du logge ind med de informationer, du har modtaget med posten.
           </Text>
           <form onSubmit={verifyUser}>

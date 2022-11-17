@@ -6,14 +6,9 @@
 }
 
 .content-confirmation{
-    width: 400px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
 }
 
-.content-confirmation h1{
-    color: #1C4E81;
-    font-size: 1.8em;
-    font-weight: 600;
-}
 

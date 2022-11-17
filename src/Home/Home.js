@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import {
-  Button,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
-  Input,
   Stack,
   Image,
   Text,
@@ -15,13 +11,11 @@ import {
 Box
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { CheckIcon, EmailIcon, InfoIcon } from '@chakra-ui/icons'
 import './Home.css'
 
 
 export default function Home() {
   const [voterIdInput, setVoterIdInput] = useState('')
-  const handleVoterIdInputChange = (e) => setVoterIdInput(e.target.value)
 
   const navigate = useNavigate();
 
@@ -91,9 +85,7 @@ function verifyUser() {
             fontSize={'xl'}>Velkommen til det digitale folketingsvalg.
           </Heading>
           
-          <Text
-            color={'#1C4E81'}  
-          >
+          <Text>
             For at stemme til folketingsvalget online, bedes du logge ind med de informationer, du har modtaget med posten.
           </Text>
          <Grid
@@ -106,17 +98,29 @@ function verifyUser() {
                   >
 
             
-<GridItem gridColumn={'1 / 3'} bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/login')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">login</span><p>Log ind for at stemme</p></Box></Link></GridItem> 
+<GridItem className='home-button' gridColumn={'1 / 3'}>
+  <Link className='home-button-link' onClick={() => navigate('/login')}>
+    <Box className='home-button-content'><span className="material-symbols-outlined">login</span><p>Log ind for at stemme</p></Box>
+  </Link>
+</GridItem> 
             
-                <GridItem gridColumn={'1 / 3'} bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/bulletinboard')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">ballot</span><p>Tjek om din stemme er optalt korrekt</p></Box></Link></GridItem>
+<GridItem className='home-button' gridColumn={'1 / 3'}>
+  <Link className='home-button-link' onClick={() => navigate('/bulletinboard')}>
+    <Box className='home-button-content'><span className="material-symbols-outlined">ballot</span><p>Tjek om din stemme er optalt korrekt</p></Box>
+  </Link>
+</GridItem>
             
-            <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/kontakt')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">mail</span><p>Kontakt</p></Box></Link></GridItem>
+<GridItem className='home-button'>
+  <Link className='home-button-link' onClick={() => navigate('/kontakt')}>
+   <Box className='home-button-content'><span className="material-symbols-outlined">mail</span><p>Kontakt</p></Box>
+  </Link>
+</GridItem>
 
-            <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/info')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">info</span><p>Info</p></Box></Link></GridItem>
+<GridItem className='home-button'>
+  <Link className='home-button-link' onClick={() => navigate('/info')}>
+    <Box className='home-button-content'><span className="material-symbols-outlined">info</span><p>Info</p></Box>
+  </Link>
+</GridItem>
             
          </Grid>
         </Stack>

@@ -1,3 +1,15 @@
-h1{
-    color: black;
+
+
+.input-field{
+    margin-top: 2rem ;
+}
+
+.verification-code{
+    display: flex;
+    background-color: var(--secondary_blue);
+    padding: 2rem;
+    border-radius: 5px;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-right: 2rem;
 }

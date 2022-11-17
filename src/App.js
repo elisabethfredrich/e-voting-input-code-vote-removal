@@ -2,25 +2,26 @@ import './App.css';
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom"
 import BulletinBoard from './BulletinBoard/BulletinBoard'
 import Confirmation from './Confirmation/Confirmation'
-import InputVerificationCode from './InputCode/InputCode'
+import InputCode from './InputCode/InputCode'
 import Login from './Login/Login'
 import Navbar from './Navbar/Navbar'
 import Info from './Info'
 import Kontakt from './Kontakt'
-import ReceiveVerificationCode from './ReceiveVerificationCode/ReceiveVerificationCode'
 import VotingScheme from './VotingScheme/VotingScheme'
-import { Context } from "./Context";
+//import { Context } from "./Context";
 import { useState } from 'react';  
 import Home from './Home/Home'
-
-import InputField from './InputCode/InputField';
 import Invitation from './Letter/Invitation'
 import ResultNotification from './Letter/ResultNotification'
+
+/* to start json-server run:
+json-server --watch src/results.json --port 8000
+*/
 
 function App() {
   const pathname = window.location.pathname;
   const [inputCode, setInputCode] = useState(undefined);
-  const [voted, setVoted] = useState(false);
+  //const [voted, setVoted] = useState(false);
 
 
   return (
@@ -28,18 +29,15 @@ function App() {
         <div id="app-main">
 
 
-        <Context.Provider value={{inputCode, setInputCode}}>
-
+{/*         <Context.Provider value={{inputCode, setInputCode}}>
+ */}
               <BrowserRouter>
       <Navbar/>
                 <Routes>
                   <Route path="/" element={<Navigate to="/invitation" /* Should be referencing the main screen *//>}/>
                   <Route path="/home" element={<Home />}/>
                   <Route path="/login" element={<Login />}/>
-                  <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>
-                  <Route path="/inputcode" element={<InputVerificationCode/>}/>
-                  <Route path="/inputfield" element={<InputField/>}/>
-                  
+                  <Route path="/inputcode" element={<InputCode/>}/>                  
                   <Route path="/voting" element={<VotingScheme />}/>
                   <Route path="/confirmation" element={<Confirmation />}/>
                   <Route path="/bulletinboard" element={<BulletinBoard />}/>
@@ -50,8 +48,8 @@ function App() {
 
                 </Routes>
               </BrowserRouter>
-              </Context.Provider>
-            </div>
+{/*               </Context.Provider>
+ */}            </div>
     </div>
   );
 }

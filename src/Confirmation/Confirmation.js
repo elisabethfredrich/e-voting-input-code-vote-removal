@@ -18,7 +18,7 @@ export default function Confirmation() {
       <div className='content-confirmation'>
         <h1>Tak for din stemme</h1>
         <p>Du modtager en mail når resultatet er klart, hvorefter du kan bruge din verifikationskode til at tjekke om din stemme er optalt korrekt.</p>
-        <Button marginTop={'2rem'} width='8rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' onClick={() => navigate('/resultnotification')}>Log ud</Button>
+        <Button marginTop={'2rem'} width='8rem' className='button' onClick={() => navigate('/resultnotification')}>Log ud</Button>
       </div>
     </div>
   )

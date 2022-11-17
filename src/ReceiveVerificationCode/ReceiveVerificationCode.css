@@ -34,9 +34,10 @@
     background-color: var(--secondary_blue);
     padding: 2rem;
     border-radius: 5px;
-    align-self: flex-start;
+    justify-content: center;
     margin-top: 2rem;
-    margin-right: 2rem;
+    width: 100%;
+
 }
 
 .button-verification-code{
@@ -56,6 +57,7 @@
 
 #container{
     display: flex;
+    flex-direction: column;
     justify-content: start;
     align-items: end;
 }

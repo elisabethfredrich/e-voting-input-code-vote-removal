@@ -24,8 +24,12 @@ function VotingScheme(){
     <div className='main'>
         <div className='header'>
         <h1>Stemmeseddel</h1>
-        <p>For at afgive din stemme, sæt venligst et kryds(X) ud fra enten et parti eller en kandidat. Flere krydser medfører en udgyldig stemmeseddel og dermed en ugyldig stemme.</p>
+        <div className='space-between bottom-line'>
+
+        <p>For at afgive din stemme, sæt venligst et kryds(X) ud fra enten et parti eller en kandidat.</p>
         <p>De listede kandidater herunder er respektive i forhold til din bopæl.</p>
+
+        </div>
         </div>
 
         <RadioGroup onChange={setValue} value={value}>

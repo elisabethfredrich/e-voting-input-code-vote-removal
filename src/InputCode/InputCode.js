@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../Context";
+
 import {
   Button,
   FormControl,
@@ -11,12 +12,15 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default function Login() {
+export default function InputCode() {
   const context = useContext(Context);
   const navigate = useNavigate();
 
   const [userCodeInput, setUserCodeInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+} 
+    const fs = require('fs');
+
 
   const isError = userCodeInput === "";
 
@@ -38,6 +42,8 @@ export default function Login() {
     } else {
       context.setInputCode(userCodeInput);
       navigateToVotingPage();
+
+  
     }
   };
 
@@ -47,27 +53,65 @@ export default function Login() {
     navigate("/verificationcode");
   }
 
+    function post(verificationcode){
+      const firstLetter = verificationcode[0];
+      let userId = Math.floor(Math.random() * 1000+1) 
+
+       let data={"id":""+ userId+ "",
+      "vote":"A. Socialdemokratiet",
+      "code": verificationcode};
+      console.log(data); 
+
+
+      fetch('http://localhost:8000/votes/', {
+       method: "POST",
+       headers: {
+       "Content-Type": "application/json",
+       },
+       body: JSON.stringify(data),
+       })
+       .then(response => response.json())
+       .catch(error => console.error('Error:', error))
+       .then(response => console.log('Success:', JSON.stringify(response)));
+      
+  }
+  
+
+    /* Function for creating a random code */
+    function makeid() {
+      var result           = '';
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for ( var i = 0; i < 8; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+  }
+
   return (
     <div className="container">
       <div className="main">
         <FormControl isInvalid={isError} id="text">
-          <Text color={"#1C4E81"}>
-            For at teste til Folketingsvalget, er det obligatorisk at udfylde en
-            kode i feltet herunder. Koden skal starte med fire store bogstaver,
-            efterfulgt af 10 tilfældige karakterer f.eks: "DTVSa$9+"{" "}
-          </Text>
-          <FormLabel color={"#1C4E81"}>Indtast kode:</FormLabel>
-          <Input
-            type="text"
-            placeholder="Indtast selvvalgt verificeringskode"
-            value={userCodeInput}
-            onChange={handleChangeCodeInput}
-            autoComplete={"off"}
-            error={errorMessage}
-            // Styling
-            borderRadius={"0"}
-            borderColor={"#1C4E81"}
-            color={"#1C4E81"}
+           <div  className='space-between'>
+         <h1>Velkommen</h1>
+
+        <Text maxW='30rem'>For at stemme til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder.</Text>
+        <Text maxW='30rem'>Koden skal starte med 4 store bogstaver, efterfulgt af 4 tilfældige karakterer f.eks: "DTVSa$9+".</Text>
+        </div>
+ <FormLabel color={'#1C4E81'} marginTop='2rem'>Indtast kode:</FormLabel>
+        <Input 
+          type="text" 
+          placeholder='Indtast kode' 
+          value={userCodeInput} 
+          onChange={handleChangeCodeInput} 
+          autoComplete={"off"}
+
+          // Styling
+          borderRadius={'0'}
+          borderColor={'#1C4E81'}
+          color={'#1C4E81'} 
+          error={errorMessage}
+          maxWidth='25rem'
           />
 
           {!isError ? (
@@ -78,20 +122,16 @@ export default function Login() {
             <FormErrorMessage>{errorMessage}</FormErrorMessage>
           )}
         </FormControl>
+    
 
-        <Button
-          onClick={handleSubmit}
-          // Styling
-          color={"#FFF"}
-          backgroundColor={"#1C4E81"}
-          borderRadius={"0"}
-          width={"30%"}
-          _hover={{
-            background: "#0e2842",
-          }}
-        >
-          Stem nu
-        </Button>
+      <Button 
+       onClick={handleSubmit}
+      type='submit'
+      className='button'
+      bg={'var(--primary_blue)'} width='min-content' color='var(--secondary_blue)' marginTop="2rem"
+      >Stem nu</Button>
+
+      </div>
       </div>
     </div>
   );

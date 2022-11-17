@@ -12,9 +12,10 @@ import VotingScheme from './VotingScheme/VotingScheme'
 import { Context } from "./Context";
 import { useState } from 'react';  
 import Home from './Home/Home'
-import Invitation from './Invitation'
-import ResultNotification from './ResultNotification'
+
 import InputField from './InputCode/InputField';
+import Invitation from './Letter/Invitation'
+import ResultNotification from './Letter/ResultNotification'
 
 function App() {
   const pathname = window.location.pathname;
@@ -32,7 +33,7 @@ function App() {
               <BrowserRouter>
       <Navbar/>
                 <Routes>
-                  <Route path="/" element={<Navigate to="/home" /* Should be referencing the main screen *//>}/>
+                  <Route path="/" element={<Navigate to="/invitation" /* Should be referencing the main screen *//>}/>
                   <Route path="/home" element={<Home />}/>
                   <Route path="/login" element={<Login />}/>
                   <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>

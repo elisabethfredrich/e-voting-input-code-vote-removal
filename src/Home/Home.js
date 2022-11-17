@@ -107,25 +107,16 @@ function verifyUser() {
 
             
 <GridItem gridColumn={'1 / 3'} bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/login')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span class="material-symbols-outlined">login</span><p>Log ind for at stemme</p></Box></Link></GridItem> 
+                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">login</span><p>Log ind for at stemme</p></Box></Link></GridItem> 
             
                 <GridItem gridColumn={'1 / 3'} bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/bulletinboard')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span class="material-symbols-outlined">ballot</span><p>Tjek om din stemme er optalt korrekt</p></Box></Link></GridItem>
-            
-               {/* <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem'>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span class="material-symbols-outlined">groups</span><p>Partier</p></Box></Link></GridItem>
-            
-                <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem'>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><EmailIcon fontSize={'3.5rem'}/><p>Valgkredse</p></Box></Link></GridItem>
-            
-                <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem'>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><EmailIcon fontSize={'3.5rem'}/><p>Kandidater</p></Box></Link></GridItem> */}
+                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">ballot</span><p>Tjek om din stemme er optalt korrekt</p></Box></Link></GridItem>
             
             <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/kontakt')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span class="material-symbols-outlined">mail</span><p>Kontakt</p></Box></Link></GridItem>
+                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">mail</span><p>Kontakt</p></Box></Link></GridItem>
 
             <GridItem bg={'var(--secondary_blue)'} h='7rem' borderRadius={'5px'}><Link padding={'1rem'} display='flex' _hover={{color: 'var(--secondary_darkblue)'}} height='5rem' onClick={() => navigate('/info')}>
-                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span class="material-symbols-outlined">info</span><p>Info</p></Box></Link></GridItem>
+                <Box w='100%' display={'flex'} flexDirection='column' alignItems={'center'}><span className="material-symbols-outlined">info</span><p>Info</p></Box></Link></GridItem>
             
          </Grid>
         </Stack>

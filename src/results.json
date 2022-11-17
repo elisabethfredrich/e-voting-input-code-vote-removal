@@ -1,0 +1,504 @@
+{
+  "votes": [
+    {
+      "id": "0",
+      "vote": "Jørgen Kjøller ",
+      "code": "AHVQqYT#-q6vQuUlx"
+    },
+    {
+      "id": "1",
+      "vote": "Henrik Ræder Clausen ",
+      "code": "AWYX4=wW-tOM6J8PQ"
+    },
+    {
+      "id": "2",
+      "vote": "Ø. Enhedslisten",
+      "code": "AXACG74c-jibh5jud"
+    },
+    {
+      "id": "3",
+      "vote": "Peter Stakemann ",
+      "code": "AYSB?Va7-Lgx0k0K4"
+    },
+    {
+      "id": "4",
+      "vote": "B. Radikale Venstre",
+      "code": "BEOLvHlK-aA2N4wjp"
+    },
+    {
+      "id": "5",
+      "vote": "Anne Rasmussen ",
+      "code": "BGAF?tpa-fBTFnhpv"
+    },
+    {
+      "id": "6",
+      "vote": "Pia Olsen Dyhr ",
+      "code": "BMCBm0o&-D6GAJ9La"
+    },
+    {
+      "id": "7",
+      "vote": "Hira Nadeem ",
+      "code": "BMPH?utg-oX6XTfUq"
+    },
+    {
+      "id": "8",
+      "vote": "Anders Fausbøll ",
+      "code": "BPDApBbG-NvrzN4JC"
+    },
+    {
+      "id": "9",
+      "vote": "Claus Buch ",
+      "code": "BPFB8KW=-KKhcMgjv"
+    },
+    {
+      "id": "10",
+      "vote": "Dorthe Hecht ",
+      "code": "BTESJ=hO-Gtf6cX8u"
+    },
+    {
+      "id": "11",
+      "vote": "Martin Wood Pedersen ",
+      "code": "BXCLL0m0-5bVwptZ9"
+    },
+    {
+      "id": "12",
+      "vote": "Andreas Bæk ",
+      "code": "BZAQ2fV$-eO3FKv1H"
+    },
+    {
+      "id": "13",
+      "vote": "Per Nørgaard Andersen ",
+      "code": "DBWC?d9K-YrKcluPs"
+    },
+    {
+      "id": "14",
+      "vote": "Pernille Rosenkrantz-Theil ",
+      "code": "DPHOhjVA-5Uolyi5e"
+    },
+    {
+      "id": "15",
+      "vote": "Hira Nadeem ",
+      "code": "EBIZz#9§-WnTbyxQ8"
+    },
+    {
+      "id": "16",
+      "vote": "Christina Olumeko ",
+      "code": "EHYPtATR-DcxeQxWi"
+    },
+    {
+      "id": "17",
+      "vote": "Louise Davidsen ",
+      "code": "EJEWbP7=-ZATCwF6z"
+    },
+    {
+      "id": "18",
+      "vote": "Leila Stockmarr",
+      "code": "ESMZtgSp-PSTJgrye"
+    },
+    {
+      "id": "19",
+      "vote": "Claus Gisselmann ",
+      "code": "EVMY9nIK-SnQcukCJ"
+    },
+    {
+      "id": "20",
+      "vote": "Charlotte Nellemann ",
+      "code": "FCUY§VxR-HvXQTEUU"
+    },
+    {
+      "id": "21",
+      "vote": "Samira Nawa ",
+      "code": "FVGQDu7i-U3DB3YGt"
+    },
+    {
+      "id": "22",
+      "vote": "Peter Zinckernagel ",
+      "code": "GAJK$z1z-WHr7SX5g"
+    },
+    {
+      "id": "23",
+      "vote": "Q. Frie Grønne",
+      "code": "GKAChB5:-ALoys2Gt"
+    },
+    {
+      "id": "24",
+      "vote": "Jesper Housgaard ",
+      "code": "GTUMIe7M-leuB4SCE"
+    },
+    {
+      "id": "25",
+      "vote": "Cecilie Louise Balbay Holdt ",
+      "code": "HAHL5:jm-DP5rNzTU"
+    },
+    {
+      "id": "26",
+      "vote": "Troels Chr. Jakobsen ",
+      "code": "HDRU§y#W-5dRY3h7l"
+    },
+    {
+      "id": "27",
+      "vote": "Andreas Bæk ",
+      "code": "HFLO9lGV-YHl1DeqX"
+    },
+    {
+      "id": "28",
+      "vote": "Ø. Enhedslisten",
+      "code": "HGLZW§&E-tZoWJkxU"
+    },
+    {
+      "id": "29",
+      "vote": "René Bredal ",
+      "code": "HKOMaEpB-zrFMv0VR"
+    },
+    {
+      "id": "30",
+      "vote": "Jacob Bang ",
+      "code": "HUTZdX$&-eq6LYdbB"
+    },
+    {
+      "id": "31",
+      "vote": "Noah Sturis ",
+      "code": "HXIBcML?-OpMk0VK3"
+    },
+    {
+      "id": "32",
+      "vote": "Charlotte Nellemann ",
+      "code": "IOBJvmRx-e9T6ohfG"
+    },
+    {
+      "id": "33",
+      "vote": "Claus Buch ",
+      "code": "JALO+XQU-9cvL22LL"
+    },
+    {
+      "id": "34",
+      "vote": "Yildiz Akdogan",
+      "code": "JEOHITrn-uXi1VHwh"
+    },
+    {
+      "id": "35",
+      "vote": "Kim Hjerrild ",
+      "code": "JJLWaCN0-X9xaASO7"
+    },
+    {
+      "id": "36",
+      "vote": "Claus Willén ",
+      "code": "JKMFaH3t-DsBLiNBF"
+    },
+    {
+      "id": "37",
+      "vote": "M. Moderaterne",
+      "code": "KQFEG!DU-KfIUAKlw"
+    },
+    {
+      "id": "38",
+      "vote": "Nanna W. Gotfredsen ",
+      "code": "KSVY!Xe&-JPaWgWIH"
+    },
+    {
+      "id": "39",
+      "vote": "Peter Hummelgaard ",
+      "code": "KXTG!q=M-ZnwXl70k"
+    },
+    {
+      "id": "40",
+      "vote": "Jonathan Ries ",
+      "code": "LGFFUu7I-HCDWt58F"
+    },
+    {
+      "id": "41",
+      "vote": "Anders Fausbøll ",
+      "code": "LSOHaPlU-lPsBQA67"
+    },
+    {
+      "id": "42",
+      "vote": "Katarina Ammitzbøll ",
+      "code": "LTNJnem?-PasNvkZD"
+    },
+    {
+      "id": "43",
+      "vote": "Michael Rachlin ",
+      "code": "MDIOhVTf-12lxwYUK"
+    },
+    {
+      "id": "44",
+      "vote": "Claus Buch ",
+      "code": "MSPE%jDo-shwNde3A"
+    },
+    {
+      "id": "45",
+      "vote": "Louise Davidsen ",
+      "code": "MVBK!Q!t-Do1aG7zr"
+    },
+    {
+      "id": "46",
+      "vote": "Lean Milo ",
+      "code": "NDTLyo7W-prThuf0L"
+    },
+    {
+      "id": "47",
+      "vote": "C. Det Konservative Folkeparti",
+      "code": "NIVG6NvP-sjkw5YAL"
+    },
+    {
+      "id": "48",
+      "vote": "Daniel Pinderup ",
+      "code": "NJHZq0GK-bu7H6kwZ"
+    },
+    {
+      "id": "49",
+      "vote": "Nanna W. Gotfredsen ",
+      "code": "NOTFM:n!-rRBbr9W5"
+    },
+    {
+      "id": "50",
+      "vote": "Carl Valentin ",
+      "code": "NOZEO=ov-S83yUvvK"
+    },
+    {
+      "id": "51",
+      "vote": "Jacob Bang ",
+      "code": "NUUG&ess-uzNcTXvm"
+    },
+    {
+      "id": "52",
+      "vote": "Yildiz Akdogan",
+      "code": "NWKMOF6§-4PC2WDNg"
+    },
+    {
+      "id": "53",
+      "vote": "Pelle Dragsted",
+      "code": "OHLH!Jdm-cwT6p4FL"
+    },
+    {
+      "id": "54",
+      "vote": "Anders Havelund Krøyer ",
+      "code": "OSBRIl#!-DB9c8c56"
+    },
+    {
+      "id": "55",
+      "vote": "Æ. Danmarksdemokraterne",
+      "code": "OVNGSBkc-k3T7RP7L"
+    },
+    {
+      "id": "56",
+      "vote": "Peder Holk Svendsen ",
+      "code": "PBSKytgX-3MmchvHK"
+    },
+    {
+      "id": "57",
+      "vote": "C. Det Konservative Folkeparti",
+      "code": "PFNXY$z:-sogWlh1m"
+    },
+    {
+      "id": "58",
+      "vote": "Rashid Ali",
+      "code": "PPJRA60j-ZSIYmjx7"
+    },
+    {
+      "id": "59",
+      "vote": "Lars Philipsen Prahm ",
+      "code": "QEBRDNsq-gFe9e5kV"
+    },
+    {
+      "id": "60",
+      "vote": "D. Nye Borgerlige",
+      "code": "QKKWEsM4-eXrIu2aC"
+    },
+    {
+      "id": "61",
+      "vote": "Sikandar Siddique",
+      "code": "QSMNsk6Y-p0pgQYXz"
+    },
+    {
+      "id": "62",
+      "vote": "Nanna Bock ",
+      "code": "QWVP6=w6-FcQiqPU2"
+    },
+    {
+      "id": "63",
+      "vote": "Lars Corvinius Olesen ",
+      "code": "QZXTQc3J-VzGRTkCG"
+    },
+    {
+      "id": "64",
+      "vote": "Laura Lindahl ",
+      "code": "RROC4X0U-sl7n2LpV"
+    },
+    {
+      "id": "65",
+      "vote": "Jesper Housgaard ",
+      "code": "SDGBE%bA-D2HO7bTg"
+    },
+    {
+      "id": "66",
+      "vote": "Ellen Emilie ",
+      "code": "SFSXrMwu-Y7o353rf"
+    },
+    {
+      "id": "67",
+      "vote": "Yildiz Akdogan",
+      "code": "SMBRt0qP-kll96C51"
+    },
+    {
+      "id": "68",
+      "vote": "Clara Halvorsen ",
+      "code": "SRKC1kMt-hKkEZA0v"
+    },
+    {
+      "id": "69",
+      "vote": "Jesper Housgaard ",
+      "code": "STVQWRXq-vMkmVyyQ"
+    },
+    {
+      "id": "70",
+      "vote": "Sazan Garmiyani",
+      "code": "SWZC+TUC-uRuHBUxj"
+    },
+    {
+      "id": "71",
+      "vote": "Søren Sørensen ",
+      "code": "TOGIQU1%-zeupEz3P"
+    },
+    {
+      "id": "72",
+      "vote": "Nanna Bock ",
+      "code": "TRYXSryk-GLf6qgxS"
+    },
+    {
+      "id": "73",
+      "vote": "Franciska Rosenkilde ",
+      "code": "TYGHGh3M-thLVHZl2"
+    },
+    {
+      "id": "74",
+      "vote": "Jette Gottlieb",
+      "code": "UFSU?NrS-FGPWhSAw"
+    },
+    {
+      "id": "75",
+      "vote": "Therese Skaarup ",
+      "code": "UIFPj+c$-iyt4CAAk"
+    },
+    {
+      "id": "76",
+      "vote": "Laura Lindahl ",
+      "code": "UKXAHQA#-3iCE5Cil"
+    },
+    {
+      "id": "77",
+      "vote": "Dorthe Hecht ",
+      "code": "UOBOY%0d-QvgNwhQ2"
+    },
+    {
+      "id": "78",
+      "vote": "Emilie Normann ",
+      "code": "UOGU=KoW-qmFRmDq3"
+    },
+    {
+      "id": "79",
+      "vote": "Mette Reissmann ",
+      "code": "USUQQE1V-wL6RLQ5h"
+    },
+    {
+      "id": "80",
+      "vote": "Anders Havelund Krøyer ",
+      "code": "UUTXCKEN-yCOkLV6Y"
+    },
+    {
+      "id": "81",
+      "vote": "Klaus Bondam ",
+      "code": "UWVP:BbV-X6zv4DLl"
+    },
+    {
+      "id": "82",
+      "vote": "Rico Djernis ",
+      "code": "VALCED3S-c5uydF4i"
+    },
+    {
+      "id": "83",
+      "vote": "Michael Lange ",
+      "code": "VHSPFhQG-8IuFVu4m"
+    },
+    {
+      "id": "84",
+      "vote": "B. Radikale Venstre",
+      "code": "WATC99:x-VmcQzzGx"
+    },
+    {
+      "id": "85",
+      "vote": "Claus Willén ",
+      "code": "WDNZQJhJ-CFzLDZ2P"
+    },
+    {
+      "id": "86",
+      "vote": "Hira Nadeem ",
+      "code": "WOMMn§s1-L1hoekyR"
+    },
+    {
+      "id": "87",
+      "vote": "Mette Bloch Hansen ",
+      "code": "WOVBTrBB-tqbcHYZF"
+    },
+    {
+      "id": "88",
+      "vote": "René Bredal ",
+      "code": "XENX:4Pe-hFD120UX"
+    },
+    {
+      "id": "89",
+      "vote": "Rico Djernis ",
+      "code": "XHZL=!wc-o0nDtHHA"
+    },
+    {
+      "id": "90",
+      "vote": "Sazan Garmiyani",
+      "code": "XMDMdw:6-3tprdThc"
+    },
+    {
+      "id": "91",
+      "vote": "Lars Philipsen Prahm ",
+      "code": "XQTU3VO=-ThG7puFa"
+    },
+    {
+      "id": "92",
+      "vote": "Mette Reissmann ",
+      "code": "YZYIgmfS-fqtM4RV2"
+    },
+    {
+      "id": "93",
+      "vote": "Dorthe Hecht ",
+      "code": "ZFHIDl§E-oHwDx8gk"
+    },
+    {
+      "id": "94",
+      "vote": "Ida Auken",
+      "code": "ZLWMQbmM-FOwLWz9H"
+    },
+    {
+      "id": "95",
+      "vote": "Å. Alternativet",
+      "code": "ZMKYFdWm-cLbKjvnG"
+    },
+    {
+      "id": "96",
+      "vote": "Michael Rachlin ",
+      "code": "ZQGWMJ6!-pR6Q4gVf"
+    },
+    {
+      "id": "97",
+      "vote": "Emilie Normann ",
+      "code": "ZSBTgv6m-rb90dsKE"
+    },
+    {
+      "id": "98",
+      "vote": "Jes Vissing Tiedemann ",
+      "code": "ZWUDBODb-TuoJLLvR"
+    },
+    {
+      "id": "99",
+      "vote": "Christina Olumeko ",
+      "code": "ZZYTn60O-KjYrO0mD"
+    }
+  ]
+}

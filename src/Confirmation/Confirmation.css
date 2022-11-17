@@ -1,0 +1,14 @@
+.container-confirmation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content-confirmation{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+

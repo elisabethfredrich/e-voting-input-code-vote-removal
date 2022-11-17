@@ -1,0 +1,25 @@
+
+@media (max-width: 960px) {
+    .result-grid{
+        grid-template-columns: 1fr !important;
+        grid-template-rows: max-content 1fr !important;
+        gap: 20px !important;
+    }
+  }
+
+@media (min-width: 960px) {
+  .result-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding-top:3rem;
+    margin-bottom:2rem;
+    padding-bottom:1.5rem;
+    border-bottom:solid 1px #D9D9D9;
+    padding-left:0.5rem;
+}
+}
+
+
+  .result-grid:last-child{
+    border-bottom:0px !important;
+}

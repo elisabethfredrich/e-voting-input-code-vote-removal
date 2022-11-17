@@ -1,4 +1,4 @@
-import { Grid, GridItem, Input, Box, IconButton, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem, Button } from '@chakra-ui/react';
+import { Grid, GridItem, Input, Box, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem } from '@chakra-ui/react';
 import {React, useEffect }  from 'react';
 
 import Results from '../results.json'

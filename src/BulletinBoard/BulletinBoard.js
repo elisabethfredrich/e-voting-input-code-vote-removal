@@ -1,6 +1,6 @@
-import { Grid, GridItem, Input, Box, IconButton, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem } from '@chakra-ui/react';
+import { Grid, GridItem, Input, Box, IconButton, Text, Link, InputGroup, InputLeftElement, Accordion, AccordionButton, AccordionPanel, AccordionIcon, AccordionItem, Button } from '@chakra-ui/react';
 import {React, useEffect }  from 'react';
-import ResultsAccordion from '../results-accordion.json'
+
 import Results from '../results.json'
 import './BulletinBoard.css'
 import { SearchIcon } from '@chakra-ui/icons';
@@ -11,6 +11,30 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const BulletinBoard = () => {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
+    const results = Results.votes.sort((a,b)=>{if(a.code<b.code){return -1} else{ return 1} }) 
+    
+    const makeAccordion = () => {
+        let firstLetter = results[0].code[0];
+        let accordion = [];
+        let accordionSection = {letter:firstLetter, results:[results[0]]} ;
+        let length = results.length-1
+            for(let i=1; i<length; i++){
+                console.log(results[i])
+                console.log(i)
+                if(results[i].code[0]===firstLetter){
+                    console.log(accordionSection)
+                    accordionSection.results.push(results[i])
+                }
+                if(results[i].code[0]!==firstLetter){
+                    accordion.push(accordionSection);
+                    firstLetter=results[i].code[0];
+                    console.log(firstLetter)
+                    accordionSection={letter:firstLetter, results:[results[i]]}
+                }
+            }
+            accordion.push(accordionSection);
+            return accordion
+        }
 
     const handleInputChange = (e) => {
        setInput(e.target.value)
@@ -49,7 +73,7 @@ const BulletinBoard = () => {
         document.querySelector('#error-text').style.display = 'none';
         document.querySelector('#success-text').style.display = 'none';
 
-        if(counter==1 && input.length==15){
+        if(counter==1 && input.length==17){
             message = document.querySelector('#success-text');
             message.style.display='block';
         }
@@ -87,18 +111,20 @@ const BulletinBoard = () => {
          <Text className='info-text'>Hvis den angivne stemme ikke svarer til den stemme, du faktisk har angivet, bedes du kontakte valgstyrelsen <Link className='link-bold' onClick={()=> navigate('/kontakt')}>her</Link>.</Text>
          </Box>
 
-{input.length>0 ?
-<Box id='result-table' w={'100%'}>
-    {Results.map((result) => (
-        <Grid className='result-grid' id={result.code} templateColumns='1fr 1fr' gap='10px' paddingTop='3rem' marginBottom='2rem' paddingBottom='1.5rem' borderBottom='solid 1px #D9D9D9' paddingLeft={'0.5rem'} w='86%'>
+
+ {input.length>0 ?
+ <Box id='result-table'>
+    {results.map((result) => (
+        <Grid key={result.id} id={result.code} templateColumns='max-content 1fr' gap='8rem' paddingTop='3rem' marginBottom='2rem' paddingBottom='1.5rem' borderBottom='solid 1px #D9D9D9' paddingLeft={'0.5rem'} w='86%'>
             <GridItem color={'var(--primary_blue)'} fontWeight='600'>{result.code}</GridItem>
             <GridItem>{result.vote}</GridItem>
         </Grid>))}      
 </Box> 
 :
-<Accordion defaultIndex={['-1']} allowMultiple w={'100%'} id='accordion'>
-    {ResultsAccordion.map((letter)=>( 
-        <AccordionItem key={letter.results.id}>
+<Accordion defaultIndex={['-1']} allowMultiple width={'40rem'} id='accordion'>
+    {makeAccordion().map((letter)=>( 
+        <AccordionItem key={letter.results[0].id}>
+
            <h2><AccordionButton>
                 <Box flex='1' textAlign='left' fontWeight={'600'}>{letter.letter}</Box>
                     <AccordionIcon />
@@ -106,7 +132,8 @@ const BulletinBoard = () => {
             </h2>
             <AccordionPanel pb={4} className={letter.letter}>
                 {letter.results.map((result) => (
-                   <Grid className='result-grid' id={result.code} templateColumns='1fr 1fr' gap='10px' paddingTop='4rem' paddingBottom='4rem' borderBottom='solid 1px #D9D9D9' paddingLeft={'10px'} >
+                   <Grid key={result.id} id={result.code} templateColumns='max-content 1fr' gap='8rem' paddingTop='3rem' marginBottom='2rem' paddingBottom='1.5rem' borderBottom='solid 1px #D9D9D9' paddingLeft={'0.5rem'} w='86%'>
+
                       <GridItem color={'var(--primary_blue)'} fontWeight='600'>{result.code}</GridItem>
                        <GridItem>{result.vote}</GridItem>
                     </Grid>))}

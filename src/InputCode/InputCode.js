@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext} from 'react';
+import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Context } from "../Context";
 import {
   Button,
   FormControl,
@@ -8,11 +7,14 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
+//import * as fs from 'fs';
 
 
-export default function Login() {
+export default function InputCode() {
 
-    const context = useContext(Context);
+    const fs = require('fs');
+
+    //const context = useContext(Context);
     const navigate = useNavigate();
 
     const [userCodeInput, setUserCodeInput] = useState("");
@@ -27,7 +29,6 @@ export default function Login() {
     const handleSubmit = (e) =>{
       if(userCodeInput.length !== 8){
         setErrorMessage('Koden skal være mindst 8 karakterer lang')
-
       }
       if(userCodeInput !== "^[A-Z][A-Z][A-Z][A-Z]"){
         setErrorMessage('Koden skal starte med 4 store bogstaver f.eks.: THDO')
@@ -36,17 +37,54 @@ export default function Login() {
         setErrorMessage('Feltet skal udfyldes!')
       }
       else{
-        context.setInputCode(userCodeInput);
-        navigateToVotingPage();
+        const generatedCode = makeid()
+        const verificationcode = userCodeInput + '-' + generatedCode
+       // context.setInputCode(code);
+        //console.log(context.inputCode);
+        post(verificationcode)
+        navigateToVerificationPage();
       }
     }
 
-    useEffect(() => {
-     
-    }, [userCodeInput]);
+    // Doesn't work yet with the local json server! 
+    function post (verificationcode){
+      const firstLetter = verificationcode[0];
+      let userId = Math.floor(Math.random() * 1000+1) 
 
-    function navigateToVotingPage(){
-      navigate('/verificationcode');
+       let data={"id":""+ userId+ "",
+      "vote":"A. Socialdemokratiet",
+      "code": verificationcode};
+      console.log(data); 
+
+
+      fetch('http://localhost:8000/votes/', {
+       method: "POST",
+       headers: {
+       "Content-Type": "application/json",
+       },
+       body: JSON.stringify(data),
+       })
+       .then(response => response.json())
+       .catch(error => console.error('Error:', error))
+       .then(response => console.log('Success:', JSON.stringify(response)));
+      
+  }
+
+      function navigateToVerificationPage(){
+        navigate('/verificationcode');
+    }
+
+  
+
+    /* Function for creating a random code */
+    function makeid() {
+      var result           = '';
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for ( var i = 0; i < 8; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
   }
 
 
@@ -55,13 +93,17 @@ export default function Login() {
 
     <div className='container'>
         <div className='main'>
+          <form onSubmit={handleSubmit}> 
         <FormControl id="text">
-   
-        <Text color={'#1C4E81'}>For at teste til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder. 
+      <div  className='space-between'>
+      <h1>Velkommen</h1>
 
-        Koden skal starte med fire store bogstaver, efterfulgt af 10 tilfældige karakterer f.eks: "DTVSa$9+" </Text>
+        <Text maxW='30rem'>For at stemme til Folketingsvalget, er det obligatorisk at udfylde en kode i feltet herunder.</Text>
+
+        <Text maxW='30rem'>Koden skal starte med 4 store bogstaver, efterfulgt af 4 tilfældige karakterer f.eks: "DTVSa$9+".</Text>
+        </div>
         <FormLabel
-          color={'#1C4E81'} 
+          color={'#1C4E81'} marginTop='2rem'
         >Indtast kode:</FormLabel>
         <Input 
           type="text" 
@@ -73,19 +115,17 @@ export default function Login() {
           borderColor={'#1C4E81'}
           color={'#1C4E81'} 
           error={errorMessage}
+          maxWidth='25rem'
           />
       </FormControl>
 
-      <Button onClick={handleSubmit}
-      
-       // Styling
-       color={'#FFF'}
-       backgroundColor={'#1C4E81'}
-       borderRadius={'0'}
-       width={'30%'}
-       _hover={{
-        background: "#0e2842"}}
+      <Button 
+      type='submit'
+      className='button'
+      bg={'var(--primary_blue)'} width='min-content' color='var(--secondary_blue)' marginTop="2rem"
       >Stem nu</Button>
+            </form>
+
       </div>
       </div>
     )

@@ -39,7 +39,7 @@ import {
             <PopoverArrow />
             <PopoverCloseButton/>
               <PopoverBody alignContent='center'> 
-                <Text  marginBottom={'1.5rem'}>Har du gemt din verifikationskode? Du kan ikke går tilbage efter du fortsætter.</Text>
+              <Text  marginBottom={'1.5rem'}>Har du husket at gemme din verifikationskode? <br/> Du kan ikke gå tilbage og se den, efter du har trykket "Stem nu".</Text>
                 <Box display='flex' justifyContent={'center'}>
                 <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>
                 <Button className='button' backgroundColor='#1C4E81'  onClick={navigateToVoting} textColor='#EEF5FB'>Ja</Button>                  </Box>

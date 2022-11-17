@@ -7,17 +7,32 @@ import { Context } from "../Context";
 import { useContext} from 'react';
 import Results from '../results.json'
 
+import PopOverVerificationCode from './PopOverVerificationCode';
 
 export default function ReceiveVerificationCode() {
-
+   
     const navigate = useNavigate();
     const context = useContext(Context);
     const [verificationCode, setVerificationCode] = useState('');
 
     function navigateToVotingPage(){
         navigate('/voting');
+
     }
-  
+
+    /* Function for creating a random code */
+    function makeid() {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 8; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+
+
 
 
   return (
@@ -28,26 +43,27 @@ export default function ReceiveVerificationCode() {
 
             <div className='intro-text '>
 
-            <p>Nedenunder ser du din unikke verifikationskode, som du skal bruge senere til at tjekke, at din stemme er optalt korrekt.</p>
-            <p>Gem den et sted, hvor du kan finde den.</p>
+
+                <p>Nedenunder ser du din unikke verifikationskode, som du skal bruge senere til at tjekke, at din stemme er optalt korrekt.</p>
+                <p>Gem den et sted, hvor du kan finde den.</p>
+                </div>
+
+          
+
+            <div className='read-more'>
+                {/* Make a pop-up */}
+                <a className='link-bold' href="">Læs mere</a>
             </div>
 
-        </div>
-
-        <div className='read-more'>
-            {/* Make a pop-up */}
-            <a className='link-bold' href="">Læs mere</a>
-        </div>
-
-        <div id='container'>
-        <div className='verification-code'>
+        <div className='space-between'>
+            <div className='verification-code'>
             <h3>{Results.votes[Results.votes.length-1].code}</h3>
+
         </div>
-            <a className='button-verification-code' onClick={()=> navigateToVotingPage()}>
-                Stem nu
-            </a>
-        </div>    
-        </div>   
-</div>
+            <PopOverVerificationCode/>
+            </div>    
+            </div>  
+            </div> 
+    </div>
   )
 }

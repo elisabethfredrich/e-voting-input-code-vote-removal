@@ -12,6 +12,8 @@ import VotingScheme from './VotingScheme/VotingScheme'
 import { Context } from "./Context";
 import { useState } from 'react';  
 import Home from './Home/Home'
+
+import InputField from './InputCode/InputField';
 import Invitation from './Letter/Invitation'
 import ResultNotification from './Letter/ResultNotification'
 
@@ -36,6 +38,8 @@ function App() {
                   <Route path="/login" element={<Login />}/>
                   <Route path="/verificationcode" element={<ReceiveVerificationCode />}/>
                   <Route path="/inputcode" element={<InputVerificationCode/>}/>
+                  <Route path="/inputfield" element={<InputField/>}/>
+                  
                   <Route path="/voting" element={<VotingScheme />}/>
                   <Route path="/confirmation" element={<Confirmation />}/>
                   <Route path="/bulletinboard" element={<BulletinBoard />}/>

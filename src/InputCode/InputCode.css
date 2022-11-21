@@ -1,5 +1,3 @@
-
-
 .input-field{
     margin-top: 2rem ;
 }
@@ -11,5 +9,8 @@
     border-radius: 5px;
     justify-content: center;
     margin-top: 2rem;
-    margin-right: 2rem;
+}
+
+#input-code{
+    min-width: 100%;
 }

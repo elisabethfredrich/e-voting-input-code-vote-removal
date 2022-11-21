@@ -95,6 +95,7 @@ function verifyUser() {
               marginTop='1rem'
             >CPR-nummer</FormLabel>
             <Input 
+              autocomplete="off"
               type="text" 
               placeholder='Indtast CPR-nummer' 
               value={voterIdInput} 

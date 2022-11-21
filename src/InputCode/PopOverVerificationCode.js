@@ -33,7 +33,7 @@ import {
     return(
         <Popover className='popover'>
         <PopoverTrigger display='flex' justifyContent='center' >
-        <Button marginTop='3rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' width='99%'>Stem nu</Button>
+        <Button marginTop='3rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' width='100%'>Stem nu</Button>
       </PopoverTrigger>
         <PopoverContent width={'100%'} backgroundColor={'#EEF5FB'} padding='3rem'>
             <PopoverArrow />

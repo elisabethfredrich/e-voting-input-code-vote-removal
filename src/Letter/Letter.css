@@ -63,3 +63,22 @@
     grid-row: 2/3;
 }
 
+.letter-body a{
+    color:#A6192E;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 48;
+  font-size: 1.4rem;
+  color:#A6192E;
+  margin-right: 10px;
+  }
+
+  .letter-icon{
+    margin-top: 15px;
+    display: flex;
+  }

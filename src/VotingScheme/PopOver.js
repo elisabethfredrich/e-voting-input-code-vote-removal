@@ -33,7 +33,7 @@ function PopOver(value){
   return(
       <Popover className='popover'>
       <PopoverTrigger display='flex' justifyContent='center' >
-      <Button className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' width='99%'>Afgiv Stemme</Button>
+      <Button className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' width='100%'>Afgiv Stemme</Button>
     </PopoverTrigger>
       <PopoverContent width={'100%'} backgroundColor={'#EEF5FB'} padding='3rem'>
           <PopoverArrow />
@@ -48,7 +48,7 @@ function PopOver(value){
             </PopoverBody> : 
             <PopoverBody alignContent='center'> 
               <Text>Tjek venligst at din stemme er angivet korrekt. Er du sikker på, at du ønsker at stemme på:</Text>
-              <Text marginBottom={'1.5rem'} marginTop={'1rem'} color='#1C4E81'>A. Socialdemokratiet</Text>
+              <Text marginBottom={'1.5rem'} marginTop={'1rem'} color='#1C4E81'>Pia Olsen Dyhr</Text>
               <Box display={'flex'} alignItems='top'>
               <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>
               <Button className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' onClick={() => navigate('/confirmation')}>Ja</Button>

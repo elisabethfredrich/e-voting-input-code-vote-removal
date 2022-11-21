@@ -17,23 +17,23 @@ const BulletinBoard = () => {
     }, [location]);
 
     //sort the results alphabetically
-    const results = Results.votes.sort((a,b)=>{if(a.code<b.code){return -1} else{ return 1} }) 
+    const results = Results.votes.sort((a,b)=>{if(a.code.toUpperCase()<b.code.toUpperCase()){return -1} else{ return 1} }) 
     
     const makeAccordion = () => {
-        let firstLetter = results[0].code[0];
+        let firstLetter = results[0].code[0].toUpperCase();
         let accordion = [];
         let accordionSection = {letter:firstLetter, results:[results[0]]} ;
         let length = results.length-1
             for(let i=1; i<length; i++){
                 console.log(results[i])
                 console.log(i)
-                if(results[i].code[0]===firstLetter){
+                if(results[i].code[0].toUpperCase()===firstLetter){
                     console.log(accordionSection)
                     accordionSection.results.push(results[i])
                 }
-                if(results[i].code[0]!==firstLetter){
+                if(results[i].code[0].toUpperCase() !==firstLetter){
                     accordion.push(accordionSection);
-                    firstLetter=results[i].code[0];
+                    firstLetter=results[i].code[0].toUpperCase();
                     console.log(firstLetter)
                     accordionSection={letter:firstLetter, results:[results[i]]}
                 }
@@ -140,7 +140,7 @@ const BulletinBoard = () => {
     }
 
 
-        <Button className='button' width={'100%'} marginTop='3rem' onClick={()=> navigate('/home')}>Afslut</Button>
+        <Button className='button' width={'100%'} marginTop='3rem' onClick={()=> navigate('/login')}>Afslut</Button>
             </div>
             </div>
         );

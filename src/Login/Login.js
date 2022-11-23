@@ -4,55 +4,73 @@ import {
   Flex,
   FormControl,
   FormLabel,
+  FormErrorMessage,
   Heading,
   Input,
   Stack,
   Image,
   Text,
+  Box
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
+import BackgroundImage from '../assets/folketinget-background-image.svg';
+import { Field, Form, Formik } from "formik";
+
+
 
 export default function Login() {
-  const [voterIdInput, setVoterIdInput] = useState('')
-  const handleVoterIdInputChange = (e) => setVoterIdInput(e.target.value)
+  /* const [voterCPRInput, setVoterCPRInput] = useState('')
+  const [voterPasswordInput, setVoterPasswordInput] = useState('') */
+  const [errorMessage, setErrorMessage] = useState('')
+
+
+ /*  const handleChangeCPRInput = (e) => {
+    setVoterCPRInput(e.target.value);
+    console.log(voterCPRInput)
+  };
+  const handleChangePasswordInput = (e) => {
+    setVoterPasswordInput(e.target.value);
+    console.log(voterPasswordInput)
+
+  }; */
 
   const navigate = useNavigate();
 
-  const validLogins = [ // for temporary testing purposes
-  {
-    voterID: '010203-0405', // corresponds to "Stemme-ID"
-    voterKey: 'test123', // correponds to Stemme-nøgle
-  },
-  {
-    voterID: '060708-0910', // corresponds to "Stemme-ID"
-    voterKey: 'test123' // correponds to Stemme-nøgle
+  //This shows in console
+  function validateCPR(value) {
+
+    let error = "";
+
+    if (!value) {
+      error = "Du bedes venligst indtaste din CPR-nummer";
+    } 
+    return error;
   }
-]
 
-function verifyUser() {
-  let userWasFound = false;
+  // This doens't show in console
+  function validatePassword(value) {
+    let error = "";
 
-  for(let i = 0; i < validLogins.length; i++) 
-  {
-    if(voterIdInput === validLogins[i].voterID) 
-    {
-      userWasFound = true;
-      
+    if (!value) {
+      error = "Du bedes venligst indtaste din stemme-nøgle";
+    } 
+
+    return error;
+  }
+
+    // This doens't show in console
+  const handleSubmit = (values, actions) => {
+    actions.setSubmitting(false)
+    console.log("goes to voting")
+    if (values.password !== "test123" || (values.cprnummer !== "010203-0405" && values.cprnummer !== "0102030405")){
+      setErrorMessage("Indtastet CPR-nummer eller stemme-nøgle er forkert. Prøv igen.");
+    }
+    else{
+    navigate ('/inputcode')
     }
   }
 
-  if(userWasFound) 
-  {
-    console.log('successfully signed in.')
-    navigate('/inputcode');
-  } 
-  
-  else 
-  {
-    console.log('the credentials that was entered do not match any user.')
-  }
-}
 
   return (
     <Stack 
@@ -64,7 +82,7 @@ function verifyUser() {
           alt={'Login Image'}
           objectFit={'cover'}
           src={
-            '../../img/folketinget-background-image.svg'  
+            BackgroundImage  
           }
         />
       </Flex>
@@ -88,41 +106,68 @@ function verifyUser() {
           <Text>
             For at stemme til folketingsvalget online, bedes du logge ind med de informationer, du har modtaget med posten.
           </Text>
-          <form onSubmit={verifyUser}>
-          <FormControl id="text">
-            <FormLabel
-              color={'#1C4E81'} 
-              marginTop='1rem'
-            >CPR-nummer</FormLabel>
-            <Input 
-              autocomplete="off"
-              type="text" 
-              placeholder='Indtast CPR-nummer' 
-              value={voterIdInput} 
-              onChange={handleVoterIdInputChange} 
-              // Styling
-              borderRadius={'0'}
-              borderColor={'#1C4E81'}
-              color={'#1C4E81'} 
-              />
-          </FormControl>
+          <Formik initialValues={{ cprnummer: "",
+                                    password: "" 
+                                     }} onSubmit={handleSubmit}>
+              {(props) => (
+                <Form className="input-field">
+                   <Field
+                    name="cprnummer"
+                    validate={validateCPR}
+                  >
+                    {({ field, form }) => (
+                      <FormControl
+                        isInvalid={form.errors.cprnummer && form.touched.cprnummer}
+                      >
+                        <FormLabel color={"#1C4E81"} marginTop='1rem'
+                      >CPR-nummer</FormLabel>
+                        <Input
+                          id="cprnummer"
+/*                           autoComplete="off"
+ */                       type="text" 
+                          placeholder='Indtast CPR-nummer' 
+                          // Styling
+                          borderRadius={'0'}
+                          borderColor={'#1C4E81'}
+                          color={'#1C4E81'} 
+                          {...field}
+                        />
+                        <FormErrorMessage>{form.errors.cprnummer}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
 
-          <FormControl id="password">
-            <FormLabel
-              color={'#1C4E81'} marginTop='1rem'
-            >Stemme-nøgle</FormLabel>
-            <Input 
-              type="password" 
-              placeholder='Indtast stemme-nøgle'
-              // Styling
-              borderRadius={'0'}
-              borderColor={'#1C4E81'}
-              color={'#1C4E81'} 
-              /> 
-          </FormControl>
-          <Button  
+                  <Field
+                    name="password"
+                    validate={validatePassword}
+                  >
+                    {({ field, form }) => (
+                      <FormControl
+                        isInvalid={form.errors.password && form.touched.password}
+                      >
+                        <FormLabel color={"#1C4E81"} marginTop='1rem'
+                        >Stemme-nøgle</FormLabel>
+                        <Input
+                          id="stemme-nøgle"
+/*                           autoComplete="off"
+ */                          type="password" 
+                          placeholder='Indtast stemme-nøgle' 
+                          // Styling
+                          borderRadius={'0'}
+                          borderColor={'#1C4E81'}
+                          color={'#1C4E81'} 
+                          {...field}
+                        />
+                        <FormErrorMessage>{form.errors.password}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Box color='#ff0000' marginTop={'1rem'}>{errorMessage}</Box> 
+            <Button  
+            id='login'
+            isLoading={props.isSubmitting}
+
               type='submit'
-
               // Styling
               color={'#FFF'}
               backgroundColor={'#1C4E81'}
@@ -130,9 +175,11 @@ function verifyUser() {
               className='button'
               marginTop={'2rem'}
               >
-              Sign in
+              Log ind 
             </Button>
-          </form>
+          </Form>
+           )}
+     </Formik>
         </Stack>
       </Flex>
     </Stack>

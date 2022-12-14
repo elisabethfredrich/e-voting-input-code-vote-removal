@@ -1,10 +1,6 @@
 import React from "react";
-import { Link, Button } from "@chakra-ui/react";
-import { Navigate, useNavigate } from "react-router-dom";
-import InvitationLetter from "../assets/invitation-letter.svg";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/Folketinget_of_Denmark.svg";
-
-// Styling
 import "./Letter.css";
 
 const ResultNotification = () => {

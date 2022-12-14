@@ -11,17 +11,14 @@ import {
 } from "@chakra-ui/react";
 
 import { Field, Form, Formik } from "formik";
-import PopOverVerificationCode from "./PopOverVerificationCode";
 import "./InputCode.css";
 
 export default function InputCode() {
   const fs = require("fs");
 
-  //const context = useContext(Context);
   const navigate = useNavigate();
 
   const [userCodeInput, setUserCodeInput] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
@@ -29,53 +26,52 @@ export default function InputCode() {
   };
 
   function validateCode(value) {
-
     let error = "";
 
     if (!value) {
       error = "Du bedes venligst indtaste en verificeringskode";
     } else if (value.length < 8) {
       error = "Verificeringskoden skal være længere end 8 karakterer.";
-    } else if (value.length > 20){
-      error = "Verificeringskoden skal være kortere end 20 karakterer."
+    } else if (value.length > 20) {
+      error = "Verificeringskoden skal være kortere end 20 karakterer.";
     }
     return error;
   }
 
-  const handleSubmit = (values, actions) =>{
-    const generatedCode = makeid()
-    const verificationCode = values.name + '-' + generatedCode
-    setUserCodeInput(verificationCode)
-    post(verificationCode)
-    //navigateToVerificationPage();
-    document.querySelector('#verification-code').style.display = 'flex';
-    actions.setSubmitting(false)
-    document.querySelector('#submit-code').style.display = 'none';
-    document.querySelector('#input-code').disabled = 'true';
-  }
+  const handleSubmit = (values, actions) => {
+    const generatedCode = makeid();
+    const verificationCode = values.name + "-" + generatedCode;
+    setUserCodeInput(verificationCode);
+    post(verificationCode);
+    document.querySelector("#verification-code").style.display = "flex";
+    actions.setSubmitting(false);
+    document.querySelector("#submit-code").style.display = "none";
+    document.querySelector("#input-code").disabled = "true";
+  };
 
   //download verificationcode
   function download(verificationCode) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(verificationCode));
-    element.setAttribute('download', "Verifikationskode.txt");
-  
-    element.style.display = 'none';
+    var element = document.createElement("a");
+    element.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," + encodeURIComponent(verificationCode)
+    );
+    element.setAttribute("download", "Verifikationskode.txt");
+
+    element.style.display = "none";
     document.body.appendChild(element);
-  
+
     element.click();
-  
+
     document.body.removeChild(element);
   }
 
-function downloadAndVote(){
-  download(userCodeInput)
-    navigate('/voting');
-}
+  function downloadAndVote() {
+    download(userCodeInput);
+    navigate("/voting");
+  }
 
-  // Doesn't work yet with the local json server!
   function post(verificationcode) {
-    const firstLetter = verificationcode[0];
     let userId = Math.floor(Math.random() * 1000 + 1);
 
     let data = {
@@ -95,10 +91,6 @@ function downloadAndVote(){
       .then((response) => response.json())
       .catch((error) => console.error("Error:", error))
       .then((response) => console.log("Success:", JSON.stringify(response)));
-  }
-
-  function navigateToVerificationPage() {
-    navigate("/verificationcode");
   }
 
   /* Function for creating a random code */
@@ -126,7 +118,7 @@ function downloadAndVote(){
               </Text>
 
               <Text maxW="30rem">
-                Koden skal være mellem 8 og 20 karakterer. 
+                Koden skal være mellem 8 og 20 karakterer.
               </Text>
             </div>
             <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
@@ -183,10 +175,14 @@ function downloadAndVote(){
             <div className="intro-text ">
               <p>
                 Nedenunder ser du din unikke verifikationskode, som du skal
-                bruge senere til at tjekke, at din stemme er optalt korrekt. Du skal kunne genkende første halvdel af koden fra ovenover.
+                bruge senere til at tjekke, at din stemme er optalt korrekt. Du
+                skal kunne genkende første halvdel af koden fra ovenover.
               </p>
-              
-              <p>Gem den et sted, hvor du kan finde den. Vær opmærksom på, at koden downloader automatisk, når du klikker "Stem nu".</p>
+
+              <p>
+                Gem den et sted, hvor du kan finde den. Vær opmærksom på, at
+                koden downloader automatisk, når du klikker "Stem nu".
+              </p>
             </div>
 
             <div className="space-between">
@@ -194,7 +190,16 @@ function downloadAndVote(){
                 <h3>{userCodeInput}</h3>
               </div>
             </div>
-            <Button onClick={downloadAndVote} marginTop='3rem' className='button' bg={'var(--primary_blue)'} color='var(--secondary_blue)' width='100%'>Stem nu</Button>
+            <Button
+              onClick={downloadAndVote}
+              marginTop="3rem"
+              className="button"
+              bg={"var(--primary_blue)"}
+              color="var(--secondary_blue)"
+              width="100%"
+            >
+              Stem nu
+            </Button>
           </Box>
         </Box>
       </div>

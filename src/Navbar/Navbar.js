@@ -1,17 +1,13 @@
 import React from "react";
-import { Box, Grid, GridItem, Link } from "@chakra-ui/react";
-import { useContext } from "react";
+import { Box } from "@chakra-ui/react";
 import "../App.css";
 import "./Navbar.css";
-import logo from "./logo-folketinget.svg";
-import { CheckIcon, EmailIcon, InfoIcon } from "@chakra-ui/icons";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Context } from "../Context";
+import Logo from "../assets/logo-folketinget.svg";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const pathname = window.location.pathname;
   const navigate = useNavigate();
-  const voted = useContext(Context);
 
   return (
     <div>
@@ -33,8 +29,7 @@ function Navbar() {
         >
           {/* Logo */}
           <Box
-            /*   bg='#EEF5FB'
-             */ w={"7rem"}
+           w={"7rem"}
             h="100%"
             padding="0.5rem"
             display="flex"
@@ -42,7 +37,7 @@ function Navbar() {
             onClick={() => navigate("/home")}
             cursor="pointer"
           >
-            <img src={logo} />
+            <img src={Logo} />
           </Box>
         </Box>
       )}

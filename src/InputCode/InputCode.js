@@ -8,6 +8,8 @@ import {
   Text,
   FormErrorMessage,
   Box,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
 
 import { Field, Form, Formik } from "formik";
@@ -27,13 +29,23 @@ export default function InputCode() {
 
   function validateCode(value) {
     let error = "";
+    const regex = /[a-zA-Z]/;
+    const regexNumber = /\d/;
+    const doesItHaveLetter = regex.test(value);
+    const doesItHaveNumber = regexNumber.test(value);
 
     if (!value) {
-      error = "Du bedes venligst indtaste en verificeringskode";
+      error = "Du bedes venligst indtaste en kode";
     } else if (value.length < 8) {
-      error = "Verificeringskoden skal være længere end 8 karakterer.";
+      error = "Koden skal være længere end 8 karakterer.";
     } else if (value.length > 20) {
-      error = "Verificeringskoden skal være kortere end 20 karakterer.";
+      error = "Koden skal være kortere end 20 karakterer.";
+    }
+    else if (doesItHaveLetter === false){
+      error="Koden skal indeholde mindst ét bogstav."
+    }
+    else if (doesItHaveNumber === false){
+      error="Koden skal indeholde mindst ét tal."
     }
     return error;
   }
@@ -113,13 +125,17 @@ export default function InputCode() {
             <div className="space-between">
               <h1>Velkommen</h1>
               <Text maxW="30rem">
-                For at stemme til Folketingsvalget, er det obligatorisk at
-                udfylde en kode i feltet herunder.
+                For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
               </Text>
-
-              <Text maxW="30rem">
-                Koden skal være mellem 8 og 20 karakterer.
-              </Text>
+              <UnorderedList marginTop={"0.7rem"} fontWeight="600">
+                
+                <ListItem>8-20 karakter</ListItem>
+                <ListItem>Mindst ét bogstav</ListItem>
+                <ListItem>Mindst ét tal</ListItem>
+              </UnorderedList>
+              <Box className="info-box">
+                <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
+              </Box>
             </div>
             <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
               {(props) => (

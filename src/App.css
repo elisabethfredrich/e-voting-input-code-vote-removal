@@ -185,3 +185,11 @@ a{
         color: var(--primary_blue);
         margin-top:2rem; 
     }
+
+    .underlined-text{
+        text-decoration: underline;
+    }
+    
+    .bold-text{
+        font-weight: 600;
+    }

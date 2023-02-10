@@ -34,8 +34,8 @@ function Navbar() {
             padding="0.5rem"
             display="flex"
             justifyContent="center"
-            onClick={() => navigate("/home")}
-            cursor="pointer"
+            //onClick={() => navigate("/home")}
+            //cursor="pointer"
           >
             <img src={Logo} />
           </Box>

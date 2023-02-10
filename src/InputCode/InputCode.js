@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+//import { useNavigate } from "react-router-dom";
 import {
   Button,
   FormControl,
@@ -14,6 +14,8 @@ import {
 
 import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
+import { useNavigate, UNSAFE_NavigationContext  } from "react-router-dom";
+
 
 export default function InputCode() {
   const fs = require("fs");
@@ -27,6 +29,9 @@ export default function InputCode() {
     console.log(...userCodeInput);
   };
 
+  const navigation = useContext(UNSAFE_NavigationContext).navigator;
+  
+   
   function validateCode(value) {
     let error = "";
     const regex = /[a-zA-Z]/;

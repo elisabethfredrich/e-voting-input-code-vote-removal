@@ -101,27 +101,27 @@ const BulletinBoard = () => {
     <div className="container">
       <div className="main-mobile">
         <div className="header">
-          <h1>Valgresultat</h1>
+          <h1>Optalte stemmer: Folketingsvalget 2022</h1>
 
           <Box maxW="40rem" className="space-between">
             <p>
-              Herunder ser du resultater af valget. Brug din verifikationskode
-              til at tjekke, at din stemme er optalt korrekt.
+              Herunder ser du alle optalte stemmmer fra folketingsvalget. Brug din verifikationskode
+              til at tjekke, at din stemme er optalt korrekt. Dette er vigtigt, da det er med til at sikre, at valget er forløbet korrekt. <Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link>
             </p>
-            <p>
-              Dette kan du gøre ved enten at indsætte din kode i søgefeltet
+            <p className="bold-text">
+              Du kan verficere din stemme ved enten at indsætte din verifikationskode i søgefeltet
               eller ved at kigge i den alfabetiske sorterede liste herunder.
             </p>
           </Box>
 
           <Box className="info-box">
             <Text className="info-text">
-              Såfremt din stemme ikke er optalt korrekt, eller at du ikke kan
-              finde din kode, bedes du kontakte valgstyrelsen{" "}
+              <span className="bold-text">OBS!</span> Såfremt din stemme ikke er optalt korrekt, eller at du ikke kan
+              finde din kode, bedes du kontakte {" "}
               <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-                her
+                valgstyrelsen
               </Link>
-              .
+              . Det samme gælder, hvis du finder din verifikationskode flere gange. 
             </Text>
           </Box>
 
@@ -150,7 +150,7 @@ const BulletinBoard = () => {
         >
           <h3>Der er ingen stemme med denne kode.</h3>
           <Text className="info-text">
-            Tjek venligst, at du har indtastet din kode korrekt. Hvis koden er
+            Tjek venligst, at du har indtastet din kode korrekt - vær opmærksom på store og små bogstaver. Hvis koden er
             korrekt, men din stemme ikke vises, skal du kontakte valgstyrelsen{" "}
             <Link className="link-bold" onClick={() => navigate("/kontakt")}>
               her
@@ -218,14 +218,28 @@ const BulletinBoard = () => {
           </Accordion>
         )}
 
+        <Box marginTop="3rem">
+       <Text marginLeft={"1rem"} marginRight={"1rem"}>Passer person/parti ved siden af din verifikationskode med dét, som du har stemt på?</Text>
+       <Box display={"flex"} flexFlow="row" justifyContent={"space-between"} marginLeft={"1rem"} marginRight={"1rem"}>
         <Button
           className="button"
-          width={"100%"}
+          width={"45%"}
           marginTop="3rem"
           onClick={() => navigate("/login")}
         >
-          Afslut
+          Yes
         </Button>
+
+        <Button
+          className="button"
+          width={"45%"}
+          marginTop="3rem"
+          onClick={() => navigate("/login")}
+        >
+          No
+        </Button>
+        </Box>
+        </Box>
       </div>
     </div>
   );

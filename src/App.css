@@ -178,7 +178,7 @@ a{
     }
 
     .info-box{
-        max-width:40rem;
+        max-width:30rem;
         background-color:var(--secondary_blue);
         padding:1rem;
         border-radius:5px;
@@ -193,3 +193,22 @@ a{
     .bold-text{
         font-weight: 600;
     }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+        font-size: 3.5rem;
+        }
+        
+        .small{
+          font-size: 1.5rem !important;
+        }
+        
+        .blue{
+        font-size: 3.4rem ;
+        color: var(--primary_blue) !important;
+        
+        }

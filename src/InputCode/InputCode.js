@@ -128,18 +128,20 @@ export default function InputCode() {
         <Box display={"flex"} flexDirection="column">
           <Box>
             <div className="space-between">
-              <h1>Velkommen</h1>
+              <h1>Welcome</h1>
               <Text maxW="30rem">
-                For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
+{/*                 For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
+ */}                In order to vote in the Parliament Election, please provide a code in the input field below. The code should contain of:
               </Text>
               <UnorderedList marginTop={"0.7rem"} fontWeight="600">
                 
-                <ListItem>8-20 karakter</ListItem>
-                <ListItem>Mindst ét bogstav</ListItem>
-                <ListItem>Mindst ét tal</ListItem>
+                <ListItem>8-20 characters</ListItem>
+                <ListItem>At least one letter</ListItem>
+                <ListItem>At least one number</ListItem>
               </UnorderedList>
               <Box className="info-box">
-                <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
+{/*                 <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
+ */}                <Text><span className="bold-text">NB!</span> This code will be visible on a public website in connection with your vote and should therefore only be known to you. The code <span className="underlined-text">must not</span> contain any sensitive information that could lead to conclusions about your person. Please also avoid any passwords you use elsewhere.</Text>       
               </Box>
             </div>
             <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
@@ -154,11 +156,11 @@ export default function InputCode() {
                       <FormControl
                         isInvalid={form.errors.name && form.touched.name}
                       >
-                        <FormLabel color={"#1C4E81"}>Indtast kode</FormLabel>
+                        <FormLabel color={"#1C4E81"}>Enter your code here</FormLabel>
                         <Input
                           id="input-code"
                           type="text"
-                          placeholder="Indtast kode"
+                          placeholder="Enter your code here"
                           borderRadius={"0"}
                           borderColor={"#1C4E81"}
                           color={"#1C4E81"}

@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 import "../App.css";
 import "./Navbar.css";
-import Logo from "../assets/logo-folketinget.svg";
+import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -21,21 +21,17 @@ function Navbar() {
           top="0"
           bg="#EEF5FB"
           display={"flex"}
-          justifyContent="center"
-          alignItems={"center"}
           paddingLeft="2rem"
           paddingRight="2rem"
           zIndex={"10"}
         >
           {/* Logo */}
           <Box
-           w={"7rem"}
-            h="100%"
-            padding="0.5rem"
+           w={"10rem"}
+            h="120%"
             display="flex"
             justifyContent="center"
-            //onClick={() => navigate("/home")}
-            //cursor="pointer"
+
           >
             <img src={Logo} />
           </Box>

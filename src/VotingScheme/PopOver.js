@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
 
-function PopOver(value) {
+function PopOver({value}) {
   const navigate = useNavigate();
 
   const submitVote = () => {
@@ -39,7 +39,7 @@ function PopOver(value) {
               Please check your vote is entered correctly. Are you sure, you want to vote for: 
             </Text>
             <Text marginBottom={"1.5rem"} marginTop={"1rem"} color="#1C4E81">
-              X
+              {value}
             </Text>
             <Box display={"flex"} alignItems="top">
               <PopoverCloseButton className="no-button">No</PopoverCloseButton>

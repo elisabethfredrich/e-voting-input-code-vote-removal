@@ -18,15 +18,10 @@ function VotingScheme() {
     <div className="container">
       <div className="main">
         <div className="header">
-          <h1>Stemmeseddel</h1>
-          <div className="header-bottom-line">
+          <h1>Ballot</h1>
+          <div className="bottom-line">
             <p>
-              For at afgive din stemme, sæt venligst et kryds(X) ud fra enten et
-              parti eller en kandidat.
-            </p>
-            <p>
-              De listede kandidater herunder er respektive i forhold til din
-              bopæl.
+              To cast your vote, please select a candidate below.
             </p>
           </div>
         </div>

@@ -1,0 +1,32 @@
+.container-survey{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--secondary_darkblue);
+    height: 100vw;
+}
+
+.content-survey{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    color:white
+}
+
+.button-to-survey{
+    background-color: white;
+    color: var(--secondary_darkblue);
+}
+
+.button-to-survey:hover{
+    background-color: #41668C !important;
+    color: var(--secondary_blue);
+}
+
+.headline{
+    color:white !important;
+}
+
+
+

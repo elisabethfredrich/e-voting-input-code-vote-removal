@@ -9,19 +9,10 @@ export default function Confirmation() {
   return (
     <div className="container-confirmation container">
       <div className="content-confirmation">
-        <h1>Tak for din stemme</h1>
-        <p>
-          Du modtager en mail når resultatet er klart, hvorefter du kan bruge
-          din verifikationskode til at tjekke om din stemme er optalt korrekt.
-        </p>
-        <Button
-          marginTop={"2rem"}
-          width="8rem"
-          className="button"
-          onClick={() => navigate("/resultnotification")}
-        >
-          Log ud
-        </Button>
+        <h1>Thank you for voting</h1>
+        <p>You will recieve an email, when all votes has been counted and the results are published on the offical webpage. </p>
+        <br></br>
+        <p>Use this webpage to check, if your vote has been counted correctly by finding your unique verification code.</p>
       </div>
     </div>
   );

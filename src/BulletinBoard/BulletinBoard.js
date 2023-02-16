@@ -101,27 +101,19 @@ const BulletinBoard = () => {
     <div className="container">
       <div className="main-mobile">
         <div className="header">
-          <h1>Optalte stemmer: Folketingsvalget 2022</h1>
-
+          <h1>Voting Count: Parliament Election 2023</h1>
           <Box maxW="40rem" className="space-between">
-            <p>
-              Herunder ser du alle optalte stemmmer fra folketingsvalget. Brug din verifikationskode
-              til at tjekke, at din stemme er optalt korrekt. Dette er vigtigt, da det er med til at sikre, at valget er forløbet korrekt. <Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link>
-            </p>
+            <p>This pages shows all the counted votes from the Parliament Election 2023.</p>
+            <p>Please use your verification code to check, if your vote has been counted correctly. This is important, because it helps to ensure that the election has proceeded correctly.<Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link> </p>
+  
             <p className="bold-text">
-              Du kan verficere din stemme ved enten at indsætte din verifikationskode i søgefeltet
-              eller ved at kigge i den alfabetiske sorterede liste herunder.
+              Verify your vote by either putting your verification code into the search field or by looking for it in the alphabetically sorted list below. 
             </p>
           </Box>
-
+          
           <Box className="info-box">
             <Text className="info-text">
-              <span className="bold-text">OBS!</span> Såfremt din stemme ikke er optalt korrekt, eller at du ikke kan
-              finde din kode, bedes du kontakte {" "}
-              <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-                valgstyrelsen
-              </Link>
-              . Det samme gælder, hvis du finder din verifikationskode flere gange. 
+              <span className="bold-text">NB!</span> If your vote has not been counted correctly or you cannot find your verification code, please follow the instruction paper. The same applies, if you find your verification repeatedly. 
             </Text>
           </Box>
 
@@ -134,7 +126,7 @@ const BulletinBoard = () => {
               value={input}
               onChange={handleInputChange}
               onKeyUp={search}
-              placeholder={"Søg efter din kode her"}
+              placeholder={"Search for verification code here"}
               type="search"
               borderColor="#565d6d"
             />
@@ -148,15 +140,9 @@ const BulletinBoard = () => {
           color="maroon"
           marginTop="0"
         >
-          <h3>Der er ingen stemme med denne kode.</h3>
-          <Text className="info-text">
-            Tjek venligst, at du har indtastet din kode korrekt - vær opmærksom på store og små bogstaver. Hvis koden er
-            korrekt, men din stemme ikke vises, skal du kontakte valgstyrelsen{" "}
-            <Link className="link-bold" onClick={() => navigate("/kontakt")}>
-              her
-            </Link>
-            .
-          </Text>
+          <h3>No such verification code exists</h3>
+          <Text>Please check if you have typed in your verification code correctly - be aware of correct use of lowercase and uppercase letters. 
+            If your verification code still does not show, please follow the instruction paper. </Text>
         </Box>
 
         <Box
@@ -167,7 +153,7 @@ const BulletinBoard = () => {
           color="#599C2D"
           width="100%"
         >
-          <h3>Din stemme er optalt!</h3>
+          <h3>Your vote has been counted!</h3>
         </Box>
 
         {input.length > 0 ? (
@@ -219,7 +205,7 @@ const BulletinBoard = () => {
         )}
 
         <Box marginTop="3rem">
-       <Text marginLeft={"1rem"} marginRight={"1rem"}>Passer person/parti ved siden af din verifikationskode med dét, som du har stemt på?</Text>
+       <Text marginLeft={"1rem"} marginRight={"1rem"}>Does the candidate next to your verification code match with your casted vote?</Text>
        <Box display={"flex"} flexFlow="row" justifyContent={"space-between"} marginLeft={"1rem"} marginRight={"1rem"}>
         <Button
           className="button"

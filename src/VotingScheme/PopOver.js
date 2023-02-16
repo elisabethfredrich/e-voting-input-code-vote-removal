@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
 
-function PopOver(value) {
+function PopOver({value}) {
   const navigate = useNavigate();
 
   const submitVote = () => {
@@ -34,7 +34,7 @@ function PopOver(value) {
       <PopoverContent width={"100%"} backgroundColor={"#EEF5FB"} padding="3rem">
         <PopoverArrow />
         <PopoverCloseButton />
-        {value.value === "" ? (
+        {value === "" ? (
           <PopoverBody alignContent="center">
             <Text marginBottom={"1.5rem"}>
               Tjek venligst at din stemme er angivet korrekt. Er du sikker på,
@@ -61,7 +61,7 @@ function PopOver(value) {
               at du ønsker at stemme på:
             </Text>
             <Text marginBottom={"1.5rem"} marginTop={"1rem"} color="#1C4E81">
-              Pia Olsen Dyhr
+              {value}
             </Text>
             <Box display={"flex"} alignItems="top">
               <PopoverCloseButton className="no-button">Nej</PopoverCloseButton>

@@ -1,13 +1,13 @@
 import "./VotingScheme.css";
-import { RadioGroup, Radio, Stack, GridItem } from "@chakra-ui/react";
-import Parties from "../candidates.json";
+import { RadioGroup, Radio, Box, GridItem, Grid } from "@chakra-ui/react";
+import Candidates from "../candidates.json";
 import PopOver from "./PopOver";
 import { useState, useEffect } from "react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 function VotingScheme() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("blank");
 
   const location = useLocation();
   useEffect(() => {
@@ -19,7 +19,7 @@ function VotingScheme() {
       <div className="main">
         <div className="header">
           <h1>Stemmeseddel</h1>
-          <div className="bottom-line">
+          <div className="header-bottom-line">
             <p>
               For at afgive din stemme, sæt venligst et kryds(X) ud fra enten et
               parti eller en kandidat.
@@ -32,36 +32,22 @@ function VotingScheme() {
         </div>
 
         <RadioGroup onChange={setValue} value={value}>
-          {Parties.map((party) => (
-            <div id="party" key={party.id}>
-              <Radio
-                value={party.id.toString()}
-                marginBottom="1rem"
-                padding="1rem"
-                borderColor="#1C4E81"
-              >
-                <h2>{party.party}</h2>
-              </Radio>
-              <Stack
-                className="stack"
-                display="grid"
-                gridTemplateColumns="1fr 1fr"
-                color="#1C4E81"
-                alignItems={"end"}
-              >
-                {party.candidates.map((candidate) => (
-                  <GridItem key={candidate.id} className="grid-item">
+          <Grid className="voting-options">
+            {Candidates.map((candidate) => (
+              <Box key={candidate.id}>
+                <GridItem className="voting-option">
+                  <Grid className="candidate-party-wrapper">
                     <Radio
-                      value={candidate.id.toString()}
-                      borderColor="#1C4E81"
-                    >
-                      {candidate.candidate}
-                    </Radio>
-                  </GridItem>
-                ))}
-              </Stack>
-            </div>
-          ))}
+                      className="radio"
+                      value={`${candidate.candidate} (${candidate.party})`}
+                    />
+                    <GridItem>{candidate.candidate}</GridItem>
+                    <GridItem>{candidate.party}</GridItem>
+                  </Grid>
+                </GridItem>
+              </Box>
+            ))}
+          </Grid>
         </RadioGroup>
 
         <PopOver value={value}></PopOver>

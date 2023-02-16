@@ -40,17 +40,21 @@ export default function InputCode() {
     const doesItHaveNumber = regexNumber.test(value);
 
     if (!value) {
-      error = "Du bedes venligst indtaste en kode";
+      error = "This field is required";
     } else if (value.length < 8) {
-      error = "Koden skal være længere end 8 karakterer.";
+      /* error = "Koden skal være længere end 8 karakterer."; */
+      error = "The code must be longer than 8 characters";
     } else if (value.length > 20) {
-      error = "Koden skal være kortere end 20 karakterer.";
+     /*  error = "Koden skal være kortere end 20 karakterer."; */
+     error = "The code must be shorter than 20 characters";
     }
     else if (doesItHaveLetter === false){
-      error="Koden skal indeholde mindst ét bogstav."
+ /*      error="Koden skal indeholde mindst ét bogstav." */
+    error="The code must contain at least one letter."
     }
     else if (doesItHaveNumber === false){
-      error="Koden skal indeholde mindst ét tal."
+ /*      error="Koden skal indeholde mindst ét tal." */
+      error="The code must contoain at least one number"
     }
     return error;
   }
@@ -73,7 +77,7 @@ export default function InputCode() {
       "href",
       "data:text/plain;charset=utf-8," + encodeURIComponent(verificationCode)
     );
-    element.setAttribute("download", "Verifikationskode.txt");
+    element.setAttribute("download", "Verification_code.txt");
 
     element.style.display = "none";
     document.body.appendChild(element);
@@ -128,18 +132,20 @@ export default function InputCode() {
         <Box display={"flex"} flexDirection="column">
           <Box>
             <div className="space-between">
-              <h1>Velkommen</h1>
+              <h1>Welcome</h1>
               <Text maxW="30rem">
-                For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
+{/*                 For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
+ */}                In order to vote in the Parliament Election, please provide a code in the input field below. The code should contain of:
               </Text>
               <UnorderedList marginTop={"0.7rem"} fontWeight="600">
                 
-                <ListItem>8-20 karakter</ListItem>
-                <ListItem>Mindst ét bogstav</ListItem>
-                <ListItem>Mindst ét tal</ListItem>
+                <ListItem>8-20 characters</ListItem>
+                <ListItem>At least one letter</ListItem>
+                <ListItem>At least one number</ListItem>
               </UnorderedList>
               <Box className="info-box">
-                <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
+{/*                 <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
+ */}                <Text><span className="bold-text">NB!</span> The code <span className="underlined-text">must not</span> contain any sensitive information that could lead to conclusions about your person. Please also avoid any passwords you use elsewhere.</Text>       
               </Box>
             </div>
             <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
@@ -154,11 +160,11 @@ export default function InputCode() {
                       <FormControl
                         isInvalid={form.errors.name && form.touched.name}
                       >
-                        <FormLabel color={"#1C4E81"}>Indtast kode</FormLabel>
+                        <FormLabel color={"#1C4E81"}>Enter your code here</FormLabel>
                         <Input
                           id="input-code"
                           type="text"
-                          placeholder="Indtast kode"
+                          placeholder="Enter your code here"
                           borderRadius={"0"}
                           borderColor={"#1C4E81"}
                           color={"#1C4E81"}
@@ -195,14 +201,17 @@ export default function InputCode() {
           >
             <div className="intro-text ">
               <p>
-                Nedenunder ser du din unikke verifikationskode, som du skal
+          {/*       Nedenunder ser du din unikke verifikationskode, som du skal
                 bruge senere til at tjekke, at din stemme er optalt korrekt. Du
-                skal kunne genkende første halvdel af koden fra ovenover.
+                skal kunne genkende første halvdel af koden fra ovenover. */}
+                Below is your unique verification code, which you need to use later to check if your vote has been counted correctly. 
+                You should be able to recognize the first part of the code from above.  
               </p>
 
               <p>
-                Gem den et sted, hvor du kan finde den. Vær opmærksom på, at
-                koden downloader automatisk, når du klikker "Stem nu".
+              {/*   Gem den et sted, hvor du kan finde den. Vær opmærksom på, at
+                koden downloader automatisk, når du klikker "Stem nu". */}
+                Save the code a place, where you can find it again easily. Be aware that the code downloads automatically, when you click "Vote now"
               </p>
             </div>
 
@@ -219,7 +228,7 @@ export default function InputCode() {
               color="var(--secondary_blue)"
               width="100%"
             >
-              Stem nu
+              Vote now 
             </Button>
           </Box>
         </Box>

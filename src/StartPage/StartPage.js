@@ -15,6 +15,7 @@ import {
     ListItem,
   } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import { addVoter } from "../API/Voter";
 
 export default function StartPage(){
 
@@ -23,10 +24,12 @@ export default function StartPage(){
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+      addVoter(e.name);
       voter.setID(e.name);
+      console.log(e.name);
       navigate("/inputcode");
-    }
+     }
 
     function validateCode(value) {
       let error = "";  
@@ -38,7 +41,7 @@ export default function StartPage(){
 
     const handleChangeProlificID = (e) => {
         setID(e.target.value);
-        console.log("id: "+id);
+        console.log(...id);
       };
 
     return(
@@ -53,7 +56,7 @@ export default function StartPage(){
                 {(props) => (
                   <Form className="input-field">
                     <Field
-                      name="id"
+                      name="name"
                       validate={validateCode}
                       onChange={handleChangeProlificID}
                     >

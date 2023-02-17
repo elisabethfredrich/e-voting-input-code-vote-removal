@@ -15,14 +15,15 @@ import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
 import { useNavigate  } from "react-router-dom";
 import { VoterContext } from "../VoterContext";
+import getCurrentUser, { updateVoter } from "../API/Voter";
 
 
 export default function InputCode() {
-//  const fs = require("fs");
 
   const navigate = useNavigate();
-  const voter = useContext(VoterContext);
-
+/*   const voter = useContext(VoterContext);
+ */
+  const voter = getCurrentUser();
   const [userCodeInput, setUserCodeInput] = useState("");
 
   const handleChangeCodeInput = (e) => {
@@ -57,16 +58,16 @@ export default function InputCode() {
     return error;
   }
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const generatedCode = generateCode();
     const verificationCode = values.name + "-" + generatedCode;
+    updateVoter("VerificationCode", verificationCode)
     setUserCodeInput(verificationCode);
-    //post(verificationCode);
     document.querySelector("#verification-code").style.display = "flex";
     actions.setSubmitting(false);
     document.querySelector("#submit-code").style.display = "none";
     document.querySelector("#input-code").disabled = "true";
-    voter.setVerificationCode(verificationCode);
+    //  voter.setVerificationCode(verificationCode);
   };
 
   //download verificationcode

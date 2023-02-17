@@ -7,13 +7,9 @@ import Navbar from "./Navbar/Navbar";
 import VotingScheme from "./VotingScheme/VotingScheme";
 import Survey from "./Survey/Survey"
 import StartPage from "./StartPage/StartPage"
-//import { initializeParse } from "@parse/react";
-import Parse from 'parse/dist/parse.min.js';
+import Parse from 'parse';
 import { VoterContext } from "./VoterContext";
 import { useState } from "react";
-
-
-
 
 const PARSE_APPLICATION_ID = 'UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
@@ -23,6 +19,7 @@ Parse.initialize(
   PARSE_APPLICATION_ID, 
   PARSE_JAVASCRIPT_KEY
   );
+
 Parse.serverURL = PARSE_HOST_URL;
 
 
@@ -30,12 +27,13 @@ function App() {
 
   const[id, setID] = useState("");
   const[verificationCode, setVerificationCode] = useState("");
+  const[vote, setVote] = useState("");
  
 
   return (
     <div className="App">
       <div id="app-main">
-        <VoterContext.Provider value={{id, setID, verificationCode, setVerificationCode}}>
+        <VoterContext.Provider value={{id, setID, verificationCode, setVerificationCode, vote, setVote}}>
         <BrowserRouter>
           <Navbar />
           <Routes>

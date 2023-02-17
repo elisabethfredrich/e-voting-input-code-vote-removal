@@ -20,41 +20,46 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { VoterContext } from "../VoterContext";
+import getCurrentUser from "../API/Voter";
 
 const BulletinBoard = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
+//const voter = useContext(VoterContext);
+const voter = getCurrentUser();
 
   const location = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+  let results = Results.votes;
 
-  //sort the results alphabetically
-  const results = Results.votes.sort((a, b) => {
-    if (a.code.toUpperCase() < b.code.toUpperCase()) {
-      return -1;
-    } else {
-      return 1;
-    }
-  });
+ useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]); 
+
 
   const makeAccordion = () => {
+  //  results.push({ id: voter.id, vote: voter.vote, code: voter.code });
+    results.push({ id: voter.id, vote: voter.attributes.Vote, code: voter.attributes.VerificationCode });
+    console.log(voter)
+    results.sort((a, b) => {
+      if (a.code.toUpperCase() < b.code.toUpperCase()) {
+        return -1;
+      } else {
+        return 1;
+      }
+  })
     let firstLetter = results[0].code[0].toUpperCase();
     let accordion = [];
     let accordionSection = { letter: firstLetter, results: [results[0]] };
     let length = results.length - 1;
     for (let i = 1; i < length; i++) {
-      console.log(results[i]);
-      console.log(i);
       if (results[i].code[0].toUpperCase() === firstLetter) {
-        console.log(accordionSection);
         accordionSection.results.push(results[i]);
       }
       if (results[i].code[0].toUpperCase() !== firstLetter) {
         accordion.push(accordionSection);
         firstLetter = results[i].code[0].toUpperCase();
-        console.log(firstLetter);
         accordionSection = { letter: firstLetter, results: [results[i]] };
       }
     }
@@ -103,17 +108,32 @@ const BulletinBoard = () => {
         <div className="header">
           <h1>Voting Count: Parliament Election 2023</h1>
           <Box maxW="40rem" className="space-between">
-            <p>This pages shows all the counted votes from the Parliament Election 2023.</p>
-            <p>Please use your verification code to check, if your vote has been counted correctly. This is important, because it helps to ensure that the election has proceeded correctly.<Link  onClick={() => navigate("/info")}><span class="material-symbols-outlined blue small">info</span></Link> </p>
-  
+            <p>
+              This pages shows all the counted votes from the Parliament
+              Election 2023.
+            </p>
+            <p>
+              Please use your verification code to check, if your vote has been
+              counted correctly. This is important, because it helps to ensure
+              that the election has proceeded correctly.
+              <Link onClick={() => navigate("/info")}>
+                <span className="material-symbols-outlined blue small">info</span>
+              </Link>{" "}
+            </p>
+
             <p className="bold-text">
-              Verify your vote by either putting your verification code into the search field or by looking for it in the alphabetically sorted list below. 
+              Verify your vote by either putting your verification code into the
+              search field or by looking for it in the alphabetically sorted
+              list below.
             </p>
           </Box>
-          
+
           <Box className="info-box">
             <Text className="info-text">
-              <span className="bold-text">NB!</span> If your vote has not been counted correctly or you cannot find your verification code, please follow the instruction paper. The same applies, if you find your verification repeatedly. 
+              <span className="bold-text">NB!</span> If your vote has not been
+              counted correctly or you cannot find your verification code,
+              please follow the instruction paper. The same applies, if you find
+              your verification repeatedly.
             </Text>
           </Box>
 
@@ -141,8 +161,12 @@ const BulletinBoard = () => {
           marginTop="0"
         >
           <h3>No such verification code exists</h3>
-          <Text>Please check if you have typed in your verification code correctly - be aware of correct use of lowercase and uppercase letters. 
-            If your verification code still does not show, please follow the instruction paper. </Text>
+          <Text>
+            Please check if you have typed in your verification code correctly -
+            be aware of correct use of lowercase and uppercase letters. If your
+            verification code still does not show, please follow the instruction
+            paper.{" "}
+          </Text>
         </Box>
 
         <Box
@@ -205,26 +229,35 @@ const BulletinBoard = () => {
         )}
 
         <Box marginTop="3rem">
-       <Text marginLeft={"1rem"} marginRight={"1rem"}>Does the candidate next to your verification code match with your casted vote?</Text>
-       <Box display={"flex"} flexFlow="row" justifyContent={"space-between"} marginLeft={"1rem"} marginRight={"1rem"}>
-        <Button
-          className="button"
-          width={"45%"}
-          marginTop="3rem"
-          onClick={() => navigate("/login")}
-        >
-          Yes
-        </Button>
+          <Text marginLeft={"1rem"} marginRight={"1rem"}>
+            Does the candidate next to your verification code match with your
+            casted vote?
+          </Text>
+          <Box
+            display={"flex"}
+            flexFlow="row"
+            justifyContent={"space-between"}
+            marginLeft={"1rem"}
+            marginRight={"1rem"}
+          >
+            <Button
+              className="button"
+              width={"45%"}
+              marginTop="3rem"
+              onClick={() => navigate("/login")}
+            >
+              Yes
+            </Button>
 
-        <Button
-          className="button"
-          width={"45%"}
-          marginTop="3rem"
-          onClick={() => navigate("/login")}
-        >
-          No
-        </Button>
-        </Box>
+            <Button
+              className="button"
+              width={"45%"}
+              marginTop="3rem"
+              onClick={() => navigate("/login")}
+            >
+              No
+            </Button>
+          </Box>
         </Box>
       </div>
     </div>

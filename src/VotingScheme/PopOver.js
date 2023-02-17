@@ -13,21 +13,25 @@ import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
 import { VoterContext } from "../VoterContext";
 import { useContext } from "react";
-import { addVoter } from "../API/Voter";
+import getCurrentUser, { addVoter, updateVoter } from "../API/Voter";
 
 function PopOver({vote}) {
-  const voter = useContext(VoterContext);
+ // const voter = useContext(VoterContext);
+  const voter = getCurrentUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-   //e.preventDefault();
-   console.log("submit")
-    await addVoter(
-      voter.id,
-      voter.verificationCode,
+    if(vote==="Sarah Wilson (Party F)"){
+      const alteredVote = "Emma Miller (Party J)";
+      //voter.setVote(alteredVote);
+    }
+    else{
+      //voter.setVote(vote);
+    }
+    await updateVoter(
+      "Vote",
       vote
     )
-
     navigate("/confirmation");
   };
 

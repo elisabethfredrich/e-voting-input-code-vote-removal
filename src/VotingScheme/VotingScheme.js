@@ -12,10 +12,10 @@ function VotingScheme() {
 
 
   const location = useLocation();
-  /* useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
- */
+
   return (
     <div className="container">
       <div className="main">

@@ -4,5 +4,7 @@ export const VoterContext = createContext({
   id: "",
   setID: () => {},
   verificationCode: "",
-  setVerificationCode: () => {}
+  setVerificationCode: () => {},
+  vote: "",
+  setVote: () => {}
 });

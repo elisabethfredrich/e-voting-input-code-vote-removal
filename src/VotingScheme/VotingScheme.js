@@ -2,18 +2,20 @@ import "./VotingScheme.css";
 import { RadioGroup, Radio, Box, GridItem, Grid } from "@chakra-ui/react";
 import Candidates from "../candidates.json";
 import PopOver from "./PopOver";
-import { useState, useEffect } from "react";
+import { useState, useEffect,  } from "react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
 function VotingScheme() {
-  const [value, setValue] = useState("blank");
+  const [vote, setVote] = useState("blank");
+
+
 
   const location = useLocation();
-  useEffect(() => {
+  /* useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-
+ */
   return (
     <div className="container">
       <div className="main">
@@ -26,7 +28,7 @@ function VotingScheme() {
           </div>
         </div>
 
-        <RadioGroup onChange={setValue} value={value}>
+        <RadioGroup onChange={setVote} value={vote}>
           <Grid className="voting-options">
             {Candidates.map((candidate) => (
               <Box key={candidate.id}>
@@ -45,7 +47,7 @@ function VotingScheme() {
           </Grid>
         </RadioGroup>
 
-        <PopOver value={value}></PopOver>
+        <PopOver vote={vote}></PopOver>
       </div>
     </div>
   );

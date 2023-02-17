@@ -19,7 +19,7 @@ export default function Survey(){
             <Button
             marginTop={"2rem"}
             width="8rem"
-            className="button-to-survey"
+            className="light-btn"
             onClick={() => navigate("/XXX")}
             >
             Go to survey

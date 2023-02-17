@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import {
   Button,
   FormControl,
@@ -14,23 +13,22 @@ import {
 
 import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
-import { useNavigate, UNSAFE_NavigationContext  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+import { VoterContext } from "../VoterContext";
 
 
 export default function InputCode() {
-  const fs = require("fs");
+//  const fs = require("fs");
 
   const navigate = useNavigate();
+  const voter = useContext(VoterContext);
 
   const [userCodeInput, setUserCodeInput] = useState("");
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
     console.log(...userCodeInput);
-  };
-
-  const navigation = useContext(UNSAFE_NavigationContext).navigator;
-  
+  };  
    
   function validateCode(value) {
     let error = "";
@@ -60,14 +58,15 @@ export default function InputCode() {
   }
 
   const handleSubmit = (values, actions) => {
-    const generatedCode = makeid();
+    const generatedCode = generateCode();
     const verificationCode = values.name + "-" + generatedCode;
     setUserCodeInput(verificationCode);
-    post(verificationCode);
+    //post(verificationCode);
     document.querySelector("#verification-code").style.display = "flex";
     actions.setSubmitting(false);
     document.querySelector("#submit-code").style.display = "none";
     document.querySelector("#input-code").disabled = "true";
+    voter.setVerificationCode(verificationCode);
   };
 
   //download verificationcode
@@ -92,30 +91,7 @@ export default function InputCode() {
     navigate("/voting");
   }
 
-  function post(verificationcode) {
-    let userId = Math.floor(Math.random() * 1000 + 1);
-
-    let data = {
-      id: "" + userId + "",
-      vote: "Pia Olsen Dyhr",
-      code: verificationcode,
-    };
-    console.log(data);
-
-    fetch("http://localhost:8000/votes/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .catch((error) => console.error("Error:", error))
-      .then((response) => console.log("Success:", JSON.stringify(response)));
-  }
-
-  /* Function for creating a random code */
-  function makeid() {
+  function generateCode() {
     var result = "";
     var characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

@@ -11,13 +11,27 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
+import { VoterContext } from "../VoterContext";
+import { useContext } from "react";
+import { addVoter } from "../API/Voter";
 
-function PopOver({value}) {
+function PopOver({vote}) {
+  const voter = useContext(VoterContext);
   const navigate = useNavigate();
 
-  const submitVote = () => {
+  const handleSubmit = async (e) => {
+   //e.preventDefault();
+   console.log("submit")
+    await addVoter(
+      voter.id,
+      voter.verificationCode,
+      vote
+    )
+
     navigate("/confirmation");
   };
+
+
 
   return (
     <Popover className="popover">
@@ -39,7 +53,7 @@ function PopOver({value}) {
               Please check your vote is entered correctly. Are you sure, you want to vote for: 
             </Text>
             <Text marginBottom={"1.5rem"} marginTop={"1rem"} color="#1C4E81">
-              {value}
+              {vote}
             </Text>
             <Box display={"flex"} alignItems="top">
               <PopoverCloseButton className="no-button">No</PopoverCloseButton>
@@ -47,7 +61,7 @@ function PopOver({value}) {
                 className="button"
                 bg={"var(--primary_blue)"}
                 color="var(--secondary_blue)"
-                onClick={() => navigate("/confirmation")}
+                onClick={handleSubmit}
               >
                 Yes
               </Button>

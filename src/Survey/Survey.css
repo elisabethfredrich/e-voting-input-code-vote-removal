@@ -14,15 +14,7 @@
     color:white
 }
 
-.button-to-survey{
-    background-color: white;
-    color: var(--secondary_darkblue);
-}
 
-.button-to-survey:hover{
-    background-color: #41668C !important;
-    color: var(--secondary_blue);
-}
 
 .headline{
     color:white !important;

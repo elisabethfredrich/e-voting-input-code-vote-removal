@@ -28,7 +28,6 @@ body{
 
 h1{
     font-weight: 600 !important;
-    color: var(--primary_blue) !important;
     font-size: 2rem !important;
     margin-bottom: 1.5rem !important;
 }
@@ -211,4 +210,20 @@ a{
         font-size: 3.4rem ;
         color: var(--primary_blue) !important;
         
+        }
+
+        .dark-bg{
+            background-color: var(--secondary_darkblue);
+            color: var(--secondary_blue) !important;
+            height: 100vh !important;
+        }
+
+        .light-btn{
+            background-color: white;
+            color: var(--secondary_darkblue);
+        }
+        
+        .light-btn:hover{
+            background-color: #41668C !important;
+            color: var(--secondary_blue);
         }

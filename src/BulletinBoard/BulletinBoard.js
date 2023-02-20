@@ -20,28 +20,24 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { VoterContext } from "../VoterContext";
 import getCurrentUser from "../API/Voter";
 
 const BulletinBoard = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
-//const voter = useContext(VoterContext);
 const voter = getCurrentUser();
 
   const location = useLocation();
-  let results = Results.votes;
-
- useEffect(() => {
+  let results = new Set(Results.votes);
+  
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]); 
-
-
+  }, []); 
+  
+  
   const makeAccordion = () => {
-  //  results.push({ id: voter.id, vote: voter.vote, code: voter.code });
-    results.push({ id: voter.id, vote: voter.attributes.Vote, code: voter.attributes.VerificationCode });
-    console.log(voter)
+    results.add({ id: voter.id, vote: voter.attributes.BBVote, code: voter.attributes.VerificationCode });
+    results = Array.from(results)
     results.sort((a, b) => {
       if (a.code.toUpperCase() < b.code.toUpperCase()) {
         return -1;

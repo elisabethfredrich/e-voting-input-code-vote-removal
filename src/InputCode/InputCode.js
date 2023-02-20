@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import {
   Button,
   FormControl,
@@ -9,28 +9,29 @@ import {
   Box,
   UnorderedList,
   ListItem,
+  Checkbox,
+  color
 } from "@chakra-ui/react";
 
 import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
-import { useNavigate  } from "react-router-dom";
-import { VoterContext } from "../VoterContext";
-import getCurrentUser, { updateVoter } from "../API/Voter";
-
+import { useNavigate } from "react-router-dom";
+import getCurrentUser, {
+  saveVerificationCode,
+  updateVoter,
+} from "../API/Voter";
 
 export default function InputCode() {
-
   const navigate = useNavigate();
-/*   const voter = useContext(VoterContext);
- */
   const voter = getCurrentUser();
   const [userCodeInput, setUserCodeInput] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
     console.log(...userCodeInput);
-  };  
-   
+  };
+
   function validateCode(value) {
     let error = "";
     const regex = /[a-zA-Z]/;
@@ -41,33 +42,28 @@ export default function InputCode() {
     if (!value) {
       error = "This field is required";
     } else if (value.length < 8) {
-      /* error = "Koden skal være længere end 8 karakterer."; */
       error = "The code must be longer than 8 characters";
     } else if (value.length > 20) {
-     /*  error = "Koden skal være kortere end 20 karakterer."; */
-     error = "The code must be shorter than 20 characters";
-    }
-    else if (doesItHaveLetter === false){
- /*      error="Koden skal indeholde mindst ét bogstav." */
-    error="The code must contain at least one letter."
-    }
-    else if (doesItHaveNumber === false){
- /*      error="Koden skal indeholde mindst ét tal." */
-      error="The code must contoain at least one number"
+      error = "The code must be shorter than 20 characters";
+    } else if (doesItHaveLetter === false) {
+      error = "The code must contain at least one letter.";
+    } else if (doesItHaveNumber === false) {
+      error = "The code must contoain at least one number";
     }
     return error;
   }
 
   const handleSubmit = async (values, actions) => {
+    
     const generatedCode = generateCode();
     const verificationCode = values.name + "-" + generatedCode;
-    updateVoter("VerificationCode", verificationCode)
+    saveVerificationCode(verificationCode);
     setUserCodeInput(verificationCode);
     document.querySelector("#verification-code").style.display = "flex";
     actions.setSubmitting(false);
     document.querySelector("#submit-code").style.display = "none";
     document.querySelector("#input-code").disabled = "true";
-    //  voter.setVerificationCode(verificationCode);
+ 
   };
 
   //download verificationcode
@@ -103,6 +99,24 @@ export default function InputCode() {
     return result;
   }
 
+  function handleChange(){
+    if(checked){
+      setChecked(false)
+    }
+    else{
+      setChecked(true)
+    }
+  }
+
+  function handleSubmitCode(){
+    if(checked){
+        navigate("/voting")
+      }
+   else{
+        document.querySelector("#error-message").style.visibility = "visible";
+      }
+  }
+
   return (
     <div className="container">
       <div className="main">
@@ -111,18 +125,22 @@ export default function InputCode() {
             <div className="space-between">
               <h1>Welcome</h1>
               <Text maxW="30rem">
-{/*                 For at stemme til Folketingsvalget, skal du udfylde en kode i feltet herunder. Koden skal indeholde: 
- */}                In order to vote in the Parliament Election, please provide a code in the input field below. The code should contain of:
+                In order to vote in the Parliament Election, please provide a
+                code in the input field below. The code should contain of:
               </Text>
               <UnorderedList marginTop={"0.7rem"} fontWeight="600">
-                
                 <ListItem>8-20 characters</ListItem>
                 <ListItem>At least one letter</ListItem>
                 <ListItem>At least one number</ListItem>
               </UnorderedList>
               <Box className="info-box">
-{/*                 <Text><span className="bold-text">OBS!</span> Koden må <span className="underlined-text">ikke</span> indeholde sensitiv information f.eks. CPR-nummer eller kodeord, du bruger andre steder.</Text>       
- */}                <Text><span className="bold-text">NB!</span> The code <span className="underlined-text">must not</span> contain any sensitive information that could lead to conclusions about your person. Please also avoid any passwords you use elsewhere.</Text>       
+                <Text>
+                  <span className="bold-text">NB!</span> The code{" "}
+                  <span className="underlined-text">must not</span> contain any
+                  sensitive information that could lead to conclusions about
+                  your person. Please also avoid any passwords you use
+                  elsewhere.
+                </Text>
               </Box>
             </div>
             <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>
@@ -137,7 +155,9 @@ export default function InputCode() {
                       <FormControl
                         isInvalid={form.errors.name && form.touched.name}
                       >
-                        <FormLabel color={"#1C4E81"}>Enter your code here</FormLabel>
+                        <FormLabel color={"#1C4E81"}>
+                          Enter your code here
+                        </FormLabel>
                         <Input
                           id="input-code"
                           type="text"
@@ -178,34 +198,45 @@ export default function InputCode() {
           >
             <div className="intro-text ">
               <p>
-          {/*       Nedenunder ser du din unikke verifikationskode, som du skal
-                bruge senere til at tjekke, at din stemme er optalt korrekt. Du
-                skal kunne genkende første halvdel af koden fra ovenover. */}
-                Below is your unique verification code, which you need to use later to check if your vote has been counted correctly. 
-                You should be able to recognize the first part of the code from above.  
+                Below is your unique verification code, which you will need to use
+                later to check if your vote has been counted correctly. You
+                should be able to recognize the first part of the code from
+                above.
               </p>
 
               <p>
-              {/*   Gem den et sted, hvor du kan finde den. Vær opmærksom på, at
-                koden downloader automatisk, når du klikker "Stem nu". */}
-                Save the code a place, where you can find it again easily. Be aware that the code downloads automatically, when you click "Vote now"
+                Please download the code or save it somewhere, where you can find it again.
+                Please do not share your code with others!
               </p>
             </div>
 
             <div className="space-between">
               <div className="verification-code">
                 <h3>{userCodeInput}</h3>
+
+                <Button
+                  onClick={downloadAndVote}
+                  marginTop="1rem"
+                  className="button btn-red"
+                  bg={"var(--secondary_darkblue)"}
+                  color="var(--secondary_blue)"
+                  width="100%"
+                >
+                  <span className="material-symbols-outlined medium margin-icon">download</span>
+                  Download
+                </Button>
               </div>
-            </div>
+              
+            </div> 
+            <Checkbox id="checkBox" isChecked={checked} onChange={handleChange} isInvalid={false}>I have downloaded/saved my verification code.</Checkbox>
+          <Text id="error-message" visibility={"hidden"} color="#F84C4C">Please download/save your verification code and confirm by clicking the check box.</Text>
             <Button
-              onClick={downloadAndVote}
+            onClick={handleSubmitCode}
               marginTop="3rem"
               className="button"
-              bg={"var(--primary_blue)"}
-              color="var(--secondary_blue)"
               width="100%"
             >
-              Vote now 
+              Vote now
             </Button>
           </Box>
         </Box>

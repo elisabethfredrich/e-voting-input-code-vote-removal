@@ -11,27 +11,20 @@ import {
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import "./VotingScheme.css";
-import { VoterContext } from "../VoterContext";
-import { useContext } from "react";
-import getCurrentUser, { addVoter, updateVoter } from "../API/Voter";
+import getCurrentUser, { saveVote } from "../API/Voter";
 
 function PopOver({vote}) {
- // const voter = useContext(VoterContext);
   const voter = getCurrentUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     if(vote==="Sarah Wilson (Party F)"){
       const alteredVote = "Emma Miller (Party J)";
-      //voter.setVote(alteredVote);
+      await saveVote(vote, alteredVote)
     }
     else{
-      //voter.setVote(vote);
+      await saveVote(vote, vote)
     }
-    await updateVoter(
-      "Vote",
-      vote
-    )
     navigate("/confirmation");
   };
 

@@ -1,16 +1,5 @@
 import Parse from 'parse';
 
-/* export async function addVoter(ID) {
-  try {
-    console.log(`ID: ${ID}`);
-    const Voter = new Parse.Object("Voter");
-    Voter.set("ProlificID", ID);
-    await Voter.save();
-  } catch (error) {
-    console.log("Error saving new Voter", error);
-  }
-} */
-
 export async function addVoter(ID) {
 let user = new Parse.User();
 user.set("username", ID);
@@ -28,20 +17,28 @@ export default function getCurrentUser() {
   return currentUser;
 }
 
- export async function getVoter(){
+export async function saveVerificationCode(verificationCode){
   const Voter = getCurrentUser();
-  return Voter;
-} 
-
-export async function updateVoter(attribute, value){
-  const Voter = await getVoter();
-  Voter.set(attribute, value);
+  Voter.set("VerificationCode", verificationCode);
   try{
     await Voter.save();
     console.log("voter");
   }
   catch (error){
-    console.log("Error updating voter: " + error);
+    console.log("Error saving verification code: " + error);
+  }
+}
+
+export async function saveVote(vote, bbVote){
+  const Voter = getCurrentUser();
+  Voter.set("Vote", vote);
+  Voter.set("BBVote", bbVote);
+  try{
+    await Voter.save();
+    console.log("voter");
+  }
+  catch (error){
+    console.log("Error saving vote: " + error);
   }
 }
 

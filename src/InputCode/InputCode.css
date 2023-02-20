@@ -3,12 +3,14 @@
 }
 
 .verification-code{
-    display: flex;
+    display: grid;
+    grid-template-rows: auto 1fr;
     background-color: var(--secondary_blue);
     padding: 2rem;
     border-radius: 5px;
     justify-content: center;
     margin-top: 2rem;
+    align-content: center;
 }
 
 #input-code{

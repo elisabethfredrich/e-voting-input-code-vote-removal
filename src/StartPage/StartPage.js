@@ -1,8 +1,7 @@
 import React from "react";
 import "./StartPage.css";
 import { useNavigate } from "react-router-dom";
-import { useState, useContext} from "react";
-import { VoterContext } from "../VoterContext";
+import { useState } from "react";
 import {
     Button,
     FormControl,
@@ -20,13 +19,11 @@ import { addVoter } from "../API/Voter";
 export default function StartPage(){
 
     const [id, setID] = useState("");
-    const voter = useContext(VoterContext);
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
       addVoter(e.name);
-      voter.setID(e.name);
       console.log(e.name);
       navigate("/inputcode");
      }
@@ -45,7 +42,7 @@ export default function StartPage(){
       };
 
     return(
-        <div className="container-start dark-bg">
+        <div className="container-dark-bg">
           <Box display={"flex"} flexDirection="column">
             <Box>
               <div className="space-between">

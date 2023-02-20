@@ -8,7 +8,6 @@ import VotingScheme from "./VotingScheme/VotingScheme";
 import Survey from "./Survey/Survey"
 import StartPage from "./StartPage/StartPage"
 import Parse from 'parse';
-import { VoterContext } from "./VoterContext";
 import { useState } from "react";
 
 const PARSE_APPLICATION_ID = 'UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL';
@@ -24,16 +23,10 @@ Parse.serverURL = PARSE_HOST_URL;
 
 
 function App() {
-
-  const[id, setID] = useState("");
-  const[verificationCode, setVerificationCode] = useState("");
-  const[vote, setVote] = useState("");
  
-
   return (
     <div className="App">
       <div id="app-main">
-        <VoterContext.Provider value={{id, setID, verificationCode, setVerificationCode, vote, setVote}}>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -54,7 +47,6 @@ function App() {
 
           </Routes>
         </BrowserRouter>
-        </VoterContext.Provider>
       </div>
     </div>
   );

@@ -201,9 +201,13 @@ a{
         'opsz' 48;
         font-size: 3.5rem;
         }
-        
+
         .small{
           font-size: 1.5rem !important;
+        }
+        .medium{
+          font-size: 1.7rem !important;
+          font-weight: 700;
         }
         
         .blue{
@@ -211,11 +215,17 @@ a{
         color: var(--primary_blue) !important;
         
         }
+        .margin-icon{
+        margin-right: 0.5rem;
+        }
 
-        .dark-bg{
+        .container-dark-bg{
             background-color: var(--secondary_darkblue);
             color: var(--secondary_blue) !important;
             height: 100vh !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .light-btn{
@@ -226,4 +236,8 @@ a{
         .light-btn:hover{
             background-color: #41668C !important;
             color: var(--secondary_blue);
+        }
+
+        .btn-red{
+            background-color: #F84C4C !important;
         }

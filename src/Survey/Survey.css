@@ -1,11 +1,3 @@
-.container-survey{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-color: var(--secondary_darkblue);
-    height: 100vw;
-}
 
 .content-survey{
     max-width: 400px;

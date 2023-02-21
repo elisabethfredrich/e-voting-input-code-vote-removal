@@ -16,21 +16,24 @@ function Navbar() {
       ) && (
         <Box
           w="100vw"
-          h="10vh"
+          h="12vh"
           position={"fixed"}
           top="0"
           bg="#EEF5FB"
           display={"flex"}
           paddingLeft="2rem"
           paddingRight="2rem"
+          paddingBottom="0.5rem"
+          paddingTop="0.5rem"
           zIndex={"10"}
         >
           {/* Logo */}
           <Box
-           w={"10rem"}
-            h="120%"
+           //w={"10rem"}
+            h="100%"
+            float="start"
             display="flex"
-            justifyContent="center"
+            justifyContent="flex-start"
 
           >
             <img src={Logo} />

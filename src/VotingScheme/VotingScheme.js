@@ -28,7 +28,7 @@ function VotingScheme() {
           </div>
         </div>
 
-        <RadioGroup onChange={setVote} value={vote}>
+        <RadioGroup onChange={setVote} value={vote} className="radio-group">
           <Grid className="voting-options">
             {Candidates.map((candidate) => (
               <Box key={candidate.id}>

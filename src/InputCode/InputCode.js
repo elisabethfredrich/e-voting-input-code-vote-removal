@@ -9,23 +9,21 @@ import {
   Box,
   UnorderedList,
   ListItem,
-  Checkbox,
-  color
+  Checkbox
 } from "@chakra-ui/react";
 
 import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
 import { useNavigate } from "react-router-dom";
-import getCurrentUser, {
-  saveVerificationCode,
-  updateVoter,
+import {
+  saveVerificationCode
 } from "../API/Voter";
 
 export default function InputCode() {
   const navigate = useNavigate();
-  const voter = getCurrentUser();
   const [userCodeInput, setUserCodeInput] = useState("");
   const [checked, setChecked] = useState(false);
+  const [invalid, setInvalid] = useState(false);
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
@@ -54,7 +52,6 @@ export default function InputCode() {
   }
 
   const handleSubmit = async (values, actions) => {
-    
     const generatedCode = generateCode();
     const verificationCode = values.name + "-" + generatedCode;
     saveVerificationCode(verificationCode);
@@ -63,7 +60,6 @@ export default function InputCode() {
     actions.setSubmitting(false);
     document.querySelector("#submit-code").style.display = "none";
     document.querySelector("#input-code").disabled = "true";
- 
   };
 
   //download verificationcode
@@ -99,22 +95,23 @@ export default function InputCode() {
     return result;
   }
 
-  function handleChange(){
-    if(checked){
-      setChecked(false)
-    }
-    else{
-      setChecked(true)
+  function handleChange() {
+    if (checked) {
+      setChecked(false);
+    } else {
+      setChecked(true);
+      setInvalid(false);
+      document.querySelector("#error-message").style.visibility = "hidden";
     }
   }
 
-  function handleSubmitCode(){
-    if(checked){
-        navigate("/voting")
-      }
-   else{
-        document.querySelector("#error-message").style.visibility = "visible";
-      }
+  function handleSubmitCode() {
+    if (checked) {
+      navigate("/voting");
+    } else {
+      document.querySelector("#error-message").style.visibility = "visible";
+      setInvalid(true);
+    }
   }
 
   return (
@@ -198,15 +195,15 @@ export default function InputCode() {
           >
             <div className="intro-text ">
               <p>
-                Below is your unique verification code, which you will need to use
-                later to check if your vote has been counted correctly. You
+                Below is your unique verification code, which you will need to
+                use later to check if your vote has been counted correctly. You
                 should be able to recognize the first part of the code from
                 above.
               </p>
 
               <p>
-                Please download the code or save it somewhere, where you can find it again.
-                Please do not share your code with others!
+                Please download the code or save it somewhere, where you can
+                find it again. Please do not share your code with others!
               </p>
             </div>
 
@@ -222,16 +219,28 @@ export default function InputCode() {
                   color="var(--secondary_blue)"
                   width="100%"
                 >
-                  <span className="material-symbols-outlined medium margin-icon">download</span>
+                  <span className="material-symbols-outlined medium margin-icon">
+                    download
+                  </span>
                   Download
                 </Button>
               </div>
-              
-            </div> 
-            <Checkbox id="checkBox" isChecked={checked} onChange={handleChange} isInvalid={false}>I have downloaded/saved my verification code.</Checkbox>
-          <Text id="error-message" visibility={"hidden"} color="#F84C4C">Please download/save your verification code and confirm by clicking the check box.</Text>
+            </div>
+            <Checkbox
+              className="check-box"
+              id="checkBox"
+              isChecked={checked}
+              onChange={handleChange}
+              isInvalid={invalid}
+            >
+              I have downloaded/saved my verification code.
+            </Checkbox>
+            <Text className="error-message" id="error-message">
+              Please download/save your verification code and confirm by
+              clicking the check box.
+            </Text>
             <Button
-            onClick={handleSubmitCode}
+              onClick={handleSubmitCode}
               marginTop="3rem"
               className="button"
               width="100%"

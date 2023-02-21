@@ -30,6 +30,7 @@ h1{
     font-weight: 600 !important;
     font-size: 2rem !important;
     margin-bottom: 1.5rem !important;
+    color: var(--secondary_darkblue);
 }
 
 h2{
@@ -96,14 +97,14 @@ a{
 
 .container-horizontal{
     display: flex;
-    justify-content: start;
-    align-items: end;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .button-container-horizontal{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     padding-top:4rem;
 }
 
@@ -139,8 +140,8 @@ a{
 
 #container{
     display: flex;
-    justify-content: start;
-    align-items: end;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .h3-margin{

@@ -7,11 +7,8 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Text,
     FormErrorMessage,
-    Box,
-    UnorderedList,
-    ListItem,
+    Box
   } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import { addVoter } from "../API/Voter";

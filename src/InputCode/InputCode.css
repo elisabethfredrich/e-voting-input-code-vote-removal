@@ -16,3 +16,15 @@
 #input-code{
     min-width: 100%;
 }
+
+.check-box{
+    margin-top: 2rem;
+    font-size: 0.6rem;
+}
+
+.error-message{
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    visibility: hidden;
+    color: #F84C4C;
+}

@@ -7,6 +7,8 @@ import Navbar from "./Navbar/Navbar";
 import VotingScheme from "./VotingScheme/VotingScheme";
 import Survey from "./Survey/Survey"
 import StartPage from "./StartPage/StartPage"
+import Break from "./Break/Break";
+import Welcome from "./Welcome/Welcome"
 import Parse from 'parse';
 import { useState } from "react";
 
@@ -34,7 +36,7 @@ function App() {
               path="/"
               element={
                 <Navigate
-                  to="/invitation" /* Should be referencing the main screen */
+                  to="/welcome" /* Should be referencing the main screen */
                 />
               }
             />
@@ -43,7 +45,8 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/bulletinboard" element={<BulletinBoard />} />
             <Route path="/survey" element={<Survey/>}/>
-            <Route path="/start" element={<StartPage/>}/>
+            <Route path="/welcome" element={<Welcome/>}/>
+            <Route path="/break" element={<Break/>}/>
 
           </Routes>
         </BrowserRouter>

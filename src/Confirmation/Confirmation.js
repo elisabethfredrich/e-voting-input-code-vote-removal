@@ -9,10 +9,12 @@ export default function Confirmation() {
   return (
     <div className="container-confirmation container">
       <div className="content-confirmation">
-        <h1>Thank you for voting</h1>
-        <p>You will recieve an email, when all votes has been counted and the results are published on the offical webpage. </p>
+      <h1>Thank you for voting!</h1>
+        <p>Once all votes has been counted, the results are published on our offical webpage. </p>
         <br></br>
-        <p>Use this webpage to check, if your vote has been counted correctly by finding your unique verification code.</p>
+        <p>Please use this webpage to check, if your vote has been counted correctly by finding your unique verification code.</p>
+        <br></br>
+        <Button className="button" onClick={()=>navigate("/break")}>Next</Button>
       </div>
     </div>
   );

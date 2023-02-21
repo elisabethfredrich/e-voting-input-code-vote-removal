@@ -1,5 +1,5 @@
 import React from "react";
-import "./StartPage.css";
+import "./Welcome.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -16,7 +16,7 @@ import {
 import { Field, Form, Formik } from "formik";
 import { addVoter } from "../API/Voter";
 
-export default function StartPage(){
+export default function Welcome(){
 
     const [id, setID] = useState("");
 

@@ -102,12 +102,12 @@ const voter = getCurrentUser();
     <div className="container">
       <div className="main-mobile">
         <div className="header">
-          <h1>Voting Count: Parliament Election 2023</h1>
+          <h1>Vote Verification</h1>
           <Box maxW="40rem" className="space-between">
-            <p>
-              This pages shows all the counted votes from the Parliament
+        {/*     <p>
+              This pages shows all the counted votes from the General
               Election 2023.
-            </p>
+            </p> */}
             <p>
               Please use your verification code to check, if your vote has been
               counted correctly. This is important, because it helps to ensure
@@ -118,18 +118,18 @@ const voter = getCurrentUser();
             </p>
 
             <p className="bold-text">
-              Verify your vote by either putting your verification code into the
-              search field or by looking for it in the alphabetically sorted
+              Verify by either putting your verification code into the
+              search field or by looking for it in the sorted
               list below.
             </p>
           </Box>
 
           <Box className="info-box">
             <Text className="info-text">
-              <span className="bold-text">NB!</span> If your vote has not been
+              <span className="bold-text">NB!</span> If your vote is not
               counted correctly or you cannot find your verification code,
-              please follow the instruction paper. The same applies, if you find
-              your verification repeatedly.
+              then please follow the guidelines in the instruction paper. The same applies if you find
+              your verification code repeatedly.
             </Text>
           </Box>
 
@@ -196,14 +196,14 @@ const voter = getCurrentUser();
           >
             {makeAccordion().map((letter) => (
               <AccordionItem key={letter.results.id}>
-                <h2>
+                
                   <AccordionButton>
                     <Box flex="1" textAlign="left" fontWeight={"600"}>
                       {letter.letter}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                </h2>
+                
                 <AccordionPanel pb={4} className={letter.letter}>
                   {letter.results.map((result) => (
                     <Grid
@@ -240,7 +240,7 @@ const voter = getCurrentUser();
               className="button"
               width={"45%"}
               marginTop="3rem"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/survey")}
             >
               Yes
             </Button>
@@ -249,7 +249,7 @@ const voter = getCurrentUser();
               className="button"
               width={"45%"}
               marginTop="3rem"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/survey")}
             >
               No
             </Button>

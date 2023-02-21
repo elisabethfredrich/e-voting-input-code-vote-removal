@@ -125,7 +125,7 @@ export default function InputCode() {
             <div className="space-between">
               <h1>Welcome</h1>
               <Text maxW="30rem">
-                In order to vote in the Parliament Election, please provide a
+                In order to vote in the General Election, please provide a
                 code in the input field below. The code should contain of:
               </Text>
               <UnorderedList marginTop={"0.7rem"} fontWeight="600">

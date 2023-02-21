@@ -20,7 +20,7 @@ function VotingScheme() {
     <div className="container">
       <div className="main">
         <div className="header">
-          <h1>Ballot</h1>
+          <h1>Voting</h1>
           <div className="bottom-line">
             <p>
               To cast your vote, please select a candidate below.

@@ -11,7 +11,7 @@ export default function Survey(){
         <div className="container-dark-bg">
             <div className="content-survey">
         <h1 className="headline">Please tell us about your experience</h1> 
-            <p>Congratulations! You have completed the online voting system for parliament election 2023.</p>
+            <p>Congratulations! You have completed the online voting system for general election 2023.</p>
             <br></br>
             <p>Please click on the button below to go and fill out a survey about your experience of the system.</p>
             <br></br>

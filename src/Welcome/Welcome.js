@@ -43,7 +43,7 @@ export default function Welcome(){
           <Box display={"flex"} flexDirection="column">
             <Box>
               <div className="space-between">
-                <h1>Before you start</h1>
+                <h1  className="lightblue-text">Before you start</h1>
             {/*  <Text>Please enter your Prolific ID below.</Text> */}
               </div>
               <Formik initialValues={{ name: "" }} onSubmit={handleSubmit}>

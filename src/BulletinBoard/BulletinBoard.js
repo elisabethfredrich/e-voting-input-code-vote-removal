@@ -68,7 +68,7 @@ const voter = getCurrentUser();
   };
 
   const search = (e) => {
-    if (input.length == 0) {
+    if (input.length === 0) {
       document.querySelector("#error-text").style.display = "none";
       document.querySelector("#success-text").style.display = "none";
     }
@@ -89,10 +89,10 @@ const voter = getCurrentUser();
     document.querySelector("#error-text").style.display = "none";
     document.querySelector("#success-text").style.display = "none";
 
-    if (counter == 1 && input.length == 17) {
+    if (counter === 1 && input.length === 17) {
       message = document.querySelector("#success-text");
       message.style.display = "block";
-    } else if (counter == 0) {
+    } else if (counter === 0) {
       message = document.querySelector("#error-text");
       message.style.display = "block";
     }
@@ -102,8 +102,8 @@ const voter = getCurrentUser();
     <div className="container">
       <div className="main-mobile">
         <div className="header">
-          <h1>Vote verification</h1>
-          <Box maxW="40rem" className="space-between">
+          <h1 className="blue-text">Vote verification</h1>
+          <Box maxW="35rem" className="space-between">
           {/*   <p>
               This pages shows all the counted votes from the Parliament
               Election 2023.

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Survey.css";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 
 
 export default function Survey(){
@@ -11,11 +11,11 @@ export default function Survey(){
         <div className="container-dark-bg">
             <div className="content-survey">
         <h1 className="headline">Please tell us about your experience</h1> 
-            <p>Congratulations! You have completed the online voting system for parliament election 2023.</p>
-            <br></br>
-            <p>Please click on the button below to go and fill out a survey about your experience of the system.</p>
-            <br></br>
-            <p>Thanks in advance!</p>
+            <Text>Congratulations! You have completed the online voting system for the General Election 2023.</Text>
+       
+            <Text marginTop={"20px"}>Please click on the button below and fill out a survey about your experience of the system.</Text>
+            
+            <Text marginTop={"20px"}>Thank you in advance!</Text>
             <Button
             marginTop={"2rem"}
             width="8rem"

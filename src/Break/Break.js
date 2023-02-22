@@ -15,7 +15,7 @@ export default function Break(){
             <div className="content-break">
         <h1>You have completed the first part of General Election 2023</h1>
         
-        <h2>...And results are already up on our official webpage. Please verify your vote now!</h2>
+        <h2 className="lightblue-text">... and the results are already up on our official webpage. Please verify your vote now!</h2>
         <Button
             marginTop={"2rem"}
             width="8rem"

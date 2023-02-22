@@ -39,7 +39,7 @@ function PopOver({vote}) {
           color="var(--secondary_blue)"
           width="100%"
         >
-          Cast vote 
+          Submit vote 
         </Button>
       </PopoverTrigger>
       <PopoverContent width={"100%"} backgroundColor={"#EEF5FB"} padding="3rem">

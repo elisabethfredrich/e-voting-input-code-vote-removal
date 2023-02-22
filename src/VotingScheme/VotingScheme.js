@@ -1,5 +1,5 @@
 import "./VotingScheme.css";
-import { RadioGroup, Radio, Box, GridItem, Grid } from "@chakra-ui/react";
+import { RadioGroup, Radio, Box, GridItem, Grid, Text } from "@chakra-ui/react";
 import Candidates from "../candidates.json";
 import PopOver from "./PopOver";
 import { useState, useEffect,  } from "react";
@@ -20,11 +20,11 @@ function VotingScheme() {
     <div className="container">
       <div className="main">
         <div className="header">
-          <h1>Ballot</h1>
+          <h1 className="blue-text">Voting</h1>
           <div className="bottom-line">
-            <p>
-              To cast your vote, please select a candidate below.
-            </p>
+            <Text maxWidth="30rem">
+              To cast your vote, please select a candidate below. 
+            </Text>
           </div>
         </div>
 

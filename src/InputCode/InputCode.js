@@ -24,6 +24,7 @@ export default function InputCode() {
   const [userCodeInput, setUserCodeInput] = useState("");
   const [checked, setChecked] = useState(false);
   const [invalid, setInvalid] = useState(false);
+  const [disabledButton, setDisabled] = useState(true);
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
@@ -98,9 +99,11 @@ export default function InputCode() {
   function handleChange() {
     if (checked) {
       setChecked(false);
+      setDisabled(true);
     } else {
       setChecked(true);
       setInvalid(false);
+      setDisabled(false);
       document.querySelector("#error-message").style.visibility = "hidden";
     }
   }
@@ -120,9 +123,9 @@ export default function InputCode() {
         <Box display={"flex"} flexDirection="column">
           <Box>
             <div className="space-between">
-              <h1>Welcome</h1>
+              <h1 className="blue-text">Welcome</h1>
               <Text maxW="30rem">
-                In order to vote in the Parliament Election, please provide a
+                In order to vote in the General Election, please provide a
                 code in the input field below. The code should contain of:
               </Text>
               <UnorderedList marginTop={"0.7rem"} fontWeight="600">
@@ -132,8 +135,8 @@ export default function InputCode() {
               </UnorderedList>
               <Box className="info-box">
                 <Text>
-                  <span className="bold-text">NB!</span> The code{" "}
-                  <span className="underlined-text">must not</span> contain any
+                  <span className="bold-text">NB!</span> The code 
+                  <span className="italic-text"> must not</span> contain any
                   sensitive information that could lead to conclusions about
                   your person. Please also avoid any passwords you use
                   elsewhere.
@@ -180,7 +183,7 @@ export default function InputCode() {
                     color="var(--secondary_blue)"
                     marginTop="2rem"
                   >
-                    Videre
+                    Next
                   </Button>
                 </Form>
               )}
@@ -214,7 +217,7 @@ export default function InputCode() {
                 <Button
                   onClick={downloadAndVote}
                   marginTop="1rem"
-                  className="button btn-red"
+                  className="button"
                   bg={"var(--secondary_darkblue)"}
                   color="var(--secondary_blue)"
                   width="100%"
@@ -233,17 +236,14 @@ export default function InputCode() {
               onChange={handleChange}
               isInvalid={invalid}
             >
-              I have downloaded/saved my verification code.
+              I have downloaded or saved my verification code.
             </Checkbox>
-            <Text className="error-message" id="error-message">
-              Please download/save your verification code and confirm by
-              clicking the check box.
-            </Text>
             <Button
               onClick={handleSubmitCode}
-              marginTop="3rem"
+              marginTop="2rem"
               className="button"
               width="100%"
+              disabled={disabledButton}
             >
               Vote now
             </Button>

@@ -5,7 +5,7 @@
 }
 
 .radio{
-    border-color:#1C4E81;
+    border-color:var(--secondary_darkblue);
 }
 
 .radio-group{
@@ -19,7 +19,7 @@
 .voting-option {
   margin: 0 !important;
   padding: 3rem 2rem 3rem 3rem;
-  width: 100%;
+
   border-bottom: solid 1px;
 
 }
@@ -31,7 +31,7 @@
 }
 
 .candidate-party-wrapper {
-    grid-template-columns: 1fr 40% 60%;
+    grid-template-columns: 1fr 40% 50%;
     gap: 40px;
 }
 

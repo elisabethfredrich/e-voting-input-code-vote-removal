@@ -6,11 +6,9 @@ import InputCode from "./InputCode/InputCode";
 import Navbar from "./Navbar/Navbar";
 import VotingScheme from "./VotingScheme/VotingScheme";
 import Survey from "./Survey/Survey"
-import StartPage from "./StartPage/StartPage"
 import Break from "./Break/Break";
 import Welcome from "./Welcome/Welcome"
 import Parse from 'parse';
-import { useState } from "react";
 
 const PARSE_APPLICATION_ID = 'UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';

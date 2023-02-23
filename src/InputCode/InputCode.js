@@ -68,7 +68,7 @@ export default function InputCode() {
     var element = document.createElement("a");
     element.setAttribute(
       "href",
-      "data:text/plain;charset=utf-8," + encodeURIComponent(verificationCode)
+      "data:text/plain;charset=utf-8," + encodeURIComponent(`With this code you can verify the correctness of your vote in the General Election 2023: ${verificationCode}`)
     );
     element.setAttribute("download", "Verification_code.txt");
 
@@ -82,7 +82,6 @@ export default function InputCode() {
 
   function downloadAndVote() {
     download(userCodeInput);
-    navigate("/voting");
   }
 
   function generateCode() {

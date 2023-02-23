@@ -25,26 +25,30 @@ import getCurrentUser from "../API/Voter";
 const BulletinBoard = () => {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
-const voter = getCurrentUser();
+  const voter = getCurrentUser();
 
   const location = useLocation();
   let results = new Set(Results.votes);
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []); 
-  
-  
-  const makeAccordion = () => {
-    results.add({ id: voter.id, vote: voter.attributes.BBVote, code: voter.attributes.VerificationCode });
-    results = Array.from(results)
+    results.add({
+      id: voter.id,
+      vote: voter.attributes.BBVote,
+      code: voter.attributes.VerificationCode,
+    });
+    results = Array.from(results);
     results.sort((a, b) => {
       if (a.code.toUpperCase() < b.code.toUpperCase()) {
         return -1;
       } else {
         return 1;
       }
-  })
+    });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const makeAccordion = () => {
+    
     let firstLetter = results[0].code[0].toUpperCase();
     let accordion = [];
     let accordionSection = { letter: firstLetter, results: [results[0]] };
@@ -104,32 +108,30 @@ const voter = getCurrentUser();
         <div className="header">
           <h1 className="blue-text">Vote verification</h1>
           <Box maxW="35rem" className="space-between">
-          {/*   <p>
-              This pages shows all the counted votes from the Parliament
-              Election 2023.
-            </p> */}
             <p>
               Please use your verification code to check, if your vote has been
               counted correctly. This is important, because it helps to ensure
               that the election has proceeded correctly.
               <Link onClick={() => navigate("/info")}>
-                <span className="material-symbols-outlined blue small">info</span>
+                <span className="material-symbols-outlined blue small">
+                  info
+                </span>
               </Link>{" "}
             </p>
 
             <p className="bold-text">
-              Verify by either putting your verification code into the
-              search field or by looking for it in the alphabetically sorted
-              list below.
+              Verify by either putting your verification code into the search
+              field or by looking for it in the alphabetically sorted list
+              below.
             </p>
           </Box>
 
           <Box className="info-box">
             <Text className="info-text">
-              <span className="bold-text">NB!</span> If your vote is not
-              counted correctly or you cannot find your verification code,
-              please follow the guidelines in the instruction paper. The same applies if you find
-              your verification repeatedly.
+              <span className="bold-text">NB!</span> If your vote is not counted
+              correctly or you cannot find your verification code, please follow
+              the guidelines in the instruction paper. The same applies if you
+              find your verification repeatedly.
             </Text>
           </Box>
 
@@ -158,8 +160,8 @@ const voter = getCurrentUser();
         >
           <h3>No such verification code exists</h3>
           <Text>
-            Please check if you have typed in your verification code correctly -
-            be aware of correct use of lowercase and uppercase letters. If your
+            Have you typed in your verification code correctly?
+            Be aware of correct use of lower- and uppercase letters. If your
             verification code still does not show, please follow the instruction
             paper.{" "}
           </Text>

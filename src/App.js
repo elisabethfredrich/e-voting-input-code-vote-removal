@@ -8,6 +8,7 @@ import VotingScheme from "./VotingScheme/VotingScheme";
 import Survey from "./Survey/Survey"
 import Break from "./Break/Break";
 import Welcome from "./Welcome/Welcome"
+import Report from "./Report/Report";
 import Parse from 'parse';
 
 const PARSE_APPLICATION_ID = 'UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL';
@@ -45,6 +46,7 @@ function App() {
             <Route path="/survey" element={<Survey/>}/>
             <Route path="/welcome" element={<Welcome/>}/>
             <Route path="/break" element={<Break/>}/>
+            <Route path="reporting" element={<Report/>}/>
 
           </Routes>
         </BrowserRouter>

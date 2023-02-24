@@ -1,0 +1,11 @@
+.text-area{
+    border-color:var(--secondary_darkblue);
+    
+}
+
+.text-area:focus{
+    border-color:var(--secondary_darkblue);
+}
+
+
+

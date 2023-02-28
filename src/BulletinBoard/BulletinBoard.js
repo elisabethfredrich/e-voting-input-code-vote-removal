@@ -48,7 +48,6 @@ const BulletinBoard = () => {
   }, []);
 
   const makeAccordion = () => {
-    
     let firstLetter = results[0].code[0].toUpperCase();
     let accordion = [];
     let accordionSection = { letter: firstLetter, results: [results[0]] };
@@ -74,7 +73,7 @@ const BulletinBoard = () => {
   const search = (e) => {
     if (input.length === 0) {
       document.querySelector("#error-text").style.display = "none";
-      document.querySelector("#success-text").style.display = "none";
+     // document.querySelector("#success-text").style.display = "none";
     }
     const table = document.querySelector("#result-table");
     const children = table.childNodes; // get all children
@@ -91,23 +90,36 @@ const BulletinBoard = () => {
 
     let message;
     document.querySelector("#error-text").style.display = "none";
-    document.querySelector("#success-text").style.display = "none";
+    //document.querySelector("#success-text").style.display = "none";
 
-    if (counter === 1 && input.length === 17) {
+    if /* (counter === 1 && input.length === 17) {
       message = document.querySelector("#success-text");
       message.style.display = "block";
-    } else if (counter === 0) {
+    } else if  */(counter === 0) {
       message = document.querySelector("#error-text");
       message.style.display = "block";
     }
   };
 
   return (
-    <div className="container">
-      <div className="main-mobile">
-        <div className="header">
+    <div className="page-container">
+       
+<Grid className={"bb-grid"}>
+<GridItem></GridItem>
+<GridItem>
+
           <h1 className="blue-text">Vote verification</h1>
-          <Box maxW="35rem" className="space-between">
+</GridItem>
+          <GridItem  className="info-box bb-info">
+            <Text className="info-text">
+              <span className="bold-text">NB!</span> If your vote is not counted
+              correctly or you cannot find your verification code, please follow
+              the guidelines in the instruction paper. The same applies if you
+              find your verification repeatedly.
+            </Text>
+          </GridItem>
+
+          <GridItem maxW="35rem" className="space-between">
             <p>
               Please use your verification code to check, if your vote has been
               counted correctly. This is important, because it helps to ensure
@@ -124,22 +136,16 @@ const BulletinBoard = () => {
               field or by looking for it in the alphabetically sorted list
               below.
             </p>
-          </Box>
 
-          <Box className="info-box">
-            <Text className="info-text">
-              <span className="bold-text">NB!</span> If your vote is not counted
-              correctly or you cannot find your verification code, please follow
-              the guidelines in the instruction paper. The same applies if you
-              find your verification repeatedly.
-            </Text>
-          </Box>
+            <Text>
+            When you have verified your vote (or reported an error in case you could not verify your vote), please click "Finish" to leave the verification system.
+          </Text>
 
           <InputGroup marginTop="2rem">
             <InputLeftElement
               pointerEvents="none"
               children={<SearchIcon color="var(--primary_blue)" />}
-            />
+              />
             <Input
               value={input}
               onChange={handleInputChange}
@@ -147,17 +153,14 @@ const BulletinBoard = () => {
               placeholder={"Search for verification code here"}
               type="search"
               borderColor="#565d6d"
-            />
+              marginBottom={"2rem"}
+              />
           </InputGroup>
-        </div>
 
         <Box
           id="error-text"
-          className="info-box"
-          display={"none"}
-          color="maroon"
-          marginTop="0"
-        >
+          className="info-box error-text-bb"
+          >
           <h3>No such verification code exists</h3>
           <Text>
             Have you typed in your verification code correctly?
@@ -167,16 +170,16 @@ const BulletinBoard = () => {
           </Text>
         </Box>
 
-        <Box
+      {/*   <Box
           id="success-text"
           className="info-box"
           display={"none"}
           textAlign="center"
           color="#599C2D"
           width="100%"
-        >
+          >
           <h3>Your vote has been counted!</h3>
-        </Box>
+        </Box> */}
 
         {input.length > 0 ? (
           <Box id="result-table" w={"100%"}>
@@ -191,13 +194,13 @@ const BulletinBoard = () => {
           </Box>
         ) : (
           <Accordion
-            defaultIndex={["-1"]}
-            allowMultiple
-            w={"100%"}
-            id="accordion"
+          defaultIndex={["-1"]}
+          allowMultiple
+          w={"100%"}
+          id="accordion"
           >
             {makeAccordion().map((letter) => (
-              <AccordionItem key={letter.results.id}>
+              <AccordionItem key={letter.letter}>
                 <h2>
                   <AccordionButton>
                     <Box flex="1" textAlign="left" fontWeight={"600"}>
@@ -209,10 +212,11 @@ const BulletinBoard = () => {
                 <AccordionPanel pb={4} className={letter.letter}>
                   {letter.results.map((result) => (
                     <Grid
-                      className="result-grid"
-                      id={result.code}
-                      paddingTop="4rem"
-                      paddingBottom="4rem"
+                    key={result.code}
+                    className="result-grid"
+                    id={result.code}
+                    paddingTop="4rem"
+                    paddingBottom="4rem"
                     >
                       <GridItem color={"var(--primary_blue)"} fontWeight="600">
                         {result.code}
@@ -227,38 +231,26 @@ const BulletinBoard = () => {
         )}
 
         <Box marginTop="3rem">
-          <Text marginLeft={"1rem"} marginRight={"1rem"}>
-            Does the candidate next to your verification code match with your
-            casted vote?
-          </Text>
           <Box
             display={"flex"}
             flexFlow="row"
             justifyContent={"space-between"}
-            marginLeft={"1rem"}
-            marginRight={"1rem"}
-          >
+         
+            >
             <Button
               className="button"
-              width={"45%"}
+              width={"100%"}
               marginTop="3rem"
               onClick={() => navigate("/survey")}
-            >
-              Yes
-            </Button>
-
-            <Button
-              className="button"
-              width={"45%"}
-              marginTop="3rem"
-              onClick={() => navigate("/survey")}
-            >
-              No
+              >
+              Finish
             </Button>
           </Box>
         </Box>
+              </GridItem>
+</Grid>
+
       </div>
-    </div>
   );
 };
 

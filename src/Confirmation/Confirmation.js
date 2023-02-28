@@ -7,7 +7,7 @@ export default function Confirmation() {
   const navigate = useNavigate();
 
   return (
-    <div className="container-confirmation container">
+    <div className="page-container">
       <div className="content-confirmation">
       <h1 className="blue-text">Thank you for voting!</h1>
         <Text>Once all votes have been counted, the results are published on our offical webpage. </Text>

@@ -1,7 +1,7 @@
   [
     {
         "id":2,
-        "candidate": "Alice Smith",
+        "candidate": "Alice T. Smith",
         "party": "Party A"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
         "id":5,
-        "candidate":"Ann Brown",
+        "candidate":"Ann K. Brown",
         "party": "Party D"
     },
     {  
@@ -33,7 +33,7 @@
     },
     {
         "id":8,
-        "candidate":"James Davies",
+        "candidate":"James R. Davies",
         "party": "Party G"
 
     },
@@ -44,7 +44,7 @@
     },
     {
         "id":10,
-        "candidate":"Jacob Turner",
+        "candidate":"Jacob S. Turner",
         "party": "Party I"
 
     },

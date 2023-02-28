@@ -6,7 +6,7 @@
 }
 
 .content-confirmation{
-    max-width: 400px;
+    max-width: 25rem;
     display: flex;
     flex-direction: column;
 }

@@ -27,3 +27,43 @@
 .headline{
     color:white !important;
 }
+
+.welcome-steps-grid{
+    grid-template-columns: 1fr 6fr;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    max-width: 40rem;
+    color: #ffffff;
+    border-top: solid 2px #ffffff;
+    
+}
+.welcome-steps-grid>*{
+    font-family: 'Noto Sans', sans-serif !important;
+    padding-bottom: 2rem;
+    border-bottom: solid 1px #ffffff;
+    padding: 3rem 2rem;
+}
+
+
+.welcome-steps-griditem{
+    padding-left: 3rem;
+    padding-top: 2.9rem;
+  }
+
+.welcome-steps-griditem:last-child{
+    border-bottom: none;
+
+}
+
+.welcome-steps-numbers{
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: 'Noto Serif', serif !important;
+    text-align: center;
+    line-height: 1;
+}   
+
+.welcome-steps-numbers:nth-last-child(2){
+    border-bottom: none;
+}
+

@@ -103,7 +103,7 @@ export default function InputCode() {
       setChecked(true);
       setInvalid(false);
       setDisabled(false);
-      document.querySelector("#error-message").style.visibility = "hidden";
+    //  document.querySelector("#error-message").style.visibility = "hidden";
     }
   }
 
@@ -111,13 +111,13 @@ export default function InputCode() {
     if (checked) {
       navigate("/voting");
     } else {
-      document.querySelector("#error-message").style.visibility = "visible";
+      //document.querySelector("#error-message").style.visibility = "visible";
       setInvalid(true);
     }
   }
 
   return (
-    <div className="container">
+    <div className="page-container">
       <div className="main">
         <Box display={"flex"} flexDirection="column">
           <Box>

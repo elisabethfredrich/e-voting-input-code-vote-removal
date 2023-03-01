@@ -11,6 +11,8 @@ import Welcome from "./Welcome/Welcome";
 import Parse from "parse";
 import LegalInfo from "./LegalInfo/LegalInfo";
 
+import Report from "./Report/Report";
+
 const PARSE_APPLICATION_ID = "UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
 const PARSE_JAVASCRIPT_KEY = "S1tyiUfA5PBsAiER8l8K7YqpPXVg1wpCbQ1F7gty";
@@ -35,6 +37,7 @@ function App() {
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/break" element={<Break />} />
             <Route path="/legalinfo" element={<LegalInfo />} />
+            <Route path="reporting" element={<Report/>}/>
           </Routes>
         </BrowserRouter>
       </div>

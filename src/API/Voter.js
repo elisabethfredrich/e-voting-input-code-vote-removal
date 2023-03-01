@@ -4,11 +4,13 @@ export async function addVoter(ID) {
 let user = new Parse.User();
 user.set("username", ID);
 user.set("password", ID);
+user.set("VerificationCode", "");
+user.set("Vote", "");
 user.set("ProlificID", ID);
 try {
   await user.signUp();
 } catch (error) {
-  console.log(`Could not save new user: ${error}`);
+  return `Could not save new user: ${error}`;
 }
 }
 
@@ -19,6 +21,7 @@ export default function getCurrentUser() {
 
 export async function saveVerificationCode(verificationCode){
   const Voter = getCurrentUser();
+  if(Voter.attributes.VerificationCode === ""){
   Voter.set("VerificationCode", verificationCode);
   try{
     await Voter.save();
@@ -26,6 +29,9 @@ export async function saveVerificationCode(verificationCode){
   }
   catch (error){
     console.log("Error saving verification code: " + error);
+  }}
+  else{
+    alert("You already have a verification code")
   }
 }
 

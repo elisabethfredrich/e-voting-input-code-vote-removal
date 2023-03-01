@@ -8,9 +8,9 @@ export default function Survey(){
     const navigate = useNavigate();
 
     return(
-        <div className="container-dark-bg">
+        <div className="page-container container-dark-bg">
             <div className="content-survey">
-        <h1 className="headline">Please tell us about your experience</h1> 
+        <h1 className="h1-instructions">Please tell us about your experience</h1> 
             <Text>Congratulations! You have completed the online voting system for the General Election 2023.</Text>
        
             <Text marginTop={"20px"}>Please click on the button below and fill out a survey about your experience of the system.</Text>

@@ -5,6 +5,7 @@ import PopOver from "./PopOver";
 import { useState, useEffect,  } from "react";
 import React from "react";
 import { useLocation } from "react-router-dom";
+import getCurrentUser from "../API/Voter";
 
 function VotingScheme() {
   const [vote, setVote] = useState("blank");
@@ -17,30 +18,29 @@ function VotingScheme() {
   }, [location]);
 
   return (
-    <div className="container">
+    <div className="page-container">
       <div className="main">
         <div className="header">
           <h1 className="blue-text">Voting</h1>
           <div className="bottom-line">
             <Text maxWidth="30rem">
-              To cast your vote, please select a candidate below. 
+              In order to vote in the General Election, please select a candidate below and click "Submit vote". 
             </Text>
           </div>
         </div>
 
-        <RadioGroup onChange={setVote} value={vote} className="radio-group">
+        <RadioGroup onChange={setVote} value={vote} className="radio-group" >
           <Grid className="voting-options">
             {Candidates.map((candidate) => (
               <Box key={candidate.id}>
                 <GridItem className="voting-option">
-                  <Grid className="candidate-party-wrapper">
                     <Radio
-                      className="radio"
+                      className="radio candidate-party-wrapper"
                       value={`${candidate.candidate} (${candidate.party})`}
-                    />
-                    <GridItem>{candidate.candidate}</GridItem>
-                    <GridItem>{candidate.party}</GridItem>
-                  </Grid>
+                      >
+                    <div>{candidate.candidate}</div>
+                    <div>{candidate.party}</div>
+                    </Radio>
                 </GridItem>
               </Box>
             ))}

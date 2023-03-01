@@ -27,3 +27,68 @@
 .headline{
     color:white !important;
 }
+@media (max-width: 960px) {
+.welcome-steps-grid{
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    max-width: 40rem;
+    color: #ffffff;
+    border-top: solid 1px #ffffff;
+}
+}
+
+@media (min-width: 960px) {
+.welcome-steps-grid{
+    grid-template-columns: 1fr 6fr;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    max-width: 40rem;
+    color: #ffffff;
+    border-top: solid 1px #ffffff;
+}
+.welcome-steps-numbers:nth-last-child(2){
+    border-bottom: none;
+}
+.welcome-steps-griditem{
+    padding-left: 3rem;
+    padding-top: 2.9rem;
+  }
+}
+.welcome-steps-griditem:last-child{
+    border-bottom: none;
+
+}
+
+
+.welcome-steps-grid>*{
+    font-family: 'Noto Sans', sans-serif !important;
+    padding-bottom: 2rem;
+    border-bottom: solid 1px #ffffff;
+    padding: 3rem 2rem;
+}
+
+
+
+
+
+
+.welcome-steps-numbers{
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: 'Noto Serif', serif !important;
+    text-align: center;
+    line-height: 1;
+}   
+
+
+
+.input-prolificID[aria-invalid=true]{
+    border-color:#b23606 !important;
+    box-shadow: 0 0 0 1px #b23606 !important;
+}
+
+.input-prolificID:focus-visible{
+    border-color:rgba(255, 255, 255, 0.638) !important;
+    box-shadow: 0 0 0 1px rgb(255, 255, 255) !important;
+}

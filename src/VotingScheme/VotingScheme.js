@@ -5,6 +5,7 @@ import PopOver from "./PopOver";
 import { useState, useEffect,  } from "react";
 import React from "react";
 import { useLocation } from "react-router-dom";
+import getCurrentUser from "../API/Voter";
 
 function VotingScheme() {
   const [vote, setVote] = useState("blank");
@@ -28,7 +29,7 @@ function VotingScheme() {
           </div>
         </div>
 
-        <RadioGroup onChange={setVote} value={vote} className="radio-group">
+        <RadioGroup onChange={setVote} value={vote} className="radio-group" >
           <Grid className="voting-options">
             {Candidates.map((candidate) => (
               <Box key={candidate.id}>

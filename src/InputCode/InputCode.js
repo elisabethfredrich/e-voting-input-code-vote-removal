@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   FormControl,
@@ -15,7 +15,7 @@ import {
 import { Field, Form, Formik } from "formik";
 import "./InputCode.css";
 import { useNavigate } from "react-router-dom";
-import {
+import getCurrentUser, {
   saveVerificationCode
 } from "../API/Voter";
 
@@ -25,6 +25,7 @@ export default function InputCode() {
   const [checked, setChecked] = useState(false);
   const [invalid, setInvalid] = useState(false);
   const [disabledButton, setDisabled] = useState(true);
+  const voter = getCurrentUser();
 
   const handleChangeCodeInput = (e) => {
     setUserCodeInput(e.target.value);
@@ -115,6 +116,12 @@ export default function InputCode() {
       setInvalid(true);
     }
   }
+  useEffect(() => {
+    if(voter.attributes.VerificationCode!==""){
+    document.querySelector("#input-code").setAttribute("value", voter.attributes.VerificationCode.split("-")[0]);
+    }
+  }, []);
+
 
   return (
     <div className="page-container">
@@ -166,6 +173,7 @@ export default function InputCode() {
                           color={"#1C4E81"}
                           maxWidth="25rem"
                           {...field}
+                          disabled={voter.attributes.VerificationCode!==""?true:false}
                         />
                         <FormErrorMessage>{form.errors.name}</FormErrorMessage>
                       </FormControl>
@@ -181,6 +189,7 @@ export default function InputCode() {
                     width="min-content"
                     color="var(--secondary_blue)"
                     marginTop="2rem"
+                    disabled={voter.attributes.VerificationCode!==""?true:false}
                   >
                     Next
                   </Button>
@@ -190,7 +199,7 @@ export default function InputCode() {
           </Box>
           <Box
             id="verification-code"
-            display={"none"}
+            display={voter.attributes.VerificationCode!==""?"flex":"none"} 
             flexDirection="column"
             maxWidth={"30rem"}
             marginTop="2rem"
@@ -211,7 +220,7 @@ export default function InputCode() {
 
             <div className="space-between">
               <div className="verification-code">
-                <h3>{userCodeInput}</h3>
+                <h3>{voter.attributes.VerificationCode!==""?voter.attributes.VerificationCode:userCodeInput}</h3>
 
                 <Button
                   onClick={downloadAndVote}

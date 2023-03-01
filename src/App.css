@@ -37,7 +37,7 @@ h1{
     margin-bottom: 1.5rem !important;
 }
 .h1-instructions{
-    font-size: 2.1rem !important;
+    font-size: 2.8rem !important;
     font-family: "Noto Serif", "serif";
 }
 .blue-text{
@@ -51,6 +51,10 @@ h1{
 }
 .white-text{
     color: #FFFFFF;
+}
+
+.red-text{
+    color: #7c2503;
 }
 
 h2{
@@ -245,28 +249,35 @@ a{
 
         .container-dark-bg{
             /* background-color: #b42700; */
-            background-color: #ce7100;
+            background-color: #e98801;
             color: var(--secondary_blue) !important;
             min-height: 100vh !important;
             font-family: "Noto Sans", "sans serif";
-            padding-top: 5rem;
+            padding-top: 7rem;
         }
 
         .light-btn{
-            background-color: rgb(255, 255, 255) !important;
-            color: #7c2503;
+            background-color: #7c2503 !important;
+            color: white;
         }
         
         .light-btn:hover{
-            background-color: #7c2503 !important;
-            color: var(--secondary_blue);
+            background-color: white !important;
+            color:  #7c2503;
         }
 
         .btn-red{
             background-color: #CD9663 !important;
         }
 
-        .inner-box-start{
+       /*  .inner-box-start{
             padding: 5rem 12rem;
             border-radius: 10px;
+        } */
+
+        .check-box-red>span:nth-last-child(2)[data-checked]{
+            background-color: #7c2503;
+            border-color:#7c2503;
+            box-shadow: 0 0 0 1px #b23606 !important;
         }
+        

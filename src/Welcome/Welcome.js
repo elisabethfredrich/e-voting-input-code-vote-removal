@@ -49,7 +49,7 @@ export default function Welcome() {
   const downloadInstructions = () => {
     var element = document.createElement("a");
     element.setAttribute("href", Instructions);
-    element.setAttribute("download", "General-Election-2023.txt");
+    element.setAttribute("download", "General-Election-2023.pdf");
 
     element.style.display = "none";
     document.body.appendChild(element);
@@ -92,22 +92,22 @@ export default function Welcome() {
               <Text>1</Text>
             </GridItem>
             <GridItem className="welcome-steps-griditem">
-                <h2 className="white-text">IMPORTANT! </h2>
-                All candidates are fictional and for the purpose of this study{" "}
-                <span className="bold-text">
-                  you are asked to vote for Sarah Wilson.
+                {/* <h2 className="white-text">IMPORTANT! </h2> */}
+                All candidates are fictional and for the purpose of this study we ask you to vote for {" "}
+                <span className="bold-text red-text">
+                Sarah Wilson.
                 </span>
                 <Checkbox
-              className="check-box"
+              className="check-box check-box-red"
               id="checkBox-vote-info"
               isChecked={checked}
               onChange={handleChangeCheckbox}
             >
-              I understand that this is a fictional election and I will vote for the candiate Sarah Wilson.
+              I understand and will vote for the candiate Sarah Wilson.
             </Checkbox>
             </GridItem>
             <GridItem className="welcome-steps-numbers">
-              <Text className="border-circle">2</Text>
+              <Text>2</Text>
             </GridItem>
             <GridItem className="welcome-steps-griditem">
               <Text className="bold-text">
@@ -152,6 +152,7 @@ export default function Welcome() {
                           <FormLabel>Please enter your Prolific ID </FormLabel>
                           <Input
                             id="prolific-id"
+                            className="input-prolificID"
                             type="text"
                             placeholder="Enter your Prolific ID "
                             borderRadius={"0"}
@@ -159,7 +160,7 @@ export default function Welcome() {
                             maxWidth="25rem"
                             {...field}
                           />
-                          <FormErrorMessage>
+                          <FormErrorMessage color={"#b23606"}>
                             {form.errors.name}
                           </FormErrorMessage>
                         </FormControl>

@@ -48,7 +48,7 @@ export default function LegalInfo(){
           </div>
           <Text>Here follows some legal info...</Text>
           <Checkbox
-              className="check-box"
+              className="check-box check-box-red"
               id="checkBox-vote-info"
               isChecked={checked}
               onChange={handleChangeCheckbox}

@@ -137,10 +137,6 @@ const BulletinBoard = () => {
               below.
             </p>
 
-            <Text>
-            When you have verified your vote (or reported an error in case you could not verify your vote), please click "Finish" to leave the verification system.
-          </Text>
-
           <InputGroup marginTop="2rem">
             <InputLeftElement
               pointerEvents="none"
@@ -243,7 +239,7 @@ const BulletinBoard = () => {
               marginTop="3rem"
               onClick={() => navigate("/survey")}
               >
-              Finish
+              Close
             </Button>
           </Box>
         </Box>

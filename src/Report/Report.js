@@ -44,7 +44,7 @@ export default function Report() {
             value={inputValue}
             onChange={handleInputChange}
             placeholder="Describe your problem(s) here"
-            size="md"
+            height={"12rem"}
           />
           <br></br>
           <br></br>

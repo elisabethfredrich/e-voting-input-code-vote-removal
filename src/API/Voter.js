@@ -25,7 +25,6 @@ export async function saveVerificationCode(verificationCode){
   Voter.set("VerificationCode", verificationCode);
   try{
     await Voter.save();
-    console.log("voter");
   }
   catch (error){
     console.log("Error saving verification code: " + error);
@@ -41,7 +40,6 @@ export async function saveVote(vote, bbVote){
   Voter.set("BBVote", bbVote);
   try{
     await Voter.save();
-    console.log("voter");
   }
   catch (error){
     console.log("Error saving vote: " + error);
@@ -51,11 +49,9 @@ export async function saveVote(vote, bbVote){
 
 export async function saveReportOfProblem(problem){
   const Voter = getCurrentUser();
-  console.log(Voter)
   Voter.set("Problem_Reporting", problem);
   try{
     await Voter.save();
-    console.log("Problem saved" + problem);
   }
   catch(error){
     console.log("Error saving report of problem: " + error);

@@ -1,0 +1,9 @@
+.navbar-container{
+    width:100vw;
+    height:12vh;
+    position:fixed;
+    top:0;
+    background-color: var(--secondary_blue);
+    padding: 0.5rem 2rem;
+    z-index: 10;
+}

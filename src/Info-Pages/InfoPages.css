@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@400;700&display=swap");
+
+:root {
+  --primary-orange: #e98801;
+  --secondary-darkred: #7c2503;
+  --secondary-lightred: #b23606;
+}
+
+.container-info-pages {
+  background-color: var(--primary-orange);
+  color: white !important;
+  min-height: 100vh !important;
+  font-family: "Noto Sans", "sans serif";
+  padding: 5rem 2rem 5rem 2rem;
+  justify-content: center;
+  display: flex;
+}
+
+.inner-box-info {
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.padding-top-info-page {
+  padding-top: 5rem;
+}
+
+.centered-info-page {
+  justify-content: center;
+}
+
+.check-box-red > span:nth-last-child(2)[data-checked] {
+  background-color: var(--secondary-darkred);
+  border-color: var(--secondary-darkred);
+  box-shadow: 0 0 0 1px var(--secondary-lightred) !important;
+}
+
+/* fonts */
+.h1-info-pages {
+  font-size: 2.8rem !important;
+  font-family: "Noto Serif", "serif" !important;
+}
+
+.h2-info-pages {
+  font-size: 2rem !important;
+  font-family: "Noto Serif", "serif" !important;
+  color: white;
+}
+
+.red-text {
+  color: var(--secondary-darkred);
+}
+
+.medium-body-text-info {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* buttons */
+
+.red-btn {
+  background-color: var(--secondary-darkred) !important;
+  color: white;
+  margin-top: 2rem;
+  min-width: 10rem !important;
+  max-width: max-content;
+}
+
+.red-btn:hover {
+  background-color: var(--secondary-lightred) !important;
+  color: white;
+}
+
+/* Info 1 */
+
+@media (max-width: 960px) {
+  .info1-steps-grid {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    max-width: 40rem;
+    color: white;
+    border-top: solid 1px white;
+  }
+}
+
+@media (min-width: 960px) {
+  .info1-steps-grid {
+    grid-template-columns: 1fr 6fr;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    max-width: 40rem;
+    color: white;
+    border-top: solid 1px white;
+  }
+  .info1-steps-griditem {
+    padding-left: 3rem;
+    padding-top: 2.9rem;
+  }
+}
+
+.info1-steps-griditem:last-child{
+  border-bottom: none;
+}
+
+.info1-steps-grid > * {
+  font-family: "Noto Sans", sans-serif !important;
+  padding-bottom: 2rem;
+  border-bottom: solid 1px white;
+  padding: 3rem 2rem;
+}
+
+.info1-steps-numbers {
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: "Noto Serif", serif !important;
+  text-align: center;
+  line-height: 1;
+}
+
+.info1-steps-numbers:nth-last-child(2) {
+  border-bottom: none;
+}
+
+.input-prolificID[aria-invalid="true"] {
+  border-color: var(--secondary-lightred) !important;
+  box-shadow: 0 0 0 1px var(--secondary-lightred) !important;
+}
+
+.input-prolificID:focus-visible {
+  border-color: rgba(255, 255, 255, 0.638) !important;
+  box-shadow: 0 0 0 1px white !important;
+}

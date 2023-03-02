@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --primary_blue: #144b83;
+  --secondary_blue: #eef5fb;
+  --secondary_darkblue: #0e2842;
+  --light_grey: #00000046;
+}
+
+.outer-page-container {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 10rem 2rem 5rem 2rem;
+  color: var(--secondary_darkblue) !important;
+}
+
+.inner-page-container-narrow {
+  max-width: 25rem;
+}
+
+.inner-page-container-wide{
+  max-width: 33rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.info-box {
+  background-color: var(--secondary_blue);
+  padding: 1rem;
+  border-radius: 5px;
+  color: var(--primary_blue);
+  margin-top: 2rem;
+  height: max-content;
+}
+
+/* fonts */
+
+h1 {
+  font-weight: 600 !important;
+  font-size: 2rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+h2 {
+  font-weight: 600 !important;
+  color: var(--primary_blue);
+  font-size: 1.4rem !important;
+}
+
+h3 {
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  padding-bottom: 0.5rem;
+}
+
+.blue-text {
+  color: var(--primary_blue);
+}
+.lightblue-text {
+  color: var(--secondary_blue);
+}
+.darkblue-text {
+  color: var(--secondary_darkblue);
+}
+
+.info-text {
+  font-size: 0.95rem;
+  color: var(--primary_blue);
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
+.error-message-voting-system{
+  color:var(--secondary-lightred) !important;
+}
+
+/* buttons */
+
+.blue-btn {
+  min-width: 10rem !important;
+  background-color: var(--primary_blue) !important;
+  color: var(--secondary_blue) !important;
+  margin-top: 2rem;
+}
+
+.blue-btn:hover {
+  background-color: var(--secondary_darkblue) !important;
+}
+
+/* Input */
+.input-field{
+  border-color: var(--light_grey) !important;
+}

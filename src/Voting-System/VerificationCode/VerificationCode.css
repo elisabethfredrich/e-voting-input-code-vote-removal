@@ -1,0 +1,13 @@
+.verification-code-box {
+  background-color: var(--secondary_blue);
+  padding: 2rem;
+  border-radius: 5px;
+  justify-content: center;
+  margin-top: 2rem;
+  align-content: center;
+}
+
+.generated-verification-code-container {
+  flex-direction: column;
+  margin-top: 3rem;
+}

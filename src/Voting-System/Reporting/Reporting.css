@@ -1,0 +1,8 @@
+.report-form {
+  height: 10rem !important;
+  border-color: var(--light_grey) !important;
+}
+
+.report-form:invalid{
+    border-color: var(--secondary-lightred);
+}

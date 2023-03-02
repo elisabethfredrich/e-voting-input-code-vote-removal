@@ -29,16 +29,7 @@ export default function VoteVerification() {
   const navigate = useNavigate();
   const voter = getCurrentUser();
 
-  let results = new Set(Results.votes);
-
-  results.add({
-    id: voter.id,
-    vote: voter.attributes.BBVote,
-    code: voter.attributes.VerificationCode,
-  });
-
-  results = Array.from(results);
-  results.sort((a, b) => {
+  let results = Results.votes.sort((a, b) => {
     if (a.code.toUpperCase() < b.code.toUpperCase()) {
       return -1;
     } else {
@@ -123,7 +114,7 @@ export default function VoteVerification() {
           Verify by either putting your verification code into the search field
           or by looking for it in the alphabetically sorted list below.
           <Link onClick={() => navigate("/info")}>
-            <span className="material-symbols-outlined blue-icon small-icon margin-icon">
+            <span className="material-symbols-outlined blue-icon small-icon margin-left-icon">
               info
             </span>
           </Link>

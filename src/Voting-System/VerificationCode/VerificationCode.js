@@ -98,7 +98,6 @@ export default function VerificationCode() {
     if (checked) {
       navigate("/voting");
     } else {
-      //document.querySelector("#error-message").style.visibility = "visible";
       setInvalid(true);
     }
   }
@@ -195,7 +194,7 @@ export default function VerificationCode() {
             </h3>
 
             <Button onClick={downloadVerificationCode} className="blue-btn">
-              <span className="material-symbols-outlined medium-icon margin-icon">
+              <span className="material-symbols-outlined medium-icon margin-right-icon">
                 download
               </span>
               Download

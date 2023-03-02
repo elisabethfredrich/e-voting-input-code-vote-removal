@@ -16,13 +16,8 @@ import "./Voting.css";
 function PopOver({ vote }) {
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    if (vote === "Sarah Wilson (Party F)") {
-      const alteredVote = "Sarah Miller (Party J)";
-      await saveVote(vote, alteredVote);
-    } else {
-      await saveVote(vote, vote);
-    }
+  const handleSubmit = async () => {
+    await saveVote(vote);
     navigate("/confirmation");
   };
 

@@ -27,6 +27,9 @@
   font-size: 3.4rem;
   color: var(--primary_blue) !important;
 }
-.margin-icon {
+.margin-left-icon {
   margin-left: 0.5rem;
+}
+.margin-right-icon {
+  margin-right: 0.5rem;
 }

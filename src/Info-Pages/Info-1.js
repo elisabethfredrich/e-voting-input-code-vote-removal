@@ -102,7 +102,7 @@ export default function Info1() {
                     </Text>
 
                     <Button onClick={downloadInstructions} className="red-btn">
-                      <span className="material-symbols-outlined medium-icon margin-icon">
+                      <span className="material-symbols-outlined medium-icon margin-right-icon">
                         download
                       </span>
                       Download

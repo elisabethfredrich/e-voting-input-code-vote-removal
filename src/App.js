@@ -13,9 +13,9 @@ import Parse from "parse";
 import Info1 from "./Info-Pages/Info-1";
 import Reporting from "./Voting-System/Reporting/Reporting";
 
-const PARSE_APPLICATION_ID = "UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL";
+const PARSE_APPLICATION_ID = "nV2P0Ff22lShGeWir2Pgk1EJx5hv5PedNTgzIOQ9";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
-const PARSE_JAVASCRIPT_KEY = "S1tyiUfA5PBsAiER8l8K7YqpPXVg1wpCbQ1F7gty";
+const PARSE_JAVASCRIPT_KEY = "P8EL0BBDCs9jjT6cppNigMQdAoMGRUNFrAz4sOAt";
 
 Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 

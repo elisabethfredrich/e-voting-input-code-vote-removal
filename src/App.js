@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import VoteVerification from "./Voting-System/VoteVerification/VoteVerification";
 import Confirmation from "./Voting-System/Confirmation/Confirmation";
 import VerificationCode from "./Voting-System/VerificationCode/VerificationCode";
-import Navbar from "./Voting-System/Navbar/Navbar";
 import Voting from "./Voting-System/Voting/Voting";
 import Info3 from "./Info-Pages/Info-3";
 import Info2 from "./Info-Pages/Info-2";
@@ -13,7 +12,6 @@ import Welcome from "./Info-Pages/Welcome";
 import Parse from "parse";
 import Info1 from "./Info-Pages/Info-1";
 import Reporting from "./Voting-System/Reporting/Reporting";
-import { render } from "@testing-library/react";
 
 const PARSE_APPLICATION_ID = "UVxMd3c4qbO9uVtFvStqUEgJSIjMJWYaVZfKL6sL";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -24,8 +22,6 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
-  const pathname = window.location.pathname;
-
   return (
     <div className="App">
       <div id="app-main">

@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Text, Box } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import "./InfoPages.css";
 
 export default function Info2() {
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
 
   return (
     <div className="container-info-pages">

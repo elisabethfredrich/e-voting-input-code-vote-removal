@@ -9,7 +9,7 @@ export default function Navbar() {
     <Box>
      
         <Flex className="navbar-container">
-          <img src={Logo} />
+          <img src={Logo} alt="logo" />
         </Flex>
     </Box>
   );

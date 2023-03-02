@@ -2,7 +2,7 @@ import React from "react";
 import "./InfoPages.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Button, Checkbox, Box, Text } from "@chakra-ui/react";
+import { Button, Checkbox, Text } from "@chakra-ui/react";
 
 export default function Welcome() {
   const [checked, setChecked] = useState(false);

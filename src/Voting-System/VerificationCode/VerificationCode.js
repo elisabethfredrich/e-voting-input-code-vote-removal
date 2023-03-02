@@ -109,7 +109,7 @@ export default function VerificationCode() {
         .querySelector("#input-code")
         .setAttribute("value", voter.attributes.VerificationCode.split("-")[0]);
     }
-  }, []);
+  }, [voter.attributes.VerificationCode]);
 
   return (
     <div>

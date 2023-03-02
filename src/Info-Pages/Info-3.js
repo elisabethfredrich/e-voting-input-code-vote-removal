@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Text, Box } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 
 export default function Info3() {
   const navigate = useNavigate();

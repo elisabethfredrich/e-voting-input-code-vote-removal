@@ -7,7 +7,6 @@ import {
   PopoverCloseButton,
   Button,
   Text,
-  Box,
   Flex,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";

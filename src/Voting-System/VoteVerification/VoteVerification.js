@@ -12,6 +12,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   AccordionItem,
+  InputRightElement
 } from "@chakra-ui/react";
 import { React, useEffect } from "react";
 import Results from "../../JSON/results.json";
@@ -112,7 +113,7 @@ export default function VoteVerification() {
 
         <Text className="bold-text text-margin-top">
           Verify by either putting your verification code into the search field
-          or by looking for it in the alphabetically sorted list below.
+          or by looking for it in the ordered list below.{" "}
           <Link onClick={() => navigate("/info")}>
             <span className="material-symbols-outlined blue-icon small-icon margin-left-icon">
               info
@@ -127,7 +128,7 @@ export default function VoteVerification() {
           </Text>
         </Box>
 
-        <InputGroup marginTop="2rem">
+        <InputGroup marginTop="2rem" onClick={search}>
           <InputLeftElement
             pointerEvents="none"
             children={<SearchIcon color="var(--primary_blue)" />}
@@ -141,8 +142,8 @@ export default function VoteVerification() {
             type="search"
             marginBottom={"2rem"}
           />
-        </InputGroup>
 
+        </InputGroup>
         <Box id="error-text" className="info-box error-text-bb">
           <h3>No such verification code exists</h3>
           <Text>

@@ -16,7 +16,7 @@ export default function Confirmation() {
           Once all votes have been counted, the results are published on our
           offical webpage.{" "}
         </Text>
-        <Text>
+        <Text className="text-margin-top">
           Please use this webpage to check, if your vote has been counted
           correctly by finding your unique verification code.
         </Text>

@@ -34,7 +34,7 @@ function App() {
             <Route path="/voting" element={<Voting />} />
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/info-2" element={<Info2 />} />
-            <Route path="/vote-verification" element={<VoteVerification />} />
+            <Route path="/verification" element={<VoteVerification />} />
             <Route path="/info-3" element={<Info3 />} />
             <Route path="reporting" element={<Reporting/>}/>
           </Routes>

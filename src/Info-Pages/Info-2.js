@@ -26,7 +26,7 @@ export default function Info2() {
             marginTop={"2rem"}
             width="8rem"
             className="red-btn"
-            onClick={() => navigate("/vote-verification")}
+            onClick={() => navigate("/verification")}
             >
             Verify vote
             </Button>  */}

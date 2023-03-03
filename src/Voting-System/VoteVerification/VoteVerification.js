@@ -115,7 +115,7 @@ export default function VoteVerification() {
           Verify by either putting your verification code into the search field
           or by looking for it in the ordered list below.{" "}
           <Link onClick={() => navigate("/info")}>
-            <span className="material-symbols-outlined blue-icon small-icon margin-left-icon">
+            <span className="material-symbols-outlined blue-icon small-icon">
               info
             </span>
           </Link>

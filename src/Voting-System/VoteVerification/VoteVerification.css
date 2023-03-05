@@ -2,20 +2,27 @@
   .result-grid {
     grid-template-columns: 1fr !important;
     grid-template-rows: max-content 1fr !important;
-    gap: 20px !important;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    justify-items: center;
   }
+
 }
 
 @media (min-width: 960px) {
   .result-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
     padding-top: 3rem;
     margin-bottom: 2rem;
     padding-bottom: 4rem;
-    border-bottom: solid 1px #d9d9d9;
-    padding-left: 0.5rem;
   }
+}
+.result-grid {
+  gap: 10px;
+  border-bottom: solid 1px #d9d9d9;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
 }
 
 .result-grid:last-child {
@@ -24,7 +31,7 @@
 
 .error-text-bb {
   display: none;
-  color: var(--secondary-lightred);
+  color: var(--secondary-darkred);
   margin-top: 0;
 }
 

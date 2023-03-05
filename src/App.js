@@ -37,6 +37,7 @@ function App() {
             <Route path="/verification" element={<VoteVerification />} />
             <Route path="/info-3" element={<Info3 />} />
             <Route path="reporting" element={<Reporting/>}/>
+            <Route path="/*" element={<Navigate to="/welcome" />} />
           </Routes>
         </BrowserRouter>
       </div>

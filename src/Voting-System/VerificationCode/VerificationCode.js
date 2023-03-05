@@ -20,7 +20,6 @@ import { useNavigate } from "react-router-dom";
 import getCurrentUser, { saveVerificationCode } from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 
-
 export default function VerificationCode() {
   const navigate = useNavigate();
   const [verificationCode, setVerificationCode] = useState("");
@@ -66,9 +65,10 @@ export default function VerificationCode() {
     const fileContent =
       "data:text/plain;charset=utf-8," +
       encodeURIComponent(
-        `With this code you can verify the correctness of your vote in the General Election 2023: ${verificationCode}`
+        `With this code you can verify the correctness of your vote in the General Election 2023: ${voter.attributes.VerificationCode}`
       );
-    downloadFile(fileContent);
+    const title = "Verification-Code_General-Election-2023.txt"
+    downloadFile(fileContent, title);
   }
 
   function generateCode() {
@@ -112,114 +112,115 @@ export default function VerificationCode() {
 
   return (
     <div>
-    <Navbar/>
-    <div className="outer-page-container">
-      <div className="inner-page-container-wide">
-        <h1 className="blue-text">Welcome</h1>
-        <Text>
-          In order to vote in the General Election, please provide a code in the
-          input field below. The code should contain of:
-        </Text>
-        <UnorderedList marginTop={"0.7rem"} fontWeight="600">
-          <ListItem>8-20 characters</ListItem>
-          <ListItem>At least one letter</ListItem>
-          <ListItem>At least one number</ListItem>
-        </UnorderedList>
-        <Box className="info-box">
+      <Navbar />
+      <div className="outer-page-container">
+        <div className="inner-page-container-wide">
+          <h1 className="blue-text">Welcome</h1>
           <Text>
-            <span className="bold-text">NB!</span> The code
-            <span className="italic-text"> must not</span> contain any sensitive
-            information that could lead to conclusions about your person. Please
-            also avoid any passwords you use elsewhere.
+            In order to vote in the General Election, please provide a code in
+            the input field below. The code should contain of:
           </Text>
-        </Box>
-        <Formik
-          initialValues={{ inputCode: "" }}
-          onSubmit={handleSubmitInputCode}
-        >
-          {({ errors, touched }) => (
-            <Form>
-              <FormControl isInvalid={!!errors.inputCode && touched.inputCode}>
-                <FormLabel mt={"2rem"}>Enter your code here</FormLabel>
-                <Field
-                  className="input-field"
-                  as={Input}
-                  id="input-code"
-                  name="inputCode"
-                  type="text"
-                  placeholder="Enter your code here"
+          <UnorderedList marginTop={"0.7rem"} fontWeight="600">
+            <ListItem>8-20 characters</ListItem>
+            <ListItem>At least one letter</ListItem>
+            <ListItem>At least one number</ListItem>
+          </UnorderedList>
+          <Box className="info-box">
+            <Text>
+              <span className="bold-text">NB!</span> The code
+              <span className="italic-text"> must not</span> contain any
+              sensitive information that could lead to conclusions about your
+              person. Please also avoid any passwords you use elsewhere.
+            </Text>
+          </Box>
+          <Formik
+            initialValues={{ inputCode: "" }}
+            onSubmit={handleSubmitInputCode}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <FormControl
+                  isInvalid={!!errors.inputCode && touched.inputCode}
+                >
+                  <FormLabel mt={"2rem"}>Enter your code here</FormLabel>
+                  <Field
+                    className="input-field"
+                    as={Input}
+                    id="input-code"
+                    name="inputCode"
+                    type="text"
+                    placeholder="Enter your code here"
+                    disabled={
+                      voter.attributes.VerificationCode !== "" ? true : false
+                    }
+                    validate={validateCode}
+                  />
+                  <FormErrorMessage className="error-message-voting-system">
+                    {errors.inputCode}
+                  </FormErrorMessage>
+                </FormControl>
+                <Button
+                  id="submit-code"
+                  type="submit"
+                  className="blue-btn"
                   disabled={
                     voter.attributes.VerificationCode !== "" ? true : false
                   }
-                  validate={validateCode}
-                />
-                <FormErrorMessage className="error-message-voting-system">
-                  {errors.inputCode}
-                </FormErrorMessage>
-              </FormControl>
-              <Button
-                id="submit-code"
-                type="submit"
-                className="blue-btn"
-                disabled={
-                  voter.attributes.VerificationCode !== "" ? true : false
-                }
-              >
-                Next
+                >
+                  Next
+                </Button>
+              </Form>
+            )}
+          </Formik>
+          <Flex
+            id="generated-verification-code"
+            className="generated-verification-code-container"
+            display={voter.attributes.VerificationCode !== "" ? "flex" : "none"}
+          >
+            <Text>
+              Below is your unique verification code, which you will need to use
+              later to check if your vote has been counted correctly. You should
+              be able to recognize the first part of the code from above.
+            </Text>
+
+            <Text className="text-margin-top">
+              Please download the code or save it somewhere, where you can find
+              it again. Please do not share your code with others!
+            </Text>
+
+            <Grid className="verification-code-box">
+              <h3>
+                {voter.attributes.VerificationCode !== ""
+                  ? voter.attributes.VerificationCode
+                  : verificationCode}
+              </h3>
+
+              <Button onClick={downloadVerificationCode} className="blue-btn">
+                <span className="material-symbols-outlined medium-icon margin-icon">
+                  download
+                </span>
+                Download
               </Button>
-            </Form>
-          )}
-        </Formik>
-        <Flex
-          id="generated-verification-code"
-          className="generated-verification-code-container"
-          display={voter.attributes.VerificationCode !== "" ? "flex" : "none"}
-        >
-          <Text>
-            Below is your unique verification code, which you will need to use
-            later to check if your vote has been counted correctly. You should
-            be able to recognize the first part of the code from above.
-          </Text>
-
-          <Text className="text-margin-top">
-            Please download the code or save it somewhere, where you can find it
-            again. Please do not share your code with others!
-          </Text>
-
-          <Grid className="verification-code-box">
-            <h3>
-              {voter.attributes.VerificationCode !== ""
-                ? voter.attributes.VerificationCode
-                : verificationCode}
-            </h3>
-
-            <Button onClick={downloadVerificationCode} className="blue-btn">
-              <span className="material-symbols-outlined medium-icon margin-right-icon">
-                download
-              </span>
-              Download
+            </Grid>
+            <Checkbox
+              className="check-box"
+              id="checkBox"
+              isChecked={checked}
+              onChange={handleChange}
+              isInvalid={invalid}
+            >
+              I have downloaded or saved my verification code.
+            </Checkbox>
+            <Button
+              onClick={handleSubmitVerificationCode}
+              className="blue-btn"
+              disabled={disabledButton}
+            >
+              Vote now
             </Button>
-          </Grid>
-          <Checkbox
-            className="check-box"
-            id="checkBox"
-            isChecked={checked}
-            onChange={handleChange}
-            isInvalid={invalid}
-          >
-            I have downloaded or saved my verification code.
-          </Checkbox>
-          <Button
-            onClick={handleSubmitVerificationCode}
-            className="blue-btn"
-            disabled={disabledButton}
-          >
-            Vote now
-          </Button>
-        </Flex>
+          </Flex>
+        </div>
       </div>
     </div>
-    </div>
-    
   );
 }

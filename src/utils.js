@@ -1,13 +1,13 @@
 
-export const downloadFile = (content) => {
-    var element = document.createElement("a");
-    element.setAttribute("href", content);
-    element.setAttribute("download", "General-Election-2023.pdf");
+export const downloadFile = (content, title) => {
+  var element = document.createElement("a");
+  element.setAttribute("href", content);
+  element.setAttribute("download", title);
 
-    element.style.display = "none";
-    document.body.appendChild(element);
+  element.style.display = "none";
+  document.body.appendChild(element);
 
-    element.click();
+  element.click();
 
-    document.body.removeChild(element);
-  };
+  document.body.removeChild(element);
+};

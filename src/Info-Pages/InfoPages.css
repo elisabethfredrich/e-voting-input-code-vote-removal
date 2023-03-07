@@ -80,6 +80,12 @@
   font-size: 1.1rem;
 }
 
+.error-text-db-submission{
+  color:var(--secondary-darkred);
+  visibility: hidden;
+  }
+
+
 /* buttons */
 @media (max-width: 960px) {
   .red-btn{
@@ -147,6 +153,8 @@ padding-top: 0;  }
   padding-bottom: 2rem;
   border-bottom: solid 1px white;
   padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .info1-steps-numbers {

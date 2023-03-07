@@ -1,10 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Button, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import "./InfoPages.css";
 
 export default function Info2() {
- // const navigate = useNavigate();
 
   return (
     <div className="container-info-pages">
@@ -18,18 +16,9 @@ export default function Info2() {
           website.
         </Text>
         <Text className="medium-body-text-info">
-          ... however, since this is a study, the results are already up. Please
+          However, since this is a study, the results are already up. Please
           follow the instruction paper to verify your vote now!
         </Text>
-
-        {/*    <Button
-            marginTop={"2rem"}
-            width="8rem"
-            className="red-btn"
-            onClick={() => navigate("/verification")}
-            >
-            Verify vote
-            </Button>  */}
       </div>
     </div>
   );

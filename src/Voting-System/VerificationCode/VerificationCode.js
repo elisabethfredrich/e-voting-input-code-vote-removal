@@ -12,6 +12,7 @@ import {
   Checkbox,
   Flex,
   Grid,
+  Spinner,
 } from "@chakra-ui/react";
 import { downloadFile } from "../../utils";
 import { Field, Form, Formik } from "formik";
@@ -22,10 +23,11 @@ import Navbar from "../Navbar/Navbar";
 
 export default function VerificationCode() {
   const navigate = useNavigate();
-  const [verificationCode, setVerificationCode] = useState("");
   const [checked, setChecked] = useState(false);
   const [invalid, setInvalid] = useState(false);
   const [disabledButton, setDisabled] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const voter = getCurrentUser();
 
   function validateCode(value) {
@@ -49,16 +51,28 @@ export default function VerificationCode() {
     return error;
   }
 
-  async function handleSubmitInputCode(values, actions) {
+  function handleSubmitInputCode(values, actions) {
+    setIsSubmitting(true);
+    document
+      .querySelector("#submit-code")
+      .setAttribute("disabled", isSubmitting);
     const generatedCode = generateCode();
     const verificationCode = values.inputCode + "-" + generatedCode;
-    await saveVerificationCode(verificationCode);
-    setVerificationCode(verificationCode);
-    document.querySelector("#generated-verification-code").style.display =
-      "flex";
-    actions.setSubmitting(false);
-    document.querySelector("#submit-code").style.display = "none";
-    document.querySelector("#input-code").disabled = "true";
+    saveVerificationCode(verificationCode).then(
+      (resolve) => {
+        document.querySelector("#generated-verification-code").style.display =
+          "flex";
+        actions.setSubmitting(false);
+        document.querySelector("#submit-code").style.display = "none";
+        document.querySelector("#input-code").disabled = "true";
+      },
+      (reject) => {
+        setIsSubmitting(false);
+        document.querySelector("#submit-code").removeAttribute("disabled");
+        document.querySelector("#submission-error").style.visibility =
+          "visible";
+      }
+    );
   }
 
   function downloadVerificationCode() {
@@ -67,7 +81,7 @@ export default function VerificationCode() {
       encodeURIComponent(
         `With this code you can verify the correctness of your vote in the General Election 2023: ${voter.attributes.VerificationCode}`
       );
-    const title = "Verification-Code_General-Election-2023.txt"
+    const title = "Verification-Code_General-Election-2023.txt";
     downloadFile(fileContent, title);
   }
 
@@ -94,7 +108,6 @@ export default function VerificationCode() {
   }
 
   function handleSubmitVerificationCode(value) {
-    setVerificationCode(value.inputCode);
     if (checked) {
       navigate("/voting");
     } else {
@@ -167,8 +180,17 @@ export default function VerificationCode() {
                     voter.attributes.VerificationCode !== "" ? true : false
                   }
                 >
+                  {" "}
+                  {isSubmitting && <Spinner size="sm" mr={"1rem"} />}
                   Next
                 </Button>
+                <Text
+                  id="submission-error"
+                  className="error-text-db-submission"
+                  mt={"2rem"}
+                >
+                  Something went wrong, please try again later.{" "}
+                </Text>
               </Form>
             )}
           </Formik>
@@ -190,9 +212,8 @@ export default function VerificationCode() {
 
             <Grid className="verification-code-box">
               <h3>
-                {voter.attributes.VerificationCode !== ""
-                  ? voter.attributes.VerificationCode
-                  : verificationCode}
+                {voter.attributes.VerificationCode !== "" &&
+                  voter.attributes.VerificationCode}
               </h3>
 
               <Button onClick={downloadVerificationCode} className="blue-btn">

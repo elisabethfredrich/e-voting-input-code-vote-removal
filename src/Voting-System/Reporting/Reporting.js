@@ -5,14 +5,18 @@ import {
   Textarea,
   FormErrorMessage,
   FormLabel,
-} from "@chakra-ui/react";
+  Spinner
+} 
+from "@chakra-ui/react";
 import { saveReportOfProblem } from "../../API/Voter";
 import { Field, Form, Formik } from "formik";
 import Navbar from "../Navbar/Navbar";
 import { ReportingConfirmation } from "./ReportingConformation";
+import { useState } from "react";
 import "./Reporting.css";
 
 export default function Reporting() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateText = (value) => {
     if (value === "") {
@@ -21,6 +25,7 @@ export default function Reporting() {
   };
 
   const handleSubmit = async (value) => {
+    setIsSubmitting(true);
     await saveReportOfProblem(value.text);
     document.querySelector("#reporting-form").style.display = "none";
     document.querySelector("#reporting-confirmation").style.visibility =
@@ -54,8 +59,8 @@ export default function Reporting() {
                       {errors.text}
                     </FormErrorMessage>
                   </FormControl>
-                  <Button className="blue-btn" type="submit">
-                    Send
+                  <Button className="blue-btn" type="submit"  disabled={isSubmitting}>
+                  {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Send
                   </Button>
                 </Form>
               )}

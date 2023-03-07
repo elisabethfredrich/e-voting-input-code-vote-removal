@@ -1,16 +1,16 @@
-import Parse from 'parse';
+import Parse from "parse";
 
 export async function addVoter(ID) {
-let user = new Parse.User();
-user.set("username", ID);
-user.set("password", ID);
-user.set("VerificationCode", "");
-user.set("Vote", "");
-try {
+  let user = new Parse.User();
+  user.set("username", ID);
+  user.set("password", ID);
+  user.set("VerificationCode", "");
+  user.set("Vote", "");
   await user.signUp();
-} catch (error) {
-  return `Could not save new user: ${error}`;
 }
+
+export async function loginVoter(ID) {
+  await Parse.User.logIn(ID, ID);
 }
 
 export default function getCurrentUser() {
@@ -18,46 +18,28 @@ export default function getCurrentUser() {
   return currentUser;
 }
 
-export async function saveVerificationCode(verificationCode){
+export async function saveVerificationCode(verificationCode) {
   const Voter = getCurrentUser();
-  if(Voter.attributes.VerificationCode === ""){
-  Voter.set("VerificationCode", verificationCode);
-  try{
+    Voter.set("VerificationCode", verificationCode);
     await Voter.save();
-  }
-  catch (error){
-    console.log("Error saving verification code: " + error);
-  }}
-  else{
-    alert("You already have a verification code")
-  }
 }
 
-export async function saveVote(vote){
+export async function saveVote(vote) {
   const Voter = getCurrentUser();
   Voter.set("Vote", vote);
-  try{
+  try {
     await Voter.save();
-  }
-  catch (error){
+  } catch (error) {
     console.log("Error saving vote: " + error);
   }
 }
 
-
-export async function saveReportOfProblem(problem){
+export async function saveReportOfProblem(problem) {
   const Voter = getCurrentUser();
   Voter.set("Problem_Reporting", problem);
-  try{
+  try {
     await Voter.save();
-  }
-  catch(error){
+  } catch (error) {
     console.log("Error saving report of problem: " + error);
-
   }
-
 }
-
-
-
-

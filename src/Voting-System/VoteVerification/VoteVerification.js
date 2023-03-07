@@ -11,9 +11,9 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  AccordionItem,
-  InputRightElement
-} from "@chakra-ui/react";
+  AccordionItem
+}
+from "@chakra-ui/react";
 import { React, useEffect } from "react";
 import Results from "../../JSON/results.json";
 import "./VoteVerification.css";
@@ -21,14 +21,12 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import getCurrentUser from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 
 
 export default function VoteVerification() {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
-  const voter = getCurrentUser();
 
   let results = Results.votes.sort((a, b) => {
     if (a.code.toUpperCase() < b.code.toUpperCase()) {

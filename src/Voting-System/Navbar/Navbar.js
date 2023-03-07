@@ -6,9 +6,8 @@ import "./Navbar.css";
 export default function Navbar() {
 
   return (
-    <Box>
-     
-        <Flex className="navbar-container">
+    <Box className="navbar-container">
+        <Flex height={"100%"}>
           <img src={Logo} alt="logo" />
         </Flex>
     </Box>

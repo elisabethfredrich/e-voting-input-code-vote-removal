@@ -13,9 +13,10 @@ import {
   Grid,
   GridItem,
   Checkbox,
+  Spinner,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
-import { addVoter } from "../API/Voter";
+import { addVoter, loginVoter } from "../API/Voter";
 import Instructions from "../assets/Instructions_e-voting.pdf";
 import { downloadFile } from "../utils";
 
@@ -23,6 +24,7 @@ export default function Info1() {
   const [checked, setChecked] = useState(false);
   const [disabledButton, setDisabled] = useState(true);
   const [downloaded, setDownloaded] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ export default function Info1() {
   };
 
   const downloadInstructions = () => {
-    downloadFile(Instructions);
+    downloadFile(Instructions, "General-Election-2023.pdf");
     setDownloaded(true);
     if (checked) {
       setDisabled(false);
@@ -48,6 +50,7 @@ export default function Info1() {
   };
 
   const validateProlificID = (value) => {
+    document.querySelector("#submission-error").style.visibility = "hidden";
     let error;
     if (!value) {
       error = "This field is required";
@@ -57,9 +60,29 @@ export default function Info1() {
     return error;
   };
 
-  const handleSubmit = async (value) => {
-    await addVoter(value.pid);
-    navigate("/verification-code");
+  const submitForm = (value) => {
+    setIsSubmitting(true);
+    document
+      .querySelector("#submit-pid")
+      .setAttribute("disabled", isSubmitting);
+    addVoter(value.pid).then(
+      (resolveSignUp) => {
+        navigate("/verification-code");
+      },
+      (rejectSignUp) => {
+        loginVoter(value.pid).then(
+          (resolveLogIn) => {
+            navigate("/verification-code");
+          },
+          (rejectLogIn) => {
+            setIsSubmitting(false);
+            document.querySelector("#submit-pid").removeAttribute("disabled");
+            document.querySelector("#submission-error").style.visibility =
+              "visible";
+          }
+        );
+      }
+    );
   };
 
   return (
@@ -69,7 +92,7 @@ export default function Info1() {
           <div className="space-between">
             <h1 className="h1-info-pages">Before you start</h1>
           </div>
-          <Formik initialValues={{ pid: "" }} onSubmit={handleSubmit}>
+          <Formik initialValues={{ pid: "" }} onSubmit={submitForm}>
             {({ errors, touched }) => (
               <Form>
                 <Grid className="info1-steps-grid">
@@ -132,12 +155,19 @@ export default function Info1() {
                   </GridItem>
                   <GridItem className="info1-steps-numbers"></GridItem>
                   <GridItem className="info1-steps-griditem">
+                    <Text
+                      id="submission-error"
+                      className="error-text-db-submission"
+                    >
+                      Something went wrong, please try again later.{" "}
+                    </Text>
                     <Button
+                      id="submit-pid"
                       type="submit"
                       className="red-btn"
                       disabled={disabledButton}
                     >
-                      Start
+                      {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Start
                     </Button>
                   </GridItem>
                 </Grid>

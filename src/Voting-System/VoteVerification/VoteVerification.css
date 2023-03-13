@@ -46,6 +46,35 @@
   font-weight: 600;
 }
 
+demo-video {
+  border: solid var(--secondary_blue);
+ 
+}
+
+.container-outer-page {
+  font-family: "Poppins", sans-serif;
+  margin: 10rem 8rem 5rem 8rem;
+  color: var(--secondary_darkblue) !important;
+  grid-template-columns: 1fr 2fr;
+  gap: 10rem;
+}
+
+.result-diagram{
+  margin-bottom: 2rem;
+  border: solid var(--light_grey);
+}
+
+.video-and-results {
+  margin-top: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  grid-row: 1/2;
+  align-self: start;
+  position: sticky;
+  top: 155px; 
+}
+
+
 /* clears the ‘X’ from Internet Explorer */
 input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
 input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }

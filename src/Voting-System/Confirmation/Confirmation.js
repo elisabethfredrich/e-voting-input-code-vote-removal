@@ -17,7 +17,7 @@ export default function Confirmation() {
           offical webpage.{" "}
         </Text>
         <Text className="text-margin-top">
-          Please use this webpage to check, if your vote has been counted
+          Please use this webpage to check, if your vote has been saved
           correctly by finding your unique verification code.
         </Text>
         <Button className="blue-btn" onClick={() => navigate("/info-2")}>

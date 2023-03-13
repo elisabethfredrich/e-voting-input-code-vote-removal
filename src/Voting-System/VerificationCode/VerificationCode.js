@@ -201,7 +201,7 @@ export default function VerificationCode() {
           >
             <Text>
               Below is your unique verification code, which you will need to use
-              later to check if your vote has been counted correctly. You should
+              later to check if your vote has been saved correctly. You should
               be able to recognize the first part of the code from above.
             </Text>
 

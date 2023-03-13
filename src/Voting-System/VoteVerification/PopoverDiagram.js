@@ -8,7 +8,7 @@ import {
     Link
   } from "@chakra-ui/react";
   import "../Voting/Voting.css";
-  import Result from "../../assets/Diagram-Result.png";
+  import Result from "../../assets/Result-Diagram-Removal.png";
   
   function PopOverDiagram() {
   

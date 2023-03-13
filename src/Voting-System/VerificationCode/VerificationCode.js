@@ -13,6 +13,7 @@ import {
   Flex,
   Grid,
   Spinner,
+  Image
 } from "@chakra-ui/react";
 import { downloadFile } from "../../utils";
 import { Field, Form, Formik } from "formik";
@@ -20,6 +21,8 @@ import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
 import getCurrentUser, { saveVerificationCode } from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
+import VerificationCodeExample from "../../assets/VerificationCode_example.png";
+
 
 export default function VerificationCode() {
   const navigate = useNavigate();
@@ -129,10 +132,31 @@ export default function VerificationCode() {
       <div className="outer-page-container">
         <div className="inner-page-container-wide">
           <h1 className="blue-text">Welcome</h1>
-          <Text>
-            In order to vote in the General Election, please provide a code in
-            the input field below. The code should contain of:
+          <Text>Welcome to the General Election 2023!</Text>
+          <Text className="text-margin-top">
+            In order to ensure the correctness of the election result in this
+            online election, it is important that you verify your vote later in
+            the process. For this purpose, you need to enter a code of your own
+            choice in the input field below. This code will be the first part of
+            your unique verification code. The second part will be randomly
+            generated.
           </Text>
+          <Text className="text-margin-top">
+            In the next step, you will receive your complete verification code
+            which will be linked to your vote. You will find both on the
+            official results page as soon as the results are published. It will
+            be looking like this:
+          </Text>
+
+          <Image
+            src={VerificationCodeExample}
+            mt={"2rem"}
+            border={"solid 1px var(--light_grey)"}
+          />
+          <figcaption className="figcaption-verification-example">
+            Example of verification code and vote
+          </figcaption>
+          <Text className="text-margin-top">Your self-chosen code should include:</Text>
           <UnorderedList marginTop={"0.7rem"} fontWeight="600">
             <ListItem>8-20 characters</ListItem>
             <ListItem>At least one letter</ListItem>
@@ -177,20 +201,14 @@ export default function VerificationCode() {
                   type="submit"
                   className="blue-btn"
                   disabled={
-                    voter.attributes.VerificationCode !== "" ? true : false
+                    isSubmitting
                   }
+                  visibility={voter.attributes.VerificationCode === "" ? "visible" : "hidden"}
                 >
                   {" "}
                   {isSubmitting && <Spinner size="sm" mr={"1rem"} />}
                   Next
                 </Button>
-                <Text
-                  id="submission-error"
-                  className="error-text-db-submission"
-                  mt={"2rem"}
-                >
-                  Something went wrong, please try again later.{" "}
-                </Text>
               </Form>
             )}
           </Formik>
@@ -201,7 +219,7 @@ export default function VerificationCode() {
           >
             <Text>
               Below is your unique verification code, which you will need to use
-              later to check if your vote has been saved correctly. You should
+              later to check if your vote has been counted correctly. You should
               be able to recognize the first part of the code from above.
             </Text>
 

@@ -33,6 +33,7 @@ function App() {
       <div id="app-main">
         <BrowserRouter>
        <Routes>
+            <Route path="/" element={<Navigate to="/info-1" />} />
             <Route path="/info-1" element={<Info1 />} />
             <Route path="/verification-code" element={<VerificationCode />} />
             <Route path="/voting" element={<Voting />} />

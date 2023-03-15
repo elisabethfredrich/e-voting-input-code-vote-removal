@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import VoteVerification from "./Voting-System/VoteVerification/VoteVerification";
 import Confirmation from "./Voting-System/Confirmation/Confirmation";
 import VerificationCode from "./Voting-System/VerificationCode/VerificationCode";
+import IndividualVoteVerification from "./Voting-System/VoteVerification/IndividualVoteVerification";
 import Voting from "./Voting-System/Voting/Voting";
-import Info3 from "./Info-Pages/Info-3";
 import Info2 from "./Info-Pages/Info-2";
 import Parse from "parse";
 import Info1 from "./Info-Pages/Info-1";
@@ -40,11 +40,10 @@ function App() {
             <Route path="/confirmation" element={<Confirmation />} />
             <Route path="/info-2" element={<Info2 />} />
             <Route path="/verification" element={<VoteVerification />} />
-            <Route path="/info-3" element={<Info3 />} />
+            <Route path="/verification/:id" element={<IndividualVoteVerification />} />
             <Route path="reporting" element={<Reporting/>}/>
             <Route path="/invalid-url" element={<Error/>}/>
             <Route path="/*" element={<Navigate to="/invalid-url" />} />
-
           </Routes>
         </BrowserRouter>
       </div>

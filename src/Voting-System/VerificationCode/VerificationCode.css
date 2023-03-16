@@ -11,6 +11,16 @@
   flex-direction: column;
 
 }
+.pdf-download-wrapper{
+  display:flex;
+  align-items: center
+}
+
+.qr-generator-wrapper{
+   visibility: hidden; 
+   height:0px; 
+   width:0px;
+  }
 
 .figcaption-verification-example{
   text-align: center;

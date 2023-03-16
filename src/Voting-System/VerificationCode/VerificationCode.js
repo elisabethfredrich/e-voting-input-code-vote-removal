@@ -12,8 +12,8 @@ import {
   Checkbox,
   Flex,
   Grid,
+  Image,
   Spinner,
-  Image
 } from "@chakra-ui/react";
 import { downloadFile } from "../../utils";
 import { Field, Form, Formik } from "formik";
@@ -21,11 +21,11 @@ import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
 import getCurrentUser, { saveVerificationCode } from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
-import VerificationCodeExample from "../../assets/VerificationCode_example.png";
-
+import VerificationCodeExample from "../../assets/Example_VerificationCode.png";
 
 export default function VerificationCode() {
   const navigate = useNavigate();
+  const [verificationCode, setVerificationCode] = useState("");
   const [checked, setChecked] = useState(false);
   const [invalid, setInvalid] = useState(false);
   const [disabledButton, setDisabled] = useState(true);
@@ -54,38 +54,25 @@ export default function VerificationCode() {
     return error;
   }
 
-  function handleSubmitInputCode(values, actions) {
-    setIsSubmitting(true);
-    document
-      .querySelector("#submit-code")
-      .setAttribute("disabled", isSubmitting);
+  async function handleSubmitInputCode(values, actions) {
     const generatedCode = generateCode();
     const verificationCode = values.inputCode + "-" + generatedCode;
-    saveVerificationCode(verificationCode).then(
-      (resolve) => {
-        document.querySelector("#generated-verification-code").style.display =
-          "flex";
-        actions.setSubmitting(false);
-        document.querySelector("#submit-code").style.display = "none";
-        document.querySelector("#input-code").disabled = "true";
-      },
-      (reject) => {
-        setIsSubmitting(false);
-        document.querySelector("#submit-code").removeAttribute("disabled");
-        document.querySelector("#submission-error").style.visibility =
-          "visible";
-      }
-    );
+    await saveVerificationCode(verificationCode);
+    setVerificationCode(verificationCode);
+    document.querySelector("#generated-verification-code").style.display =
+      "flex";
+    actions.setSubmitting(false);
+    document.querySelector("#submit-code").style.display = "none";
+    document.querySelector("#input-code").disabled = "true";
   }
 
   function downloadVerificationCode() {
     const fileContent =
       "data:text/plain;charset=utf-8," +
       encodeURIComponent(
-        `With this code you can verify the correctness of your vote in the General Election 2023: ${voter.attributes.VerificationCode}`
+        `With this code you can verify the correctness of your vote in the General Election 2023: ${verificationCode}`
       );
-    const title = "Verification-Code_General-Election-2023.txt";
-    downloadFile(fileContent, title);
+    downloadFile(fileContent);
   }
 
   function generateCode() {
@@ -111,6 +98,7 @@ export default function VerificationCode() {
   }
 
   function handleSubmitVerificationCode(value) {
+    setVerificationCode(value.inputCode);
     if (checked) {
       navigate("/voting");
     } else {
@@ -130,46 +118,52 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-        <div className="inner-page-container-wide">
+        <div className="inner-page-container-wide margin-left margin-right">
           <h1 className="blue-text">Welcome</h1>
+
           <Text>Welcome to the General Election 2023!</Text>
           <Text className="text-margin-top">
             In order to ensure the correctness of the election result in this
             online election, it is important that you verify your vote later in
-            the process. For this purpose, you need to enter a code of your own
-            choice in the input field below. This code will be the first part of
-            your unique verification code. The second part will be randomly
-            generated.
-          </Text>
-          <Text className="text-margin-top">
-            In the next step, you will receive your complete verification code
-            which will be linked to your vote. You will find both on the
-            official results page as soon as the results are published. It will
-            be looking like this:
+            the process.{" "}
+            {/* This means that you need to check, if you vote is saved correctly in the voting system.  */}
+            For this purpose, you will need a unique verification code which
+            will be linked to your vote.
+            {/*     code to check, if your vote is being saved correctly.  */}
           </Text>
 
-          <Image
-            src={VerificationCodeExample}
-            mt={"2rem"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            Example of verification code and vote
-          </figcaption>
-          <Text className="text-margin-top">Your self-chosen code should include:</Text>
+          <Text className="text-margin-top">
+            After the election result is published, you need to visit our
+            official webpage and search for your verification code between all
+            the codes. The picture to right illustrates how it will look like
+            with all the verification codes being linked to one vote.
+          </Text>
+          <Text className="text-margin-top">
+            To get your unique verficiation code, you need to enter a code of
+            your own choice in the input field below. This code will be the
+            first part of your unique verification code. The second part will be
+            randomly generated.
+            {/*  For this purpose, you need to enter a code of your own
+            choice in the input field below. This code will be the first part of
+            your unique verification code. The second part will be randomly
+            generated. */}
+          </Text>
+          <Text className="text-margin-top">
+            {/*  In the next step, you will receive your complete verification code
+            which will be linked to your vote. You will find both on the
+            official results page as soon as the results are published. It will
+            be looking like this: */}
+          </Text>
+
+          <Text className="text-margin-top">
+            Your self-chosen code should include:
+          </Text>
           <UnorderedList marginTop={"0.7rem"} fontWeight="600">
             <ListItem>8-20 characters</ListItem>
             <ListItem>At least one letter</ListItem>
             <ListItem>At least one number</ListItem>
           </UnorderedList>
-          <Box className="info-box">
-            <Text>
-              <span className="bold-text">NB!</span> The code
-              <span className="italic-text"> must not</span> contain any
-              sensitive information that could lead to conclusions about your
-              person. Please also avoid any passwords you use elsewhere.
-            </Text>
-          </Box>
+
           <Formik
             initialValues={{ inputCode: "" }}
             onSubmit={handleSubmitInputCode}
@@ -200,10 +194,12 @@ export default function VerificationCode() {
                   id="submit-code"
                   type="submit"
                   className="blue-btn"
-                  disabled={
-                    isSubmitting
+                  disabled={isSubmitting}
+                  visibility={
+                    voter.attributes.VerificationCode === ""
+                      ? "visible"
+                      : "hidden"
                   }
-                  visibility={voter.attributes.VerificationCode === "" ? "visible" : "hidden"}
                 >
                   {" "}
                   {isSubmitting && <Spinner size="sm" mr={"1rem"} />}
@@ -218,20 +214,26 @@ export default function VerificationCode() {
             display={voter.attributes.VerificationCode !== "" ? "flex" : "none"}
           >
             <Text>
-              Below is your unique verification code, which you will need to use
-              later to check if your vote has been counted correctly. You should
-              be able to recognize the first part of the code from above.
+              Below you find your unique verification code. Please download the code or store it somewhere, where you can find
+              it again. Do not share your code with others!
+              {/* You should be able
+              to recognize the first part of the code from above. */}
             </Text>
 
-            <Text className="text-margin-top">
-              Please download the code or save it somewhere, where you can find
+            <Text className="text-margin-top" fontWeight="600" >
+              NB! You need to keep this code until the end of the election!
+              </Text>
+            {/*   <Text className="text-margin-top" >
+              Please download the code or store it somewhere, where you can find
               it again. Please do not share your code with others!
-            </Text>
+            </Text> */}
+            
 
             <Grid className="verification-code-box">
               <h3>
-                {voter.attributes.VerificationCode !== "" &&
-                  voter.attributes.VerificationCode}
+                {voter.attributes.VerificationCode !== ""
+                  ? voter.attributes.VerificationCode
+                  : verificationCode}
               </h3>
 
               <Button onClick={downloadVerificationCode} className="blue-btn">
@@ -258,6 +260,28 @@ export default function VerificationCode() {
               Vote now
             </Button>
           </Flex>
+        </div>
+
+        <div className="verification-code-example-picture">
+          <Image
+            className="picture-example-bb"
+            src={VerificationCodeExample}
+            width={"100%"}
+            height={"auto"}
+            border={"solid 1px var(--light_grey)"}
+          />
+          <figcaption className="figcaption-verification-example">
+            The official webpage with verification codes linked to their vote.
+          </figcaption>
+
+          <Box className="info-box">
+            <Text>
+              <span className="bold-text">NB!</span> The code
+              <span className="italic-text"> must not</span> contain any
+              sensitive information that could lead to conclusions about your
+              person. Please also avoid any passwords you use elsewhere.
+            </Text>
+          </Box>
         </div>
       </div>
     </div>

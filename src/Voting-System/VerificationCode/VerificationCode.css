@@ -9,10 +9,41 @@
 
 .generated-verification-code-container {
   flex-direction: column;
+
 }
+
 .figcaption-verification-example{
   text-align: center;
   font-size: 0.9rem;
-  line-height: 2;
+  line-height: 1.5;
   color: grey;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+
+.verification-code-example-picture{
+  display: flex;
+  max-width: 25rem;
+  flex-direction: column;
+  padding-left: 5rem;
+  margin-top: 5rem; 
+  border-left: solid 1px var(--light_grey);
+}
+
+.picture-example-bb{
+  margin-top: 2rem;
+
+}
+
+.margin-top{
+  margin-top: 11rem;
+}
+
+.margin-left{
+  margin-left: 3rem;
+}
+
+.margin-right{
+  margin-right: 5rem;
 }

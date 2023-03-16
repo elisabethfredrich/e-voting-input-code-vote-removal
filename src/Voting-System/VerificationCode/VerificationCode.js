@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import getCurrentUser, { saveVerificationCode } from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 import VerificationCodeExample from "../../assets/Example_VerificationCode.png";
+import PDFgenerator from "./PDFgenerator";
 
 export default function VerificationCode() {
   const navigate = useNavigate();
@@ -126,10 +127,8 @@ export default function VerificationCode() {
             In order to ensure the correctness of the election result in this
             online election, it is important that you verify your vote later in
             the process.{" "}
-            {/* This means that you need to check, if you vote is saved correctly in the voting system.  */}
             For this purpose, you will need a unique verification code which
             will be linked to your vote.
-            {/*     code to check, if your vote is being saved correctly.  */}
           </Text>
 
           <Text className="text-margin-top">
@@ -143,16 +142,10 @@ export default function VerificationCode() {
             your own choice in the input field below. This code will be the
             first part of your unique verification code. The second part will be
             randomly generated.
-            {/*  For this purpose, you need to enter a code of your own
-            choice in the input field below. This code will be the first part of
-            your unique verification code. The second part will be randomly
-            generated. */}
+
           </Text>
           <Text className="text-margin-top">
-            {/*  In the next step, you will receive your complete verification code
-            which will be linked to your vote. You will find both on the
-            official results page as soon as the results are published. It will
-            be looking like this: */}
+     
           </Text>
 
           <Text className="text-margin-top">
@@ -216,17 +209,12 @@ export default function VerificationCode() {
             <Text>
               Below you find your unique verification code. Please download the code or store it somewhere, where you can find
               it again. Do not share your code with others!
-              {/* You should be able
-              to recognize the first part of the code from above. */}
+        
             </Text>
 
             <Text className="text-margin-top" fontWeight="600" >
               NB! You need to keep this code until the end of the election!
               </Text>
-            {/*   <Text className="text-margin-top" >
-              Please download the code or store it somewhere, where you can find
-              it again. Please do not share your code with others!
-            </Text> */}
             
 
             <Grid className="verification-code-box">
@@ -236,11 +224,13 @@ export default function VerificationCode() {
                   : verificationCode}
               </h3>
 
-              <Button onClick={downloadVerificationCode} className="blue-btn">
-                <span className="material-symbols-outlined medium-icon margin-icon">
-                  download
-                </span>
-                Download
+              <Button className="blue-btn">
+              <Text display={"flex"}>
+                  <span className="material-symbols-outlined medium-icon margin-icon">
+                    download
+                  </span>
+                </Text>
+                {<PDFgenerator voterId={voter.attributes.username} code={voter.attributes.VerificationCode}/>}
               </Button>
             </Grid>
             <Checkbox

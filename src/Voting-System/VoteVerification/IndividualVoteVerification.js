@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import { loginVoter } from "../../API/Voter";
 import { useState } from "react";
 import getCurrentUser from "../../API/Voter";
-import { slideOut } from "../../utils";
+import { slideOutMobile } from "../../utils";
 export default function IndividualVoteVerification() {
   const navigate = useNavigate();
   const [voter, setVoter] = useState();
@@ -80,7 +80,7 @@ export default function IndividualVoteVerification() {
                     <Link
                       id="slideout-trigger"
                       className="slideout-trigger"
-                      onClick={() => slideOut()}
+                      onClick={() => slideOutMobile()}
                     >{`>`}</Link>
                     <div className="info-banner-content">
                       <div id="banner-text">

@@ -247,7 +247,7 @@ export default function VoteVerification() {
                 padding={"1rem"}
                 onClick={() =>
                   (window.location.href =
-                    "https://www.survey-xact.dk/LinkCollector?key=TC9S9SFFJPC5")
+                    "https://www.survey-xact.dk/LinkCollector?key=PJKE3W6EUP92")
                 }
               >
                 Go to survey
@@ -266,7 +266,7 @@ export default function VoteVerification() {
                 left={"-19.99"}
                 onClick={() =>
                   (window.location.href =
-                    "https://www.survey-xact.dk/LinkCollector?key=TC9S9SFFJPC5")
+                    "https://www.survey-xact.dk/LinkCollector?key=PJKE3W6EUP92")
                 }
               >
                 Go to survey

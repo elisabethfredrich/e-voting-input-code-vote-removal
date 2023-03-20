@@ -24,11 +24,13 @@ import PopOverDiagram from "./PopoverDiagram";
 import { Button } from "@chakra-ui/react";
 import getCurrentUser from "../../API/Voter";
 import { slideOut } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 
 export default function VoteVerification() {
   const [input, setInput] = useState("");
   const voter = getCurrentUser();
+  const navigate = useNavigate();
 
   let results = Results.votes.sort((a, b) => {
     if (a.code.toUpperCase() < b.code.toUpperCase()) {
@@ -223,7 +225,7 @@ export default function VoteVerification() {
               ))}
             </Accordion>
           )}
-          <Grid className="info-banner" id="info-banner">
+         {/*  <Grid className="info-banner" id="info-banner">
           <Link
             id="slideout-trigger"
             className="slideout-trigger"
@@ -273,7 +275,14 @@ export default function VoteVerification() {
               </Button>
             </div>
           </div>
-        </Grid>
+        </Grid> */}
+        <Button
+          className="blue-btn"
+          width={"100%"}
+          onClick={() => navigate("/info-3")}
+        >
+          Finish
+        </Button>
           </div>
           )}
            </div>:(
@@ -281,8 +290,11 @@ export default function VoteVerification() {
               The election results are not available yet.
               <br /> Please try again later.
             </Text>
+            
           ) }
+        
         </Grid>
+        
       </Grid>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Box, Text, Link, Spinner, Grid } from "@chakra-ui/react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./VoteVerification.css";
 import { Button } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,24 +10,17 @@ import getCurrentUser from "../../API/Voter";
 import { slideOutMobile } from "../../utils";
 export default function IndividualVoteVerification() {
   const navigate = useNavigate();
-  const [voter, setVoter] = useState();
+  const [voter, setVoter] = useState(null);
   const { id } = useParams();
 
-  const isComponentMounted = useRef();
-
-  useEffect(() => {
-    isComponentMounted.current = true;
-    return () => {
-      loginVoter(id, id).then(() => {
-        let user = getCurrentUser();
-        if (isComponentMounted.current) {
+  useEffect(() =>{
+      loginVoter(id, id).then(
+        () =>  {
+        console.log("login")
+          let user =  getCurrentUser();
           setVoter(user);
-        }
-      });
-      isComponentMounted.current = false;
-      console.log(voter);
-    };
-  }, []);
+          console.log(user);
+});},[id]);
 
   return (
     <div>
@@ -35,11 +28,11 @@ export default function IndividualVoteVerification() {
       <div className="outer-page-container">
         <div className="inner-page-container-wide">
           <h1 className="blue-text centered-text">Vote Verification</h1>
-          {!isComponentMounted.current ? (
+          {voter===null ? (
             <Spinner />
           ) : (
             <div>
-              {voter.attributes.Vote == "" ? (
+              {voter.attributes.Vote === "" ? (
                 <Text className="red-text centered-text">
                   The election results are not available yet.
                   <br /> Please try again later.

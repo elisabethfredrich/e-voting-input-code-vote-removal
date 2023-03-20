@@ -165,7 +165,8 @@ export default function Info1() {
                       id="submit-pid"
                       type="submit"
                       className="red-btn"
-                      disabled={disabledButton}
+                      isDisabled={disabledButton}
+                      mt={"1rem"}
                     >
                       {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Start
                     </Button>

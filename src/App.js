@@ -12,6 +12,7 @@ import Parse from "parse";
 import Info1 from "./Info-Pages/Info-1";
 import Reporting from "./Voting-System/Reporting/Reporting";
 import Error from "./Voting-System/Error/Error"
+import { useEffect } from "react";
 
 const PARSE_APPLICATION_ID = "nV2P0Ff22lShGeWir2Pgk1EJx5hv5PedNTgzIOQ9";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -23,10 +24,9 @@ Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
 
-  const checkURL = () => {
-
-  }
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="App">

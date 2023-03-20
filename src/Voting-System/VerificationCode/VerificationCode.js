@@ -15,7 +15,6 @@ import {
   Image,
   Spinner,
 } from "@chakra-ui/react";
-import { downloadFile } from "../../utils";
 import { Field, Form, Formik } from "formik";
 import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
@@ -55,26 +54,17 @@ export default function VerificationCode() {
     return error;
   }
 
-  async function handleSubmitInputCode(values, actions) {
+  async function handleSubmitInputCode(values) {
     const generatedCode = generateCode();
     const verificationCode = values.inputCode + "-" + generatedCode;
-    await saveVerificationCode(verificationCode);
+    saveVerificationCode(verificationCode).then(()=>{
     setVerificationCode(verificationCode);
     document.querySelector("#generated-verification-code").style.display =
       "flex";
-    actions.setSubmitting(false);
+    setIsSubmitting(false);
     document.querySelector("#submit-code").style.display = "none";
     document.querySelector("#input-code").disabled = "true";
-  }
-
-  function downloadVerificationCode() {
-    const fileContent =
-      "data:text/plain;charset=utf-8," +
-      encodeURIComponent(
-        `With this code you can verify the correctness of your vote in the General Election 2023: ${verificationCode}`
-      );
-    downloadFile(fileContent);
-  }
+  })}
 
   function generateCode() {
     var result = "";
@@ -108,6 +98,7 @@ export default function VerificationCode() {
   }
 
   useEffect(() => {
+
     if (voter.attributes.VerificationCode !== "") {
       document
         .querySelector("#input-code")
@@ -119,7 +110,29 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-        <div className="inner-page-container-wide margin-left margin-right">
+      <Grid className="verification-code-grid">
+          <div className="verification-code-example-picture">
+          <Image
+            className="picture-example-bb"
+            src={VerificationCodeExample}
+            width={"100%"}
+            height={"auto"}
+            border={"solid 1px var(--light_grey)"}
+          />
+          <figcaption className="figcaption-verification-example">
+            The official webpage with verification codes linked to their vote.
+          </figcaption>
+
+          <Box className="info-box">
+            <Text>
+              <span className="bold-text">NB!</span> The code
+              <span className="italic-text"> must not</span> contain any
+              sensitive information that could lead to conclusions about your
+              person. Please also avoid any passwords you use elsewhere.
+            </Text>
+          </Box>
+        </div>
+        <div className="inner-page-container-wide">
           <h1 className="blue-text">Welcome</h1>
 
           <Text>Welcome to the General Election 2023!</Text>
@@ -147,6 +160,27 @@ export default function VerificationCode() {
           <Text className="text-margin-top">
      
           </Text>
+          <div className="verification-code-example-picture-mobile">
+          <Image
+            className="picture-example-bb"
+            src={VerificationCodeExample}
+            width={"100%"}
+            height={"auto"}
+            border={"solid 1px var(--light_grey)"}
+          />
+          <figcaption className="figcaption-verification-example">
+            The official webpage with verification codes linked to their vote.
+          </figcaption>
+
+          <Box className="info-box">
+            <Text>
+              <span className="bold-text">NB!</span> The code
+              <span className="italic-text"> must not</span> contain any
+              sensitive information that could lead to conclusions about your
+              person. Please also avoid any passwords you use elsewhere.
+            </Text>
+          </Box>
+        </div>
 
           <Text className="text-margin-top">
             Your self-chosen code should include:
@@ -188,10 +222,10 @@ export default function VerificationCode() {
                   type="submit"
                   className="blue-btn"
                   disabled={isSubmitting}
-                  visibility={
+                  display={
                     voter.attributes.VerificationCode === ""
-                      ? "visible"
-                      : "hidden"
+                      ? "block"
+                      : "none"
                   }
                 >
                   {" "}
@@ -251,28 +285,7 @@ export default function VerificationCode() {
             </Button>
           </Flex>
         </div>
-
-        <div className="verification-code-example-picture">
-          <Image
-            className="picture-example-bb"
-            src={VerificationCodeExample}
-            width={"100%"}
-            height={"auto"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            The official webpage with verification codes linked to their vote.
-          </figcaption>
-
-          <Box className="info-box">
-            <Text>
-              <span className="bold-text">NB!</span> The code
-              <span className="italic-text"> must not</span> contain any
-              sensitive information that could lead to conclusions about your
-              person. Please also avoid any passwords you use elsewhere.
-            </Text>
-          </Box>
-        </div>
+        </Grid>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Page,
   Text,
@@ -100,9 +100,7 @@ const styles = StyleSheet.create({
 });
 
 export default function PDFcomponent({ dataURL, code }) {
-  useEffect(() => {
-    console.log(dataURL);
-  }, []);
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>

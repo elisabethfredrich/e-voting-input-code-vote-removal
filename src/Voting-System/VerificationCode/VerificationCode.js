@@ -110,57 +110,33 @@ export default function VerificationCode() {
     <div>
       <Navbar />
       <div className="outer-page-container">
-      <Grid className="verification-code-grid">
-          <div className="verification-code-example-picture">
-          <Image
-            className="picture-example-bb"
-            src={VerificationCodeExample}
-            width={"100%"}
-            height={"auto"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            The official webpage with verification codes linked to their vote.
-          </figcaption>
-
-          <Box className="info-box">
-            <Text>
-              <span className="bold-text">NB!</span> The code
-              <span className="italic-text"> must not</span> contain any
-              sensitive information that could lead to conclusions about your
-              person. Please also avoid any passwords you use elsewhere.
-            </Text>
-          </Box>
-        </div>
         <div className="inner-page-container-wide">
-          <h1 className="blue-text">Welcome</h1>
+          <h1 className="blue-text">Verification Code</h1>
 
-          <Text>Welcome to the General Election 2023!</Text>
+         {/*  <Text>Welcome to the General Election 2023!</Text>
           <Text className="text-margin-top">
-            In order to ensure the correctness of the election result in this
+            In order to ensure the correctness of the result of this
             online election, it is important that you verify your vote later in
-            the process.{" "}
-            For this purpose, you will need a unique verification code which
+            the process. For this purpose, you will need a unique verification code that
             will be linked to your vote.
           </Text>
 
           <Text className="text-margin-top">
-            After the election result is published, you need to visit our
-            official webpage and search for your verification code between all
-            the codes. The picture to right illustrates how it will look like
+            After the election result is published, please visit our
+            official website and search for your verification code among all
+            the codes. The picture to the right illustrates how it will look like
             with all the verification codes being linked to one vote.
-          </Text>
+          </Text> */}
+
           <Text className="text-margin-top">
-            To get your unique verficiation code, you need to enter a code of
-            your own choice in the input field below. This code will be the
-            first part of your unique verification code. The second part will be
-            randomly generated.
+            To get your unique verficiation code, you need to enter a code of your choice in the input field below. This code will be the
+            first part of your verification code. The second part will be
+            randomly generated in the next step.
 
           </Text>
-          <Text className="text-margin-top">
-     
-          </Text>
-          <div className="verification-code-example-picture-mobile">
+ 
+
+         {/*  <div className="verification-code-example-picture-mobile">
           <Image
             className="picture-example-bb"
             src={VerificationCodeExample}
@@ -172,7 +148,9 @@ export default function VerificationCode() {
             The official webpage with verification codes linked to their vote.
           </figcaption>
 
-          <Box className="info-box">
+        
+        </div> */}
+        <Box className="info-box">
             <Text>
               <span className="bold-text">NB!</span> The code
               <span className="italic-text"> must not</span> contain any
@@ -180,8 +158,6 @@ export default function VerificationCode() {
               person. Please also avoid any passwords you use elsewhere.
             </Text>
           </Box>
-        </div>
-
           <Text className="text-margin-top">
             Your self-chosen code should include:
           </Text>
@@ -245,6 +221,9 @@ export default function VerificationCode() {
               it again. Do not share your code with others!
         
             </Text>
+            <Text className="text-margin-top">
+                In the downloaded file, you will also find your verification code as a QR code. 
+              </Text>
 
             <Text className="text-margin-top" fontWeight="600" >
               NB! You need to keep this code until the end of the election!
@@ -285,7 +264,6 @@ export default function VerificationCode() {
             </Button>
           </Flex>
         </div>
-        </Grid>
       </div>
     </div>
   );

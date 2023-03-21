@@ -38,7 +38,7 @@ function PopOver({ vote }) {
         <PopoverCloseButton />
         <PopoverBody className="pop-over-body">
           <Text>
-            Please check your vote is entered correctly. Are you sure, you want
+            Please check if your vote is entered correctly. Are you sure, you want
             to vote for:
           </Text>
           <Text className="pop-over-text">{vote}</Text>

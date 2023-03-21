@@ -110,7 +110,7 @@ export default function Info1() {
                       isChecked={checked}
                       onChange={handleChangeCheckbox}
                     >
-                      I understand and will vote for the candiate Sarah Wilson.
+                      I understand and will vote for the candidate Sarah Wilson.
                     </Checkbox>
                   </GridItem>
                   <GridItem className="info1-steps-numbers">

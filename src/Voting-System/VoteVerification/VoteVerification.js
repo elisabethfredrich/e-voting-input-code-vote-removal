@@ -13,7 +13,7 @@ import {
   AccordionIcon,
   AccordionItem,
 } from "@chakra-ui/react";
-import { React } from "react";
+import { React, useEffect } from "react";
 import Results from "../../JSON/results.json";
 import "./VoteVerification.css";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -93,6 +93,10 @@ export default function VoteVerification() {
       message.style.display = "block";
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

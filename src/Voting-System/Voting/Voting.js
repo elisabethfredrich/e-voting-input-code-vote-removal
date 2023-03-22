@@ -10,10 +10,9 @@ import Navbar from "../Navbar/Navbar";
 export default function Voting() {
   const [vote, setVote] = useState("blank");
 
-  const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]);
+  }, []);
 
   return (
     <div>

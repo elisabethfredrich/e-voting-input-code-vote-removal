@@ -2,9 +2,14 @@ import { Button, Text, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import VotingOverview from "../../assets/Voting-Overview.png";
+import { useEffect } from "react";
 
 export default function Welcome() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

@@ -85,11 +85,9 @@ export default function Info1() {
     );
   };
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   return (
     <div className="container-info-pages">
@@ -107,9 +105,9 @@ export default function Info1() {
                   </GridItem>
                   <GridItem className="info1-steps-griditem">
                     <Text>
-                    All candidates are fictional and for the purpose of this
-                    study we ask you to vote for{" "}
-                    <span className="bold-text red-text">Sarah Wilson.</span>
+                      All candidates are fictional and for the purpose of this
+                      study we ask you to vote for{" "}
+                      <span className="bold-text red-text">Sarah Wilson.</span>
                     </Text>
                     <Checkbox
                       className="check-box check-box-red"

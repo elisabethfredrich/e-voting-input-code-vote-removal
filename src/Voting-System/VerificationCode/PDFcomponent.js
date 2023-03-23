@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
 });
 
 export default function PDFcomponent({ dataURL, code }) {
-
   return (
     <Document>
       <Page size="A4" style={styles.page}>

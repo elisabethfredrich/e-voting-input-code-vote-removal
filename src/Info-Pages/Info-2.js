@@ -3,7 +3,6 @@ import { Text } from "@chakra-ui/react";
 import "./InfoPages.css";
 
 export default function Info2() {
-
   return (
     <div className="container-info-pages">
       <div className="inner-box-info centered-info-page">

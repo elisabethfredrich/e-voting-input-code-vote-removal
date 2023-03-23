@@ -5,9 +5,8 @@ import {
   Textarea,
   FormErrorMessage,
   FormLabel,
-  Spinner
-} 
-from "@chakra-ui/react";
+  Spinner,
+} from "@chakra-ui/react";
 import { saveReportOfProblem } from "../../API/Voter";
 import { Field, Form, Formik } from "formik";
 import Navbar from "../Navbar/Navbar";
@@ -59,8 +58,12 @@ export default function Reporting() {
                       {errors.text}
                     </FormErrorMessage>
                   </FormControl>
-                  <Button className="blue-btn" type="submit"  disabled={isSubmitting}>
-                  {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Send
+                  <Button
+                    className="blue-btn"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Send
                   </Button>
                 </Form>
               )}

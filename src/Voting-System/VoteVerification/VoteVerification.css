@@ -56,6 +56,7 @@
     display: none;
   }
 }
+
 .result-grid {
   gap: 10px;
   border-bottom: solid 1px #d9d9d9;
@@ -129,96 +130,6 @@
   margin-bottom: 2rem;
 }
 
-/* Banner */
-
-@media (max-width: 960px) {
-  @keyframes slidein {
-    from {
-      margin-right: -100vw;
-    }
-
-    to {
-      margin-right: -2vw;
-    }
-  }
-  @keyframes slideout {
-    from {
-      margin-right: -2vw;
-    }
-
-    to {
-      margin-right: -10vw;
-    }
-  }
-  .info-banner {
-    width: 100vw;
-  }
-}
-
-@media (min-width: 960px) {
-  @keyframes slidein {
-    from {
-      margin-right: -20vw;
-    }
-
-    to {
-      margin-right: -2vw;
-    }
-  }
-  @keyframes slideout {
-    from {
-      margin-right: -2vw;
-    }
-
-    to {
-      margin-right: -10vw;
-    }
-  }
-  .info-banner {
-    width: 32vw;
-  }
-}
-
-.info-banner {
-  background-color: var(--primary-orange);
-  min-height: 32vh;
-  margin-right: -100vw;
-  max-height: max-content;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  position: fixed;
-  padding-left: 0.6rem;
-  padding-right: 4rem;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  box-shadow: 1px 6px 18px var(--secondary-darkred);
-  animation: slidein, 3s linear;
-  animation-duration: 1s;
-  animation-delay: 3s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  justify-content: flex-end;
-  flex-direction: column;
-  color: white;
-  align-items: center;
-  grid-template-columns: 1fr 5fr;
-  gap: 1rem;
-}
-
-.info-banner-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-#survey-button-vertical-box {
-  display: flex;
-  justify-content: flex-start;
-  height: 100%;
-}
-
 /* clears the ‘X’ from Internet Explorer */
 input[type="search"]::-ms-clear {
   display: none;
@@ -236,13 +147,4 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
-}
-
-.slideout-trigger {
-  font-size: 3rem;
-}
-
-.slideout-trigger:hover {
-  text-decoration: none !important;
-  color: var(--secondary-darkred);
 }

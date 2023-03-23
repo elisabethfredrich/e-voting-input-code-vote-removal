@@ -4,12 +4,11 @@ import Logo from "../../assets/Logo.png";
 import "./Navbar.css";
 
 export default function Navbar() {
-
   return (
     <Box className="navbar-container">
-        <Flex height={"100%"}>
-          <img src={Logo} alt="logo" />
-        </Flex>
+      <Flex height={"100%"}>
+        <img src={Logo} alt="logo" />
+      </Flex>
     </Box>
   );
 }

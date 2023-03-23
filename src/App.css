@@ -2,12 +2,12 @@
   margin-top: 1rem;
 }
 
-.check-box{
+.check-box {
   margin-top: 2rem;
   font-size: 0.6rem;
 }
 
-.centered-text{
+.centered-text {
   text-align: center;
 }
 
@@ -36,8 +36,7 @@
   margin-right: 0.5rem;
 }
 
-body{
+body {
   overflow-x: hidden;
   height: max-content;
 }
-

@@ -140,7 +140,7 @@ export default function VoteVerification() {
                     <Text className="info-text">
                       <span className="bold-text">NB!</span> If your vote is not
                       saved correctly or you cannot find your verification code,
-                      please follow the guidelines in the instruction paper and
+                      please follow the guidelines in the instruction letter and
                       report the issue.
                     </Text>
                   </Box>
@@ -167,7 +167,7 @@ export default function VoteVerification() {
                       Have you typed in your verification code correctly? Be
                       aware of correct use of lower- and uppercase letters. If
                       your verification code still does not show, please follow
-                      the instruction paper and report the issue.
+                      the instruction letter and report the issue.
                     </Text>
                   </Box>
 

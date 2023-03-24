@@ -16,7 +16,7 @@ export default function Info2() {
         </Text>
         <Text className="medium-body-text-info">
           However, since this is a study, the results are already up. Please
-          follow the instruction paper to verify your vote now!
+          follow the instruction letter to verify your vote now!
         </Text>
       </div>
     </div>

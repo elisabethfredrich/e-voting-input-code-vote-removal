@@ -14,10 +14,8 @@ export default function IndividualVoteVerification() {
 
   useEffect(() => {
     loginVoter(id, id).then(() => {
-      console.log("login");
       let user = getCurrentUser();
       setVoter(user);
-      console.log(user);
     });
   }, [id]);
 
@@ -42,7 +40,7 @@ export default function IndividualVoteVerification() {
                     <Text className="info-text">
                       <span className="bold-text">NB!</span> If your vote is not
                       saved correctly, please follow the guidelines in the
-                      instruction paper.
+                      instruction letter and report the issue.
                     </Text>
                   </Box>
                   <Text mt={"1.5rem"}>Below you can see your saved vote:</Text>

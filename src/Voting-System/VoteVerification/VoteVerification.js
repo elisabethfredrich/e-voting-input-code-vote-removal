@@ -111,7 +111,7 @@ export default function VoteVerification() {
             className="demo-video"
             width="380"
             height="220"
-            src="https://www.youtube.com/embed/pV51zCm4NL4"
+            src="https://www.youtube.com/watch?v=SW55sw8sDis"
           ></iframe>
         </GridItem>
 

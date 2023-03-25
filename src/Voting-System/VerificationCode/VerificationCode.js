@@ -12,7 +12,6 @@ import {
   Checkbox,
   Flex,
   Grid,
-  Image,
   Spinner,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
@@ -20,7 +19,6 @@ import "./VerificationCode.css";
 import { useNavigate } from "react-router-dom";
 import getCurrentUser, { saveVerificationCode } from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
-import VerificationCodeExample from "../../assets/Example_VerificationCode.png";
 import PDFgenerator from "./PDFgenerator";
 
 export default function VerificationCode() {
@@ -57,14 +55,15 @@ export default function VerificationCode() {
   async function handleSubmitInputCode(values) {
     const generatedCode = generateCode();
     const verificationCode = values.inputCode + "-" + generatedCode;
-    saveVerificationCode(verificationCode).then(()=>{
-    setVerificationCode(verificationCode);
-    document.querySelector("#generated-verification-code").style.display =
-      "flex";
-    setIsSubmitting(false);
-    document.querySelector("#submit-code").style.display = "none";
-    document.querySelector("#input-code").disabled = "true";
-  })}
+    saveVerificationCode(verificationCode).then(() => {
+      setVerificationCode(verificationCode);
+      document.querySelector("#generated-verification-code").style.display =
+        "flex";
+      setIsSubmitting(false);
+      document.querySelector("#submit-code").style.display = "none";
+      document.querySelector("#input-code").disabled = "true";
+    });
+  }
 
   function generateCode() {
     var result = "";
@@ -113,44 +112,14 @@ export default function VerificationCode() {
         <div className="inner-page-container-wide">
           <h1 className="blue-text">Verification Code</h1>
 
-         {/*  <Text>Welcome to the General Election 2023!</Text>
           <Text className="text-margin-top">
-            In order to ensure the correctness of the result of this
-            online election, it is important that you verify your vote later in
-            the process. For this purpose, you will need a unique verification code that
-            will be linked to your vote.
+            To get your unique verficiation code, you need to enter a code of
+            your choice in the input field below. This code will be the first
+            part of your verification code. The second part will be randomly
+            generated in the next step.
           </Text>
 
-          <Text className="text-margin-top">
-            After the election result is published, please visit our
-            official website and search for your verification code among all
-            the codes. The picture to the right illustrates how it will look like
-            with all the verification codes being linked to one vote.
-          </Text> */}
-
-          <Text className="text-margin-top">
-            To get your unique verficiation code, you need to enter a code of your choice in the input field below. This code will be the
-            first part of your verification code. The second part will be
-            randomly generated in the next step.
-
-          </Text>
- 
-
-         {/*  <div className="verification-code-example-picture-mobile">
-          <Image
-            className="picture-example-bb"
-            src={VerificationCodeExample}
-            width={"100%"}
-            height={"auto"}
-            border={"solid 1px var(--light_grey)"}
-          />
-          <figcaption className="figcaption-verification-example">
-            The official webpage with verification codes linked to their vote.
-          </figcaption>
-
-        
-        </div> */}
-        <Box className="info-box">
+          <Box className="info-box">
             <Text>
               <span className="bold-text">NB!</span> The code
               <span className="italic-text"> must not</span> contain any
@@ -199,9 +168,7 @@ export default function VerificationCode() {
                   className="blue-btn"
                   disabled={isSubmitting}
                   display={
-                    voter.attributes.VerificationCode === ""
-                      ? "block"
-                      : "none"
+                    voter.attributes.VerificationCode === "" ? "block" : "none"
                   }
                 >
                   {" "}
@@ -217,18 +184,18 @@ export default function VerificationCode() {
             display={voter.attributes.VerificationCode !== "" ? "flex" : "none"}
           >
             <Text>
-              Below you find your unique verification code. Please download the code or store it somewhere, where you can find
-              it again. Do not share your code with others!
-        
+              Below you find your unique verification code. Please download the
+              code or store it somewhere, where you can find it again. Do not
+              share your code with others!
             </Text>
             <Text className="text-margin-top">
-                In the downloaded file, you will also find your verification code as a QR code. 
-              </Text>
+              In the downloaded file, you will also find your verification code
+              as a QR code.
+            </Text>
 
-            <Text className="text-margin-top" fontWeight="600" >
+            <Text className="text-margin-top" fontWeight="600">
               NB! You need to keep this code until the end of the election!
-              </Text>
-            
+            </Text>
 
             <Grid className="verification-code-box">
               <h3>
@@ -238,12 +205,17 @@ export default function VerificationCode() {
               </h3>
 
               <Button className="blue-btn">
-              <Text display={"flex"}>
+                <Text display={"flex"}>
                   <span className="material-symbols-outlined medium-icon margin-icon">
                     download
                   </span>
                 </Text>
-                {<PDFgenerator voterId={voter.attributes.username} code={voter.attributes.VerificationCode}/>}
+                {
+                  <PDFgenerator
+                    voterId={voter.attributes.username}
+                    code={voter.attributes.VerificationCode}
+                  />
+                }
               </Button>
             </Grid>
             <Checkbox

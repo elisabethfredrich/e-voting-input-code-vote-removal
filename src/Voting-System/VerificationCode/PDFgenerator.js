@@ -4,7 +4,7 @@ import PDFcomponent from "./PDFcomponent";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Spinner } from "@chakra-ui/react";
 
-export default function PDFgenerator({ voterId, code}) {
+export default function PDFgenerator({ voterId, code }) {
   const [dataURL, setDataURL] = useState("");
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function PDFgenerator({ voterId, code}) {
       </div>
 
       <PDFDownloadLink
-        document={<PDFcomponent dataURL={dataURL} code={code}/>}
+        document={<PDFcomponent dataURL={dataURL} code={code} />}
         fileName="Verification-Code_GE2023.pdf"
       >
         {({ blob, url, loading, error }) =>

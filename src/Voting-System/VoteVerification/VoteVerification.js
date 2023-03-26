@@ -106,12 +106,13 @@ export default function VoteVerification() {
 
           <h3 className="headline-results">Demo video</h3>
           <iframe
-            title="demo-video"
-            allow="fullscreen"
-            className="demo-video"
-            width="380"
-            height="220"
-            src="https://www.youtube.com/watch?v=SW55sw8sDis"
+            width="100%"
+            height="210"
+            src="https://www.youtube.com/embed/SW55sw8sDis"
+            title="demo video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
           ></iframe>
         </GridItem>
 

@@ -39,11 +39,13 @@ export default function Welcome() {
           <div>
             <h3 className="headline-results">Demo video</h3>
             <iframe
-              title="demo-video"
-              allow="fullscreen"
-              width="520"
-              height="300"
-              src="https://www.youtube.com/watch?v=VOu0YWmhBJo"
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/VOu0YWmhBJo"
+              title="demo video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
             ></iframe>
           </div>
           <Button

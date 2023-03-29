@@ -41,7 +41,7 @@ export default function Welcome() {
             <iframe
               width="100%"
               height="315"
-              src="https://www.youtube.com/embed/VOu0YWmhBJo"
+              src="https://www.youtube.com/embed/KITaaepWDwA"
               title="demo video"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

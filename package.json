@@ -8,7 +8,7 @@
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",
         "@parse/react": "^0.0.1-alpha.18",
-        "@react-pdf/renderer": "^3.1.7",
+        "@react-pdf/renderer": "^3.1.9",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
@@ -40,11 +40,11 @@
             "react-app/jest"
         ]
     },
-    "browserslist":[
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+    ],
     "devDependencies": {
         "react-router-dom": "^6.4.3"
     },

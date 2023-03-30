@@ -49,28 +49,19 @@ export default function Info1() {
     }
   };
 
-  const validateProlificID = (value) => {
-    document.querySelector("#submission-error").style.visibility = "hidden";
-    let error;
-    if (!value) {
-      error = "This field is required";
-    } else if (value.length !== 24) {
-      error = "Your Prolific ID should be 24 characters long";
-    }
-    return error;
-  };
-
-  const submitForm = (value) => {
+  const submitForm = () => {
+    let rndInt = Math.floor(Math.random() * 901) + 100;
+    rndInt = rndInt.toString();
     setIsSubmitting(true);
     document
       .querySelector("#submit-pid")
       .setAttribute("disabled", isSubmitting);
-    addVoter(value.pid).then(
+    addVoter(rndInt).then(
       (resolveSignUp) => {
         navigate("/welcome");
       },
       (rejectSignUp) => {
-        loginVoter(value.pid).then(
+        loginVoter(rndInt).then(
           (resolveLogIn) => {
             navigate("/welcome");
           },
@@ -137,30 +128,9 @@ export default function Info1() {
                       Download
                     </Button>
                   </GridItem>
-                  <GridItem className="info1-steps-numbers">
-                    <Text>3</Text>
-                  </GridItem>
-                  <GridItem className="info1-steps-griditem">
-                    <FormControl isInvalid={!!errors.pid && touched.pid}>
-                      <FormLabel htmlFor="pid">
-                        Please enter your Prolific ID{" "}
-                      </FormLabel>
-                      <Field
-                        as={Input}
-                        name="pid"
-                        type="text"
-                        className="input-prolificID"
-                        placeholder="Enter your Prolific ID "
-                        _placeholder={{ color: "#E7E7E7" }}
-                        validate={validateProlificID}
-                      />
-                      <FormErrorMessage color={"var(--secondary-darkred)"}>
-                        {errors.pid}
-                      </FormErrorMessage>
-                    </FormControl>
-                  </GridItem>
-                  <GridItem className="info1-steps-numbers"></GridItem>
-                  <GridItem className="info1-steps-griditem">
+                  <GridItem className="info1-steps-numbers"/>
+
+                  <GridItem className="info1-steps-griditem" paddingTop={"1rem"}>
                     <Text
                       id="submission-error"
                       className="error-text-db-submission"

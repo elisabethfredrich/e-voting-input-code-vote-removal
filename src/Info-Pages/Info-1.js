@@ -120,7 +120,10 @@ export default function Info1() {
                       In a real election you would get these instructions as a
                       physical or digital letter by the election authorities.
                     </Text>
-
+                    <Text className="red-text text-margin-top">
+                      Make sure that you can access the letter throughout the
+                      study.
+                    </Text>
                     <Button onClick={downloadInstructions} className="red-btn">
                       <span className="material-symbols-outlined medium-icon margin-right-icon">
                         download
@@ -128,9 +131,12 @@ export default function Info1() {
                       Download
                     </Button>
                   </GridItem>
-                  <GridItem className="info1-steps-numbers"/>
+                  <GridItem className="info1-steps-numbers" />
 
-                  <GridItem className="info1-steps-griditem" paddingTop={"1rem"}>
+                  <GridItem
+                    className="info1-steps-griditem"
+                    paddingTop={"1rem"}
+                  >
                     <Text
                       id="submission-error"
                       className="error-text-db-submission"

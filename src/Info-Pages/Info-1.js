@@ -4,10 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
   Button,
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
   Box,
   Text,
   Grid,
@@ -15,8 +11,8 @@ import {
   Checkbox,
   Spinner,
 } from "@chakra-ui/react";
-import { Field, Form, Formik } from "formik";
-import { addVoter, loginVoter } from "../API/Voter";
+import { Form, Formik } from "formik";
+import getCurrentUser, { addVoter, loginVoter } from "../API/Voter";
 import Instructions from "../assets/Instructions_e-voting.pdf";
 import { downloadFile } from "../utils";
 
@@ -25,7 +21,7 @@ export default function Info1() {
   const [disabledButton, setDisabled] = useState(true);
   const [downloaded, setDownloaded] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const voter = getCurrentUser();
   const navigate = useNavigate();
 
   const handleChangeCheckbox = () => {
@@ -50,30 +46,40 @@ export default function Info1() {
   };
 
   const submitForm = () => {
-    let rndInt = Math.floor(Math.random() * 901) + 100;
-    rndInt = rndInt.toString();
     setIsSubmitting(true);
     document
       .querySelector("#submit-pid")
       .setAttribute("disabled", isSubmitting);
-    addVoter(rndInt).then(
-      (resolveSignUp) => {
-        navigate("/welcome");
-      },
-      (rejectSignUp) => {
-        loginVoter(rndInt).then(
-          (resolveLogIn) => {
-            navigate("/welcome");
-          },
-          (rejectLogIn) => {
-            setIsSubmitting(false);
-            document.querySelector("#submit-pid").removeAttribute("disabled");
-            document.querySelector("#submission-error").style.visibility =
-              "visible";
-          }
-        );
-      }
-    );
+    let rndInt = Math.floor(Math.random() * 901) + 100;
+    if (voter === null) {
+      rndInt = rndInt.toString();
+      addVoter(rndInt).then(
+        (resolveSignUp) => {
+          navigate("/welcome");
+          console.log("signup");
+        },
+        (rejectSignUp) => {
+          setIsSubmitting(false);
+          document.querySelector("#submit-pid").removeAttribute("disabled");
+          document.querySelector("#submission-error").style.visibility =
+            "visible";
+        }
+      );
+    } else {
+      rndInt = voter.attributes.username;
+      loginVoter(rndInt).then(
+        (resolveLogIn) => {
+          navigate("/welcome");
+          console.log("login");
+        },
+        (rejectLogIn) => {
+          setIsSubmitting(false);
+          document.querySelector("#submit-pid").removeAttribute("disabled");
+          document.querySelector("#submission-error").style.visibility =
+            "visible";
+        }
+      );
+    }
   };
 
   useEffect(() => {

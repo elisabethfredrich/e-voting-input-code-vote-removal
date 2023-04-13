@@ -5,9 +5,11 @@ import PopOver from "./PopOver";
 import { useState, useEffect } from "react";
 import React from "react";
 import Navbar from "../Navbar/Navbar";
+import getCurrentUser from "../../API/Voter";
 
 export default function Voting() {
   const [vote, setVote] = useState("blank");
+  const voter = getCurrentUser();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,12 +22,14 @@ export default function Voting() {
         <div className="inner-page-container-wide">
           <div className="header">
             <h1 className="blue-text">Voting</h1>
-            <Text>
+
+            <Text  display={voter.attributes.Vote === "" ? "box" : "none"}>
               In order to vote in the General Election, please select a
               candidate below and click "Submit vote".
             </Text>
           </div>
-
+          {voter.attributes.Vote === "" ?
+    <Box>
           <RadioGroup onChange={setVote} value={vote} className="radio-group">
             <Grid className="voting-options">
               {Candidates.map((candidate) => (
@@ -45,6 +49,10 @@ export default function Voting() {
           </RadioGroup>
 
           <PopOver vote={vote}></PopOver>
+          </Box> : <Text className="red-text">
+              The voting phase is over and it is not possible to vote anymore.
+            </Text>
+}
         </div>
       </div>
     </div>

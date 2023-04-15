@@ -26,12 +26,16 @@ Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
 function App() {
-  
+
   useEffect(()=>{
-    if(getNumberOfVoters()===30){
-      window.location.href = "https://e-voting-study-3.netlify.app/info-1";
-    }
-  }, [])
+    let count;
+    getNumberOfVoters().then((res) => {
+      count = res;
+      if(count>=30){
+         window.location.href = "https://e-voting-study-3.netlify.app/info-1";
+       }
+    });
+  },[])
 
   return (
     <div className="App">
